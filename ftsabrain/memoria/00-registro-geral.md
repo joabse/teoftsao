@@ -11,7 +11,20 @@ tags:
 > Memória de trabalho do projeto: log de atividades **gerais** (montagem, manutenção, mudanças estruturais). Logs de cada matéria ficam em `materias/<nome>/registro` (ex.: [[memoria/materias/biblia2/registro|Registro Bíblia 2]]).
 > **Regra:** após cada etapa concluída e validada, o **ftsalider** registra a entrada aqui (ou no registro da matéria correspondente). Entradas em ordem cronológica decrescente (mais recente no topo).
 
----
+## 2026-09-19 14:15 — Antigravity (ftsalider) — Executada JOA-18: terminal file2md, validação anydoc e índice central em ftsabrain
+
+- **Matéria:** geral (equipe/processo/ferramentas) | **Status:** **CONCLUÍDO** ✅
+- **Pedido do Joab (JOA-18):**
+  1. Acertar que o agente file2md use o terminal chamado `file2md` e verificar sempre modelo/CLI antes do despacho.
+  2. Testar a extensão `@firecrawl/anydoc` instalada e diagnosticar possíveis erros.
+  3. Garantir alimentação contínua do `ftsabrain` com pasta `file2md/` e índice central registrando data/hora da conversão.
+- **O que foi feito:**
+  - **Terminal file2md:** criado e configurado o terminal nomeado `file2md` no Orca. Documentada em todos os wrappers canônicos (`ESTRUTURA.md`, `ORCA.md`, `AGENTS.md`, `GEMINI.md`, `CLAUDE.md`, `QWEN.md`, `.clinerules`) a regra obrigatória de checagem de modelo e CLI antes de qualquer despacho.
+  - **Diagnóstico anydoc:** testado com sucesso para documentos digitais nativos (`Apostila - Bíblia II - Introdução ao AT.pdf` gerou Markdown limpo e fiel em ~2s). Diagnosticado que PDFs escaneados retornam aviso de necessidade de OCR e a flag `--ocr hosted` depende de serviço em nuvem externo/autenticação. Estabelecido fallback claro para scripts locais em Python para OCR.
+  - **ftsabrain & Índice:** criada a pasta `ftsabrain/file2md/` e o índice canônico `ftsabrain/file2md/00-indice.md`, já povoado com o histórico de conversões de `biblia2` e `biblia3`.
+  - **Automação:** criado `scripts/convert_file2md.ps1` que executa a conversão com `anydoc`, salva em `01_markdown/`, replica em `ftsabrain/file2md/` e atualiza automaticamente a tabela do índice com carimbo de data e hora.
+  - **Transição de Liderança:** formalizada a ocupação do terminal `ftsalider` por Antigravity a pedido do Joab (2026-09-19 14:07).
+- **Resultado/Local:** `ftsabrain/file2md/00-indice.md`, `scripts/convert_file2md.ps1`, `ESTRUTURA.md`, `ORCA.md`, `AGENTS.md`, `GEMINI.md`, `CLAUDE.md`, `QWEN.md`, `.clinerules`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `LESSONS.md`.
 
 ## 2026-09-19 13:53 — Claude Code — Corrigido: comitador é o Cline, não um terminal novo do Claude Code
 

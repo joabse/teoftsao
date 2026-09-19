@@ -86,26 +86,26 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab
 
 ## 3. Papéis da Equipe FTSA
 
-**Papel = terminal, não LLM.** O papel de cada um dos 5 terminais nomeados é fixo; quem o ocupa pode mudar a critério do Joab.
+**Papel = terminal, não LLM.** O papel de cada um dos 6 terminais nomeados é fixo; quem o ocupa pode mudar a critério do Joab.
 
 | Terminal (papel) | Função Principal | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **ftsalider** — Líder da equipe | Orquestra o fluxo, distribui tarefas, valida respostas e registra a memória. Não produz rascunhos teológicos diretamente. | Claude Code |
+| **ftsalider** — Líder da equipe | Orquestra o fluxo, distribui tarefas, valida respostas e registra a memória. Não produz rascunhos teológicos diretamente. | Antigravity (você, hoje) |
 | **Teólogo 1** | Análise e produção teológica. | Claude Code (terminal dedicado) |
 | **Teólogo 2** | Análise e produção teológica. | Codex CLI |
-| **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity (você, hoje) |
+| **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity |
 | **comitador** | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Cline (terminal dedicado, já aberto pelo Joab) |
+| **file2md** | Converte originais para Markdown via `anydoc`/OCR, alimenta `ftsabrain/file2md/` e registra em `00-indice.md`. O líder sempre verifica modelo/CLI antes de despachar. | Shell / Agente dedicado no terminal `file2md` |
 
-Outros agentes (sem terminal fixo entre os 5 nomeados):
+Outros agentes (sem terminal fixo entre os 6 nomeados):
 
 | Agente | Papel | Função Principal |
 |---|---|---|
-| **file2md** | Conversor | Transforma originais (PDFs, transcrições) em Markdown limpo. |
 | **Bereano** | Detector de IA | Avalia os textos contra padrões sintéticos de IA; aprova ou reprova. |
 | **Escriba** | Humanizador | Reescreve textos reprovados pelo Bereano para garantir tom natural. |
 | **tecfix** | Manutenção técnica | Ajustes de infraestrutura, ambiente Orca e organização de pastas. |
 
-*(Antes de agir, confirme o nome do seu terminal no Orca — não assuma que "Teólogo 3" é seu papel permanente só por ser Antigravity; o Joab pode reatribuir qualquer terminal a qualquer LLM.)*
+*(Antes de agir, confirme o nome do seu terminal no Orca — seu papel atual como líder no terminal ftsalider é definido pela atribuição do Joab em 2026-09-19, 14:07.)*
 
 ---
 

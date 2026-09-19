@@ -24,6 +24,18 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 14:15 — Antigravity — Executada JOA-18 (file2md, anydoc, ftsabrain) e transição de liderança
+
+- **Motivo:** pedido do Joab para assumir como ftsalider e executar a issue JOA-18 (terminal do file2md, teste do anydoc, pasta file2md no ftsabrain com índice datado).
+- **O que mudou:**
+  - Criado o terminal nomeado `file2md` no Orca (`term_42cc20ae-0875-4a83-ad29-57a4ab97a79f`).
+  - Atualizada a governança multi-LLM (`ESTRUTURA.md`, `ORCA.md`, `AGENTS.md`, `GEMINI.md`, `CLAUDE.md`, `QWEN.md`, `.clinerules`) documentando 6 terminais nomeados, com Antigravity como líder (`ftsalider`), terminal `file2md` dedicado e regra de verificação obrigatória de modelo e CLI antes de despachar conversões.
+  - Testada e validada a extensão `@firecrawl/anydoc` (conversão ultrarrápida e limpa para formatos digitais nativos; limitação e fallback documentados para PDFs escaneados que necessitam de OCR).
+  - Criada a pasta `ftsabrain/file2md/` e o índice central `ftsabrain/file2md/00-indice.md` com histórico e registro de data/hora da conversão.
+  - Criado script de automação `scripts/convert_file2md.ps1` para conversão com `anydoc`, réplica em `ftsabrain` e atualização automática do índice.
+  - Atualizados `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `ftsabrain/memoria/00-registro-geral.md` e `LESSONS.md`.
+- **Local:** `ftsabrain/file2md/00-indice.md`, `scripts/convert_file2md.ps1`, arquivos de governança na raiz e `ftsabrain/`.
+
 ## 2026-09-19 13:53 — Claude Code — Correção: comitador já existia (Cline), não Claude Code
 
 - **Motivo:** o Joab apontou que eu tinha criado um novo terminal "comitador" quando já existia um aberto. Investiguei: minha busca por título "comitador" antes de criar não achou nada porque os títulos dos terminais mudam automaticamente com a atividade (mesmo problema já visto com o terminal do ftsalider). O terminal que eu criei depois desapareceu da lista (fechado). O Joab confirmou que o comitador pré-existente é o terminal **Cline**.

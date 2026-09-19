@@ -18,16 +18,16 @@ No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, 
 
 ## 2. Mapeamento da Equipe FTSA no Orca
 
-Desde 2026-09-19, o Joab nomeou 5 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador**. **O papel FTSA pertence ao nome do terminal — é fixo. Quem/qual LLM ocupa cada terminal é um estado, não uma regra**, e o Joab pode trocar a qualquer momento (ex.: `orca terminal create --title "ftsalider" --command "codex"` colocaria o Codex no papel de líder). A coluna "Executável / Agente" abaixo é a ocupação **atual**.
+Desde 2026-09-19, o Joab nomeou 6 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador** e **file2md**. **O papel FTSA pertence ao nome do terminal — é fixo. Quem/qual LLM ocupa cada terminal é um estado, não uma regra**, e o Joab pode trocar a qualquer momento (ex.: trocar o líder para Antigravity, Codex ou Claude Code). A coluna "Executável / Agente" abaixo é a ocupação **atual**.
 
 | Terminal (nome no Orca) | Executável / Agente (ocupante atual) | Papel FTSA (fixo) | Finalidade |
 |---|---|---|---|
-| **ftsalider** | `claude` (Claude Code) | Líder/Orquestrador | Orquestra toda a equipe: distribui tarefas aos 3 teólogos e ao comitador, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente.** |
-| **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider — mesmo agente (Claude Code) hoje, papel diferente. |
+| **ftsalider** | `agy` (Antigravity) | Líder/Orquestrador | Orquestra toda a equipe: distribui tarefas aos 3 teólogos, ao comitador e ao file2md, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente.** |
+| **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider. |
 | **Teólogo 2** | `codex` | Teólogo | Análise e produção teológica. |
 | **Teólogo 3** | `agy` (Antigravity) | Teólogo | Análise e produção teológica. |
 | **comitador** | `cline` (Cline) | Comitador | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Verificar sempre qual LLM/CLI ocupa este terminal para adaptar a sintaxe do comando. |
-| — | Script / CLI de conversão (**file2md**) | Conversor | Terminal sob demanda — conversão de originais para Markdown em `01_markdown/`. |
+| **file2md** | Shell / Agente (`pwsh` / CLI dedicada) | Conversor | Converte originais para Markdown em `01_markdown/` via `anydoc` ou OCR, alimenta `ftsabrain/file2md/` e registra em `00-indice.md`. O líder sempre verifica modelo/CLI antes de despachar. |
 | — | Prompt / Sessão dedicada (**Bereano**) | Detector de IA | Terminal ou prompt de verificação — detecção de marcas de IA nos rascunhos em `02_rascunhos/`. |
 | — | Prompt / Sessão dedicada (**Escriba**) | Humanizador | Terminal de redação — humanização e reescrita de textos reprovados em `03_revisao/`. |
 | — | Manutenção técnica (**tecfix**) | Manutenção | Terminal shell (pwsh/bash) — ajustes na infraestrutura, scripts de OCR e pastas. |
@@ -50,6 +50,9 @@ orca terminal create --title "Teologo 3" --command "agy" --json
 
 # Iniciar o comitador (se não estiver aberto) — hoje ocupado por Cline
 orca terminal create --title "comitador" --command "cline" --json
+
+# Iniciar o terminal file2md (se não estiver aberto)
+orca terminal create --title "file2md" --json
 ```
 
 Fluxo de commit: o ftsalider redige a descrição detalhada e envia ao comitador via `orca terminal send` (ver `CLAUDE.md`, seção 4.1) — nunca comita diretamente.
@@ -90,9 +93,9 @@ orca worktree ps --json
 ## 4. Regras Operacionais no Orca
 
 1. **Prioridade das Fontes:** As notas em `ftsabrain/materias/<materia>/fontes/` são sempre a fonte mandatória primária.
-2. **Contexto Isolado para Conversões:** Diferente de outros ambientes onde o contexto acumula, no Orca basta criar um terminal novo ou isolado para cada conversão do `file2md`.
+2. **Terminal file2md e Alimentação Contínua do ftsabrain:** O agente opera no terminal nomeado `file2md`. O líder sempre verifica o modelo e a CLI em execução no terminal antes de despachar tarefas. Utiliza primariamente `anydoc` para documentos nativos e OCR local para PDFs escaneados. Cada conversão alimenta `ftsabrain/file2md/` e é registrada com timestamp no índice central `ftsabrain/file2md/00-indice.md`.
 3. **Ciclo de Humanização:**
    - Textos produzidos pelos teólogos vão para `materias/<materia>/02_rascunhos/`.
    - São submetidos ao Bereano. Se reprovados, o Escriba grava em `materias/<materia>/03_revisao/v{n}.md`.
    - Somente após aprovação do Bereano o arquivo é movido para `04_aprovados/`.
-4. **Memória Contínua:** Toda etapa finalizada deve ser registrada por quem estiver no terminal ftsalider (hoje Claude Code) em `ftsabrain/memoria/`.
+4. **Memória Contínua:** Toda etapa finalizada deve ser registrada por quem estiver no terminal ftsalider (hoje Antigravity) em `ftsabrain/memoria/`.

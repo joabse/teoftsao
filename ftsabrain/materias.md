@@ -24,6 +24,7 @@ Toda etapa concluída do projeto é registrada na memória (log por matéria):
 - Registro geral do projeto (montagem, manutenção, estrutura): [[memoria/00-registro-geral|Registro Geral]]
 - Registro da matéria Bíblia 2: [[memoria/materias/biblia2/registro|Registro Bíblia 2]]
 - Registro da matéria Bíblia 3: [[memoria/materias/biblia3/registro|Registro Bíblia 3]]
+- Índice de Conversões (file2md): [[file2md/00-indice|Índice de Conversões file2md]]
 - Modelo de registro para novas matérias: [[memoria/materias/_TEMPLATE/registro|Modelo de registro]]
 - Nova matéria = criar também `memoria\materias\<nome>\registro.md` (copiar o modelo).
 

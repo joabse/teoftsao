@@ -15,16 +15,17 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
    - **Bereano** avalia se o texto parece gerado por IA.
    - **Aprovado** → vai para `04_aprovados\`.
    - **Reprovado** → **Escriba** humaniza → nova versão → volta ao Bereano → repete até aprovar.
-5. **Entrega** — texto de `04_aprovados\` é entregue ao usuário por quem estiver no terminal **ftsalider** (hoje Claude Code).
+5. **Entrega** — texto de `04_aprovados\` é entregue ao usuário por quem estiver no terminal **ftsalider** (hoje Antigravity).
 6. **REGISTRO** — após cada etapa concluída, o **ftsalider** registra a entrada na memória (`ftsabrain\memoria\...`) correspondente: etapa geral → [[memoria/00-registro-geral|Registro Geral]]; etapa de matéria → `ftsabrain\memoria\materias\<nome>\registro.md`.
+7. **ALIMENTAÇÃO DO CÉREBRO (file2md)** — toda conversão de original alimenta o vault e é registrada no [[file2md/00-indice|Índice central file2md]].
 
 ## Papéis (rápido)
 
-- **ftsalider (terminal "ftsalider" — hoje Claude Code, mas o papel pertence ao terminal, não à LLM)** — orquestra toda a equipe: coordena os 3 teólogos e o comitador, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19; revisado 13:16).
+- **ftsalider (terminal "ftsalider" — hoje Antigravity, mas o papel pertence ao terminal, não à LLM)** — orquestra toda a equipe: coordena os 3 teólogos, o comitador e o file2md, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19; revisado 14:07).
 - **Teólogo 1 / Teólogo 2 / Teólogo 3** — os 3 teólogos, um por terminal nomeado no Orca (papel fixo por terminal; ocupantes hoje: Claude Code, Codex CLI, Antigravity, respectivamente — mas podem mudar). Produzem textos. Anteriormente existia o gbooklm (4º teólogo NotebookLM), **removido pelo Joab** em 2026-09-13 — por isso essa função está descontinuada.
 - **comitador (terminal dedicado, hoje Cline)** — faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Nunca decide sozinho o que comitar (Joab, 2026-09-19, JOA-20).
+- **file2md (terminal dedicado "file2md" no Orca)** — converte arquivos originais para Markdown (`01_markdown/`) usando primariamente `anydoc` para formatos nativos e scripts de OCR para PDFs escaneados. Alimenta `ftsabrain/file2md/` e registra cada conversão em [[file2md/00-indice|00-indice.md]]. **Regra obrigatória:** o ftsalider sempre verifica o modelo e a CLI em execução no terminal antes de despachar tarefas.
   - 🌐 **Regra de pesquisa na Bíblia (Joab, 2026-09-13):** se precisarem consultar a Bíblia (texto, comentários, léxicos, contexto histórico), os teólogos estão **livres para buscar na internet** com os MCPs de busca do projeto ou pelo browser integrado do Orca (`orca tab`) — **sem necessidade de pedir autorização** ao líder. Devem **sempre indicar a fonte** (URL, obra, autor) na resposta. As notas em `fontes\` continuam sendo a base primária; a busca externa é complementar.
-- **file2md** — converte arquivos para Markdown.
 - **Bereano** — detector de IA (aprova/reprova).
 - **Escriba** — humaniza textos reprovados.
 - **tecfix** — manutenção técnica do projeto e ambiente Orca (estrutura, config, diagnóstico).
@@ -39,7 +40,7 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 - **Múltipla escolha: sempre fechar com tabela-resumo** — nº da questão · resposta de cada teólogo · **sugestão do líder** (letra correta + justificativa 1 linha). Divergências destacadas e explicadas antes da sugestão. (Joab, 2026-09-13)
 - **Teólogos = Teólogo 1 + Teólogo 2 + Teólogo 3**, um por terminal nomeado no Orca. O papel pertence ao terminal, não à LLM — ocupantes hoje são Claude Code, Codex CLI e Antigravity, mas o Joab pode trocar qualquer um deles, inclusive o `ftsalider`. (Joab, 2026-09-19, revisado 13:16)
 - Manter histórico de versões em `03_revisao\`.
-- **file2md: contexto isolado por arquivo** — regra no prompt do agente ("processe APENAS o arquivo atual; ignore anteriores") + o líder sempre reenvia instruções completas em cada despacho. Cada conversão é tratada como independente. (tecfix, 2026-09-13)
+- **file2md: contexto isolado por arquivo e terminal próprio** — opera no terminal `file2md`; o líder verifica modelo/CLI antes de cada envio; regra no prompt do agente ("processe APENAS o arquivo atual; ignore anteriores") + instruções completas reenviadas em cada despacho. Toda conversão alimenta o índice em `ftsabrain/file2md/00-indice.md`. (tecfix, 2026-09-13; revisado Joab, 2026-09-19, JOA-18)
 - Toda etapa concluída é registrada na memória do vault (`ftsabrain\memoria\`), por matéria ou no registro geral.
 - Toda nova matéria copia `materias\_TEMPLATE\` e é registrada em `materias.md`.
 - Conteúdo e documentação sempre em português brasileiro.

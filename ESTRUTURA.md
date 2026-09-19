@@ -36,17 +36,17 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 
 ## 2. Papéis da equipe
 
-O Orca roda o projeto em **5 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3** e **comitador**. **O papel pertence ao terminal, não à LLM que o ocupa** (Joab, 2026-09-19, revisão 13:16): o líder é sempre quem estiver no terminal `ftsalider` — hoje Claude Code, mas o Joab pode trocar para Codex, Antigravity ou qualquer outra LLM a qualquer momento. O mesmo vale para os 3 terminais de Teólogo e para o comitador. A tabela abaixo mostra o papel fixo de cada terminal e o ocupante **atual** (um estado, não uma regra).
+O Orca roda o projeto em **6 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador** e **file2md**. **O papel pertence ao terminal, não à LLM que o ocupa** (Joab, 2026-09-19, revisão 13:16 / 14:07): o líder é sempre quem estiver no terminal `ftsalider` — hoje Antigravity, mas o Joab pode trocar para Codex, Claude Code ou qualquer outra LLM a qualquer momento. O mesmo vale para os 3 terminais de Teólogo, para o comitador e para o file2md. A tabela abaixo mostra o papel fixo de cada terminal e o ocupante **atual** (um estado, não uma regra).
 
 | Terminal (papel) | Responsabilidade no pipeline | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos e o comitador, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente.** | Claude Code |
+| **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos, o comitador e o file2md, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente.** | Antigravity |
 | **Teólogo 1** | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). | Claude Code (terminal dedicado, separado do ftsalider) |
 | **Teólogo 2** | Íd. — análise de materiais e produção de textos. | Codex CLI |
 | **Teólogo 3** | Íd. — análise de materiais e produção de textos. | Antigravity |
 | **comitador** | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. **Nunca decide sozinho** o que comitar ou a mensagem. | Cline (terminal dedicado, já aberto pelo Joab) |
+| **file2md** | **Converte qualquer arquivo para Markdown** (`01_markdown\`) usando `anydoc` ou scripts de OCR, alimenta o `ftsabrain/file2md/` e registra conversões no índice central `00-indice.md`. O líder sempre verifica qual modelo/CLI ocupa este terminal antes de despachar. | Shell / Agente dedicado no terminal `file2md` |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
-| **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
 | **Escriba** | Humanizador | **Humaniza textos reprovados** pelo Bereano (reescreve para soar humano). |
 | **tecfix** | Manutenção técnica | **Manutenção do projeto e do Orca**: estrutura de pastas, configuração, diagnósticos e infraestrutura. Não produz conteúdo teológico. |
@@ -136,6 +136,18 @@ Entrega ao usuário (via ftsalider)
 3. O comitador executa exatamente com a descrição recebida — não resume, não reinterpreta.
 4. Antes de instruir o comitador, **verificar qual LLM/CLI ocupa aquele terminal** para adaptar a sintaxe do comando e obter a melhor performance.
 5. Commits deixam de ser feitos diretamente pelo ftsalider ou pelos teólogos — passam sempre pelo comitador.
+
+### Regra — Terminal file2md e alimentação contínua do ftsabrain (Joab, 2026-09-19, JOA-18)
+
+1. **Terminal `file2md`** — 6º terminal nomeado no Orca. Responsável pela conversão de qualquer arquivo recebido para Markdown em `materias/<nome>/01_markdown/`.
+2. **Verificação Prévia Obrigatória:** Antes de despachar qualquer conversão para o terminal `file2md`, o **ftsalider deve sempre verificar qual modelo e CLI estão em execução nele** (usando `orca terminal list` e `orca terminal read`) para adequar a sintaxe dos comandos e instruções.
+3. **Uso do anydoc:** A CLI `anydoc` (`@firecrawl/anydoc`) é a ferramenta padrão e primária para documentos digitais nativos (.docx, .pptx, .xlsx, .pdf nativo, .epub, .csv). Gera Markdown limpo e fiel.
+4. **Tratamento de Documentos Escaneados (OCR):** PDFs escaneados ou imagens retornam aviso de necessidade de OCR no `anydoc` e não devem ser enviados para OCR hosted sem credenciais. Nesses casos, utilizar os scripts dedicados de OCR locais em Python (já homologados no projeto) ou OCR externo.
+5. **Alimentação Contínua do ftsabrain e Índice Central:** Toda conversão deve obrigatoriamente:
+   - Gerar o Markdown em `materias/<nome>/01_markdown/`.
+   - Sincronizar cópia/alimentação em `ftsabrain/file2md/<nome>/`.
+   - Registrar imediatamente a conversão com timestamp em `ftsabrain/file2md/00-indice.md`.
+6. **Script de Automação:** Disponível em `scripts/convert_file2md.ps1` para padronizar o processo e garantir a atualização automática do índice e do vault.
 
 ### ~~Regra anterior — Estrutura de 4 terminais nomeados no Orca (Joab, 2026-09-19, 11:40)~~ — SUPERSEDIDA
 

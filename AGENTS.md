@@ -46,17 +46,17 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 
 | Terminal (papel) | Função | Ocupante atual (2026-09-19) |
 |---|---|---|
-| ftsalider | Líder/Orquestrador. Coordena os 3 teólogos e o comitador, distribui tarefas, valida com o usuário, registra na memória. Não produz rascunhos teológicos diretamente. | Claude Code |
+| ftsalider | Líder/Orquestrador. Coordena os 3 teólogos, o comitador e o file2md, distribui tarefas, valida com o usuário, registra na memória. Não produz rascunhos teológicos diretamente. | Antigravity |
 | Teólogo 1 | Analisa materiais em `fontes/` e produz rascunhos | Claude Code (terminal dedicado) |
-| Teólogo 2 | Idem | Codex CLI (você, hoje) |
+| Teólogo 2 | Idem | Codex CLI |
 | Teólogo 3 | Idem | Antigravity |
 | comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. Nunca decide sozinho o que comitar. | Cline (terminal dedicado, já aberto pelo Joab) |
+| file2md | Converte originais para Markdown (`01_markdown/`) usando `anydoc` ou OCR, alimenta `ftsabrain/file2md/` e registra em `00-indice.md`. O líder sempre verifica modelo/CLI antes de despachar. | Shell / Agente dedicado no terminal `file2md` |
 
-Outros agentes (sem um dos 5 terminais nomeados):
+Outros agentes (sem um dos 6 terminais nomeados):
 
 | Agente | Função |
 |---|---|
-| file2md | Converte originais para Markdown (contexto isolado por arquivo — sempre reenviar instruções completas) |
 | Bereano | Detector de IA — aprova/reprova no ciclo de humanização |
 | Escriba | Humaniza textos reprovados pelo Bereano |
 | tecfix | Manutenção técnica do projeto e ambiente Orca (não produz conteúdo teológico) |
@@ -64,8 +64,8 @@ Outros agentes (sem um dos 5 terminais nomeados):
 Teólogos podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização, mas as notas de `fontes/` são sempre a fonte primária — em conflito, prevalece o material enviado. Questões de múltipla escolha exigem tabela-resumo final (resposta de cada teólogo + sugestão de quem estiver no ftsalider).
 
 ## Operação com Orca
-- O projeto está registrado no Orca como repositório de pasta (`teoftsao`), rodando em **5 terminais nomeados** com papel fixo e ocupante variável: `ftsalider`, `Teólogo 1`, `Teólogo 2` (você, Codex, hoje), `Teólogo 3`, `comitador`.
-- Agentes podem ser executados em abas dedicadas via `orca terminal create` (`claude`, `codex`, `agy`) — o comando usado determina a LLM, mas o `--title` é que define o papel.
+- O projeto está registrado no Orca como repositório de pasta (`teoftsao`), rodando em **6 terminais nomeados** com papel fixo e ocupante variável: `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`, `comitador` e `file2md`.
+- Agentes podem ser executados em abas dedicadas via `orca terminal create` (`claude`, `codex`, `agy`, etc.) — o comando usado determina a LLM, mas o `--title` é que define o papel.
 - A documentação e comandos específicos do Orca encontram-se em `ORCA.md`.
 
 ## Sincronização multi-LLM (Joab, 2026-09-19)

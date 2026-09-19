@@ -93,26 +93,26 @@ Regras do ciclo:
 
 ## 4. Equipe de agentes e papéis
 
-**Os 5 papéis abaixo pertencem ao terminal (nome fixo no Orca), não à LLM.** A coluna "Ocupante atual" é um estado — o Joab pode trocá-lo a qualquer momento, sem que o papel/responsabilidade do terminal mude.
+**Os 6 papéis abaixo pertencem ao terminal (nome fixo no Orca), não à LLM.** A coluna "Ocupante atual" é um estado — o Joab pode trocá-lo a qualquer momento, sem que o papel/responsabilidade do terminal mude.
 
 | Terminal (papel) | Responsabilidade | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos e o comitador, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). | Claude Code |
+| **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos, o comitador e o file2md, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). | Antigravity |
 | **Teólogo 1** | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. | Claude Code (terminal dedicado, separado do ftsalider) |
 | **Teólogo 2** | Idem | Codex CLI |
 | **Teólogo 3** | Idem | Antigravity |
 | **comitador** | Faz commits git a pedido do ftsalider. **Nunca decide sozinho o que comitar ou a mensagem** — só executa com a descrição detalhada que o ftsalider fornecer (ver seção 4.1). | Cline (terminal dedicado, já aberto pelo Joab) |
+| **file2md** | Converte originais para Markdown (`01_markdown/`) com `anydoc` ou OCR, alimenta `ftsabrain/file2md/` e registra em `00-indice.md`. O líder sempre verifica modelo/CLI antes de despachar. | Shell / Agente dedicado no terminal `file2md` |
 
-Outros agentes, sem terminal fixo dedicado dentre os 5 nomeados:
+Outros agentes, sem terminal fixo dedicado dentre os 6 nomeados:
 
 | Agente | Papel | Responsabilidade |
 |---|---|---|
-| **file2md** | Conversor | Converte originais (PDF, DOCX, PPTX etc.) para Markdown em `01_markdown\` |
 | **Bereano** | Detector de IA | Aprova/reprova textos no ciclo de humanização |
 | **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
 | **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca — não produz conteúdo teológico |
 
-**Antes de agir, confirme seu papel pelo terminal em que você está** (nome do terminal no Orca), não pela sua identidade de ferramenta — a mesma LLM pode ser ftsalider num terminal e Teólogo em outro (é o caso do Claude Code hoje), e o Joab pode reatribuir qualquer terminal a qualquer LLM. Questões e produção teológica vão para os 3 terminais de Teólogo; o ftsalider consolida e valida. (Estrutura de terminais nomeados definida pelo Joab em 2026-09-19; papéis desacoplados de LLM específica no mesmo dia; terminal `comitador` adicionado em 2026-09-19 — ver `ESTRUTURA.md` para o histórico completo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13.)
+**Antes de agir, confirme seu papel pelo terminal em que você está** (nome do terminal no Orca), não pela sua identidade de ferramenta — a mesma LLM pode ocupar diferentes funções (como Claude Code e Antigravity), e o Joab pode reatribuir qualquer terminal a qualquer LLM. Questões e produção teológica vão para os 3 terminais de Teólogo; o ftsalider consolida e valida. (Estrutura de terminais nomeados definida pelo Joab em 2026-09-19; papéis desacoplados de LLM específica no mesmo dia; terminais `comitador` e `file2md` formalizados em 2026-09-19 — ver `ESTRUTURA.md` para o histórico completo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13.)
 
 ### 4.1 Fluxo do comitador (Joab, 2026-09-19)
 
@@ -121,6 +121,14 @@ Outros agentes, sem terminal fixo dedicado dentre os 5 nomeados:
 - O comitador executa o `git add`/`git commit` (e `git push`, se instruído) exatamente com a descrição recebida, sem reinterpretar ou resumir por conta própria.
 - **Verifique sempre qual LLM/CLI ocupa o terminal comitador** antes de enviar instruções — a sintaxe de comando pode variar entre ferramentas; adapte a instrução ao CLI real em uso para ter a melhor performance.
 - Envio de instrução: `orca terminal send --terminal <handle-do-comitador> --text "<descrição do commit>" --enter --wait-submit 5 --json`.
+
+### 4.2 Fluxo do file2md e alimentação contínua do ftsabrain (Joab, 2026-09-19, JOA-18)
+
+- O terminal `file2md` é dedicado a conversões de documentos para Markdown em `materias/<nome>/01_markdown/`.
+- **Verificação prévia obrigatória:** antes de despachar arquivos para conversão, o ftsalider verifica via `orca terminal list` / `orca terminal read` qual CLI e modelo estão ativos no terminal `file2md`.
+- **Uso do anydoc:** o CLI `anydoc` (`@firecrawl/anydoc`) converte com velocidade e fidelidade formatos digitais (.docx, .pptx, .xlsx, .pdf nativo, .epub, .csv).
+- **Tratamento de OCR:** PDFs escaneados exigem OCR local (scripts em Python dedicados); o `anydoc` avisa `need OCR` e não deve rodar `--ocr hosted` sem chave de API.
+- **Alimentação contínua do ftsabrain:** cada conversão alimenta `ftsabrain/file2md/<nome>/` e é registrada com timestamp em `ftsabrain/file2md/00-indice.md`. O script `scripts/convert_file2md.ps1` automatiza esse ciclo.
 
 ## 5. Memória de trabalho (`ftsabrain\memoria\`)
 

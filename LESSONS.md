@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 — Antigravity (ftsalider) — Limitações do anydoc com PDFs escaneados e verificação de terminal no file2md (JOA-18)
+
+- **O que aconteceu:** ao analisar o agente file2md e a extensão `@firecrawl/anydoc` na tarefa JOA-18, testamos a conversão de arquivos digitais nativos e PDFs escaneados baseados em imagem. O `anydoc` converteu arquivos nativos (como a apostila digital) com alta velocidade e formatação limpa (Markdown fiel em ~2s), mas em PDFs escaneados (ex.: textos acadêmicos digitalizados por scanner) ele detectou que todas as páginas precisavam de OCR e recusou a conversão local. Ao tentar `--ocr hosted`, a requisição falhou porque o Firecrawl Parse depende de autenticação e rede externa.
+- **Erro/acerto:** acerto no diagnóstico e na separação de responsabilidades. Não forçar o `anydoc` a tentar OCR em nuvem sem chave; documentar a fronteira técnica clara entre documentos nativos e escaneados.
+- **Correção/solução:** estabeleceu-se a regra operacional: `anydoc` é a ferramenta primária para documentos digitais nativos (DOCX, PPTX, XLSX, PDF nativo, EPUB, CSV); para PDFs escaneados, mantém-se o pipeline local dedicado com scripts Python de OCR. Criou-se o terminal nomeado `file2md`, o script padronizado `scripts/convert_file2md.ps1` e o índice central `ftsabrain/file2md/00-indice.md` com registro de data/hora da conversão.
+- **Lição:** sempre inspecionar previamente o arquivo de entrada: se for PDF escaneado (sem camada de texto nativa), o `anydoc` retornará aviso de necessidade de OCR e deve-se acionar o pipeline de OCR local; se for nativo, o `anydoc` é extremamente superior e limpo. Além disso, antes de despachar qualquer conversão para o terminal `file2md`, o ftsalider deve verificar qual modelo e CLI estão em execução nele.
+
 ## 2026-09-19 — Claude Code — `orca terminal list` por título não é confiável para checar se um papel já existe
 
 - **O que aconteceu:** na JOA-20, busquei por um terminal com título "comitador" via `orca terminal list | grep -i comitador` antes de criar um novo — não achei nada, então criei um terminal novo. O Joab apontou que já existia um comitador aberto. O título dele já tinha sido sobrescrito por um resumo automático de atividade (mesmo comportamento já visto antes com o terminal do ftsalider, que aparecia como "◐ Teoftsao configuração e migração" em vez de "ftsalider").
