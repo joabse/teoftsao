@@ -2,7 +2,7 @@
 
 > Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca — workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
 >
-> **Este é o arquivo canônico multi-LLM do projeto.** `AGENTS.md` é o padrão aberto que a maioria dos CLIs de agente lê automaticamente na raiz do repositório — além do Codex CLI, é reconhecido por **opencode** e provavelmente por **Kimi Code** (arquitetura muito próxima da do Claude Code — mesmos nomes de hooks —, mas não confirmado por falta de login neste ambiente; ver `KIMI.md`). Ferramentas com convenção de arquivo própria têm um wrapper fino que remete para este arquivo + `ESTRUTURA.md`/`ORCA.md`: **`CLAUDE.md`** (Claude Code), **`GEMINI.md`** (Antigravity), **`QWEN.md`** (Qwen Code), **`KIMI.md`** (Kimi Code), **`.clinerules`** (Cline). Todos descrevem as mesmas regras e a mesma execução — ver seção "Sincronização multi-LLM" abaixo. **`mmx` não é um agente que leia arquivos de projeto** — é a CLI da MiniMax para configurar *outros* agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax como provedor; não precisa de wrapper. **DeepSeek** não está instalado neste ambiente — convenção de arquivo ainda não verificada.
+> **Este é o arquivo canônico multi-LLM do projeto.** `AGENTS.md` é o padrão aberto que a maioria dos CLIs de agente lê automaticamente na raiz do repositório — além do Codex CLI, é reconhecido por **opencode**. Ferramentas com convenção de arquivo própria têm um wrapper fino que remete para este arquivo + `ESTRUTURA.md`/`ORCA.md`: **`CLAUDE.md`** (Claude Code), **`GEMINI.md`** (Antigravity), **`QWEN.md`** (Qwen Code), **`.clinerules`** (Cline). Todos descrevem as mesmas regras e a mesma execução — ver seção "Sincronização multi-LLM" abaixo. **`mmx` não é um agente que leia arquivos de projeto** — é a CLI da MiniMax para configurar *outros* agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax como provedor; não precisa de wrapper. **Kimi Code e DeepSeek**: removidos do projeto a pedido do Joab (2026-09-19) — ainda não serão usados; se isso mudar, criar wrapper de novo.
 
 ## Execução pelo Codex
 
@@ -76,9 +76,8 @@ O projeto precisa ser entendido por qualquer LLM que trabalhe nele — não só 
 | `AGENTS.md` | Codex CLI, opencode, e demais CLIs do padrão AGENTS.md | canônico (este arquivo) |
 | `GEMINI.md` | Antigravity | wrapper |
 | `QWEN.md` | Qwen Code | wrapper |
-| `KIMI.md` | Kimi Code | wrapper (defensivo — leitura pelo Kimi ainda não confirmada, ver JOA-15) |
 | `.clinerules` | Cline | wrapper |
 | — | **mmx** | não aplicável — CLI da MiniMax para configurar outros agentes (Claude Code, Codex, opencode, grok, hermes, pi); não lê arquivos de projeto |
-| — | **DeepSeek** | não instalado neste ambiente; convenção não verificada (ver JOA-15) |
+| — | **Kimi Code, DeepSeek** | removidos/não usados no projeto (Joab, 2026-09-19, JOA-19) — sem wrapper por ora |
 
 Se uma ferramenta nova aparecer sem convenção de arquivo conhecida, ela deve encontrar orientação lendo `AGENTS.md` (padrão de fato do ecossistema) — e, se depois descobrirmos que ela usa um nome de arquivo próprio, crie o wrapper e registre isso no `CHANGELOG.md`.

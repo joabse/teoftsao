@@ -16,7 +16,7 @@
 8. **`CHANGELOG.md` (raiz):** registre toda alteração de estrutura/arquivos (data/hora, motivo) antes de um commit ou ao finalizar a tarefa. Banco de consulta — não leia automaticamente ao iniciar sessão.
 9. **`LESSONS.md` (raiz):** registre erros, acertos e pendências não resolvidas, no mesmo ritmo do changelog. Pode e deve ser consultado quando relevante.
 10. **Linear (projeto `teoftsao`, workspace Joabse, time JOA):** banco de tarefas do projeto. Sempre que encontrar algo para resolver/executar no futuro, crie uma issue lá — não basta anotar em memória. Se você não tiver acesso à ferramenta do Linear, avise o ftsalider (Claude Code) para criar a issue por você.
-11. **Sincronização multi-LLM:** este arquivo é um espelho de `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` para o Qwen Code. Outras ferramentas têm o seu: `CLAUDE.md` (Claude Code), `GEMINI.md` (Antigravity), `KIMI.md` (Kimi Code), `.clinerules` (Cline). Se você perceber que uma regra sua está desatualizada em relação a `AGENTS.md`/`ESTRUTURA.md`, avise o ftsalider para sincronizar todos os arquivos.
+11. **Sincronização multi-LLM:** este arquivo é um espelho de `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` para o Qwen Code. Outras ferramentas têm o seu: `CLAUDE.md` (Claude Code), `GEMINI.md` (Antigravity), `.clinerules` (Cline). Se você perceber que uma regra sua está desatualizada em relação a `AGENTS.md`/`ESTRUTURA.md`, avise o ftsalider para sincronizar todos os arquivos.
 
 ---
 
@@ -28,7 +28,6 @@ teoftsao\
 ├── AGENTS.md              ← arquivo canônico (Codex CLI, opencode)
 ├── GEMINI.md              ← wrapper para Antigravity
 ├── QWEN.md                ← este arquivo (wrapper para Qwen Code)
-├── KIMI.md                ← wrapper defensivo para Kimi Code
 ├── .clinerules             ← wrapper para Cline
 ├── ESTRUTURA.md           ← detalhamento completo de papéis, pipeline e regras
 ├── ORCA.md                ← comandos e operação específica no Orca

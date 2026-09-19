@@ -14,7 +14,6 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 ├── AGENTS.md             ← wrapper canônico (Codex CLI, opencode)
 ├── GEMINI.md             ← wrapper de instruções para o Antigravity
 ├── QWEN.md               ← wrapper de instruções para o Qwen Code
-├── KIMI.md               ← wrapper defensivo para o Kimi Code (leitura não confirmada)
 ├── .clinerules            ← wrapper de instruções para o Cline
 ├── CHANGELOG.md          ← banco de alterações estruturais (não ler automaticamente)
 ├── LESSONS.md            ← lições aprendidas (consultar quando relevante)
@@ -176,7 +175,7 @@ Duas ferramentas de rastreio complementares à memória do `ftsabrain\` (que é 
 
 ### Sincronização multi-LLM (Joab, 2026-09-19)
 
-O projeto precisa ser entendido por **qualquer LLM** que trabalhe nele, não só o Claude Code. Arquivos de instrução por ferramenta: `CLAUDE.md` (Claude Code), `AGENTS.md` (canônico — Codex CLI, opencode), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `KIMI.md` (Kimi Code, defensivo — ver nota abaixo), `.clinerules` (Cline). `mmx` **não** é um agente que leia arquivos de projeto — é a CLI da MiniMax para configurar outros agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax; não precisa de wrapper. `DeepSeek` não está instalado neste ambiente; convenção de arquivo ainda não verificada (issue **JOA-15** no Linear).
+O projeto precisa ser entendido por **qualquer LLM** que trabalhe nele, não só o Claude Code. Arquivos de instrução por ferramenta: `CLAUDE.md` (Claude Code), `AGENTS.md` (canônico — Codex CLI, opencode), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `.clinerules` (Cline). `mmx` **não** é um agente que leia arquivos de projeto — é a CLI da MiniMax para configurar outros agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax; não precisa de wrapper. **Kimi Code e DeepSeek foram removidos/não são usados no projeto** (Joab, 2026-09-19, issue **JOA-19** no Linear) — se isso mudar no futuro, criar o wrapper correspondente.
 
 **Regra:** sempre que o ftsalider (ou qualquer agente) alterar `CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md` ou `ORCA.md` — regras, papéis, estrutura de pastas, pipeline — deve propagar a mesma mudança para **todos** os arquivos acima, para que todas as LLMs sigam as mesmas regras e a mesma execução que o Claude tem. Uma ferramenta sem convenção de arquivo própria e conhecida deve encontrar orientação em `AGENTS.md` (padrão de fato do ecossistema); se depois se descobrir que ela tem convenção própria, criar o wrapper correspondente e registrar no `CHANGELOG.md`.
 

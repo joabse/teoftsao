@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 13:33 — Claude Code — Execução da JOA-19: removido o Kimi Code do projeto
+
+- **Motivo:** issue JOA-19 do Joab — "Remove do projeto a estrutura do Kimi, não irei utilizar esta LLM ainda."
+- **O que mudou:** apagado `KIMI.md` (wrapper defensivo criado na JOA-14/15). Removidas as referências ativas ao Kimi Code em `AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md` e `.clinerules` (tabelas de "sincronização multi-LLM" e nota de topo do `AGENTS.md`), substituídas por uma nota curta dizendo que Kimi Code (e DeepSeek) não são usados no projeto por ora. A issue JOA-17 (verificação pendente do Kimi) fica sem efeito prático — não fechada automaticamente, decisão do Joab se cancela ou mantém para o futuro. Histórico em `CHANGELOG.md`/`LESSONS.md`/memória **não foi reescrito** (mantido como registro do que existiu).
+- **Local:** raiz do projeto (`AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`); `KIMI.md` removido.
+
 ## 2026-09-19 13:26 — Claude Code — Execução da JOA-16: papéis desacoplados da LLM (papel = terminal)
 
 - **Motivo:** issue JOA-16 do Joab — esclareceu que, quando disse que o líder era o Claude Code, na verdade queria dizer que **o líder é sempre quem estiver no terminal `ftsalider`**, o que pode variar de LLM (ex.: trocar para Codex ou Antigravity). O mesmo vale para os teólogos: o que se mantém é o terminal, não a LLM.

@@ -13,6 +13,13 @@ tags:
 
 ---
 
+## 2026-09-19 13:33 — Claude Code — Executada JOA-19: Kimi Code removido do projeto
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Pedido do Joab:** "Remove do projeto a estrutura do Kimi, não irei utilizar esta LLM ainda."
+- **O que foi feito:** apagado `KIMI.md` e removidas as referências ativas ao Kimi Code em `AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md` e `.clinerules`. Cancelada a issue **JOA-17** (verificação pendente do Kimi), que deixou de ter sentido. Histórico em memória/changelog/lessons não foi reescrito.
+- **Resultado/Local:** raiz do projeto (`AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`); Linear (JOA-19 → Done, JOA-17 → Canceled).
+
 ## 2026-09-19 13:26 — Claude Code — Executada JOA-16: papel pertence ao terminal, não à LLM
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
