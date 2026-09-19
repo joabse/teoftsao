@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 — Claude Code — `orca terminal list` por título não é confiável para checar se um papel já existe
+
+- **O que aconteceu:** na JOA-20, busquei por um terminal com título "comitador" via `orca terminal list | grep -i comitador` antes de criar um novo — não achei nada, então criei um terminal novo. O Joab apontou que já existia um comitador aberto. O título dele já tinha sido sobrescrito por um resumo automático de atividade (mesmo comportamento já visto antes com o terminal do ftsalider, que aparecia como "◐ Teoftsao configuração e migração" em vez de "ftsalider").
+- **Erro/acerto:** erro. Confiei que buscar pelo nome literal do terminal seria suficiente, mas o Orca renomeia terminais automaticamente conforme a atividade — o nome dado na criação (`--title`) não é estável nem confiável para buscas posteriores.
+- **Correção/solução:** perguntei ao Joab qual terminal já era o comitador (ele identificou: o terminal Cline). Atualizei a documentação (ocupante do terminal comitador = Cline) e testei o fluxo real através dele.
+- **Lição:** antes de criar um novo terminal para um papel (ftsalider, Teólogo N, comitador, etc.), não confiar apenas na busca por título — perguntar ao Joab se já existe um aberto para aquele papel, especialmente se a sessão for longa (títulos mudam rápido). Terminais "livres"/sem papel definido costumam se identificar sozinhos no preview ("sigo como auxiliar sem assumir função") — vale olhar os previews de todos antes de assumir que nenhum serve.
+
 ## 2026-09-19 — Claude Code — Issue Linear ficou "In Progress" indefinidamente por um item que não é meu para resolver
 
 - **O que aconteceu:** ao executar a JOA-15 (mmx/Kimi/DeepSeek), resolvi 2 dos 3 itens de fato (mmx corrigido, DeepSeek documentado como não instalado) mas deixei a issue inteira em "In Progress" por causa do 3º item (confirmar Kimi Code), que exige login interativo só o Joab pode fazer. O Joab então apontou que eu não tinha dado a tarefa como concluída.

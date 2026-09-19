@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 13:53 — Claude Code — Correção: comitador já existia (Cline), não Claude Code
+
+- **Motivo:** o Joab apontou que eu tinha criado um novo terminal "comitador" quando já existia um aberto. Investiguei: minha busca por título "comitador" antes de criar não achou nada porque os títulos dos terminais mudam automaticamente com a atividade (mesmo problema já visto com o terminal do ftsalider). O terminal que eu criei depois desapareceu da lista (fechado). O Joab confirmou que o comitador pré-existente é o terminal **Cline**.
+- **O que mudou:** corrigido o "ocupante atual" do terminal comitador de "Claude Code" para "Cline" em `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md` (incluindo o exemplo de comando `orca terminal create`) e `ftsabrain/pipeline.md`. Avisei o Cline do seu papel via `orca terminal send` e testei o fluxo de ponta a ponta: pedi a ele para comitar essa própria correção — ele conferiu o diff antes de comitar (garantindo fidelidade à descrição fornecida) e executou `git add`/`commit`/`push` com sucesso (hash `48104a4`).
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`. Commit feito pelo comitador (Cline), não por mim.
+
 ## 2026-09-19 13:40 — Claude Code — Execução da JOA-20: criado o agente/terminal comitador
 
 - **Motivo:** issue JOA-20 do Joab — criar um agente comitador, terminal dedicado que faz commits a pedido do ftsalider, com descrição detalhada fornecida por ele.

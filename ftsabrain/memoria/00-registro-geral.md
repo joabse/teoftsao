@@ -13,6 +13,13 @@ tags:
 
 ---
 
+## 2026-09-19 13:53 — Claude Code — Corrigido: comitador é o Cline, não um terminal novo do Claude Code
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Apontamento do Joab:** eu tinha criado um terminal novo para o comitador (JOA-20) sem perceber que já existia um aberto — a busca por título falhou porque o Orca renomeia terminais automaticamente com a atividade.
+- **O que foi feito:** perguntei ao Joab qual terminal já era o comitador; ele identificou o terminal **Cline**. Corrigi o "ocupante atual" de Claude Code para Cline em todos os arquivos-fonte e wrappers. Avisei o Cline do papel e testei o fluxo real: pedi que ele mesmo comitasse essa correção — ele conferiu o diff antes de comitar e executou com sucesso (`git add`/`commit`/`push`, hash `48104a4`). Registrada a lição em `LESSONS.md` sobre não confiar em busca por título de terminal.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`; commit feito pelo comitador (Cline).
+
 ## 2026-09-19 13:40 — Claude Code — Executada JOA-20: criado o agente/terminal comitador
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
