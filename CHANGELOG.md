@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 11:49 — Claude Code — Linear (`teoftsao`) formalizado como banco de tarefas do projeto
+
+- **Motivo:** o Joab apontou o projeto `teoftsao` no Linear (workspace Joabse, time JOA) como o gerenciador de tarefas correspondente ao que o ftsalider precisa executar. Encontrei o projeto vazio (0 issues); criei as 2 primeiras (JOA-12: localizar/reconstituir Q1–Q5 da Bíblia 3; JOA-13: extrair notas de fontes\ da Bíblia 2). O Joab então instruiu: sempre criar tarefas no Linear para soluções/pendências futuras encontradas, não só quando ele pedir.
+- **O que mudou:** adicionada regra crítica (item 10) e nova seção 11 em `CLAUDE.md`; seções equivalentes em `AGENTS.md`, `GEMINI.md` e `ESTRUTURA.md`. A regra: toda pendência/decisão/próximo passo identificado por qualquer agente deve virar issue no Linear (`save_issue`, team "Joabse", project "teoftsao") proativamente — memória/changelog/lessons registram o que já aconteceu, o Linear é para o que falta fazer.
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`).
+
 ## 2026-09-19 11:38 — Claude Code — Estrutura de 4 terminais nomeados: ftsalider + Teólogo 1/2/3
 
 - **Motivo:** o Joab renomeou os terminais do Orca (`ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`) e explicou que Claude Code atua em dois papéis: ftsalider (este terminal) e Teólogo 1 (outro terminal dedicado). Codex CLI = Teólogo 2, Antigravity = Teólogo 3. Pedido também incluía testar a configuração enviando um "olá" a cada teólogo.

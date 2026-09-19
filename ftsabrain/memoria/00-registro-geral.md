@@ -13,6 +13,14 @@ tags:
 
 ---
 
+## 2026-09-19 11:49 — Claude Code — Linear (projeto `teoftsao`) formalizado como banco de tarefas; 1ª leva de issues criada
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Decisão do Joab:** o gerenciador de tarefas do time no Orca é o Linear, projeto `teoftsao` (workspace Joabse, time JOA), correspondendo às tarefas que o ftsalider precisa executar. Instrução seguinte: sempre criar tarefas no Linear para soluções/pendências futuras que eu encontrar, não só quando ele pedir.
+- **O que foi feito:** localizei o projeto `teoftsao` no Linear (estava vazio, 0 issues) e criei as 2 primeiras: **JOA-12** (localizar/reconstituir Q1–Q5 da Bíblia 3, prioridade Alta) e **JOA-13** (extrair notas de fontes\ da Bíblia 2 a partir dos 12 Markdown convertidos, prioridade Média). Documentei a regra permanente em `CLAUDE.md` (item 10 + seção 11), `AGENTS.md`, `GEMINI.md` e `ESTRUTURA.md`: toda pendência/decisão/próximo passo identificado por qualquer agente deve virar issue no Linear proativamente, via `save_issue` (team "Joabse", project "teoftsao").
+- **Próxima etapa:** ao iniciar sessões futuras, consultar `list_issues` no projeto antes de assumir que não há trabalho pendente; ao concluir uma issue, atualizar seu estado para Done/Canceled.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`); Linear (`https://linear.app/joabse/project/teoftsao-7626e33c8d9b`, issues JOA-12 e JOA-13).
+
 ## 2026-09-19 11:38 — Claude Code — Estrutura de 4 terminais nomeados no Orca: ftsalider + Teólogo 1/2/3, testada e confirmada
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

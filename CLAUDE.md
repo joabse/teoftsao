@@ -13,6 +13,7 @@
 7. **Nunca sobrescreva versões em `03_revisao/`** — cada nova versão do ciclo de humanização é um arquivo novo (`v1.md`, `v2.md`, ...).
 8. **`CHANGELOG.md` (raiz) — obrigatório antes de cada commit/finalização de tarefa.** Registre toda alteração feita na estrutura ou nos arquivos do projeto, com data/hora e o motivo que originou a mudança (ver seção 10). É um banco de dados de consulta, **não leia `CHANGELOG.md` automaticamente** ao iniciar a sessão nem para responder perguntas gerais — consulte-o só quando precisar reconstruir um histórico específico ou quando o Joab pedir.
 9. **`LESSONS.md` (raiz) — registre erros, acertos e pendências não resolvidas.** Sempre que você (ou outro agente) errar algo, corrigir algo, ou não conseguir resolver um problema, registre em `LESSONS.md` (ver seção 10). Ao contrário do `CHANGELOG.md`, este arquivo **pode e deve ser consultado** quando for relevante para a tarefa atual.
+10. **Sempre que encontrar algo para resolver/executar no futuro, crie uma tarefa no Linear.** Projeto `teoftsao` (workspace Joabse, time JOA) no Linear (ferramentas `mcp__claude_ai_Linear__*`) é o gerenciador de tarefas do projeto. Toda pendência, decisão a tomar, bug, ou trabalho futuro que você identificar (não só o que o Joab pedir diretamente) deve virar uma issue lá com `save_issue` — não basta anotar em memória/changelog/lessons. Ver seção 11.
 
 ## 1. Visão geral do projeto
 
@@ -146,3 +147,14 @@ Duas ferramentas de rastreio complementares à memória do `ftsabrain/` (que é 
 - Ao contrário do `CHANGELOG.md`, **pode e deve ser consultado** quando for relevante para a tarefa atual (ex.: antes de repetir uma ação que já deu problema).
 - Registre sempre que: algo deu errado e foi corrigido; uma abordagem não-óbvia funcionou; ou um problema ficou pendente. Mesmo ritmo do changelog — antes do commit ou ao finalizar a tarefa.
 - Formato de entrada: `## AAAA-MM-DD — <agente> — <resumo>` seguido de **O que aconteceu**, **Erro/acerto**, **Correção/solução** e **Lição**. Não apague entradas; se uma lição ficar obsoleta, marque `~~DESCONTINUADA~~` com data e motivo, mas mantenha o registro.
+
+## 11. Linear — banco de tarefas do projeto (Joab, 2026-09-19)
+
+- **Projeto:** `teoftsao`, workspace **Joabse**, time **JOA** (ferramentas `mcp__claude_ai_Linear__*`). É o gerenciador de tarefas oficial do projeto — diferente da memória (`ftsabrain/memoria/`, que é log de **conteúdo teológico já feito**) e do `CHANGELOG.md`/`LESSONS.md` (histórico e lições). O Linear é para **trabalho futuro/pendente**.
+- **Regra-chave: crie a tarefa você mesmo, proativamente.** Sempre que, durante qualquer trabalho, você (ftsalider ou qualquer teólogo) identificar algo que precisa ser resolvido ou executado depois — uma pendência, uma divergência encontrada em auditoria, uma decisão que falta tomar, um próximo passo óbvio — crie uma issue no Linear com `save_issue` (`team: "Joabse"`, `project: "teoftsao"`). Não espere o Joab pedir; e não deixe a pendência só documentada em memória/changelog — ela tem que aparecer como tarefa executável.
+- **Formato da issue:**
+  - `title`: prefixo da matéria/área entre colchetes + resumo (ex.: `[Bíblia 2] Extrair notas de fontes\...`).
+  - `description`: contexto (o que foi encontrado, onde), ação necessária em passos, e referência ao arquivo/memória de onde veio.
+  - `priority`: 1=Urgent, 2=High, 3=Medium, 4=Low (default 0=None se não tiver certeza).
+  - `state`: `Todo` se já executável agora; `Backlog` se depende de algo antes.
+- Antes de começar uma sessão de trabalho, é uma boa prática dar `list_issues` no projeto `teoftsao` para ver o que está pendente. Ao concluir uma issue, atualize seu `state` para `Done` (ou `Canceled`) via `save_issue` com o `id`.

@@ -155,6 +155,13 @@ Duas ferramentas de rastreio complementares à memória do `ftsabrain\` (que é 
 - **`CHANGELOG.md`** — banco de dados de alterações estruturais/arquivos: data/hora, agente e motivo. **Nunca lido automaticamente** por nenhuma LLM ao iniciar sessão; é consultado só quando alguém precisa reconstruir um histórico específico ou o Joab pede. Toda LLM/agente que alterar estrutura ou arquivos do projeto adiciona uma entrada **antes do commit** ou **ao finalizar a tarefa**. Nunca apagar/reescrever entradas antigas sem autorização explícita do Joab.
 - **`LESSONS.md`** — erros, acertos e pendências não resolvidas durante o trabalho, para orientar a própria LLM ou outra sessão/LLM no futuro. Ao contrário do changelog, **pode e deve ser consultado** quando for relevante para a tarefa atual. Mesmo ritmo de registro (antes do commit ou ao finalizar a tarefa); entradas obsoletas se marcam `~~DESCONTINUADA~~`, nunca se apagam.
 
+### Linear — banco de tarefas do projeto (Joab, 2026-09-19)
+
+- **Projeto `teoftsao`** no Linear (workspace Joabse, time JOA), acessado via ferramentas `mcp__claude_ai_Linear__*`. Diferente da memória e do changelog/lessons (que registram o que **já aconteceu**), o Linear é para **trabalho futuro/pendente**.
+- **Regra-chave:** sempre que qualquer agente (ftsalider ou teólogo) identificar algo para resolver ou executar depois — pendência, divergência de auditoria, decisão a tomar, próximo passo — deve criar uma issue no Linear (`save_issue`, `team: "Joabse"`, `project: "teoftsao"`), proativamente, sem esperar o Joab pedir.
+- Título com prefixo da matéria/área entre colchetes; descrição com contexto e passos; prioridade e estado (`Todo` se executável já, `Backlog` se depende de algo antes). Ao concluir, atualizar o `state` para `Done`/`Canceled`.
+- Quem não tiver acesso direto à ferramenta do Linear (ex.: Antigravity, dependendo da configuração) pede ao ftsalider para criar a issue.
+
 ## 4. Convenções
 
 - **Idioma:** todo conteúdo e documentação em português brasileiro.

@@ -29,6 +29,10 @@
 - **`CHANGELOG.md`** — registre toda alteração de estrutura/arquivos do projeto (data/hora, motivo) **antes de um commit** ou **ao finalizar a tarefa**. É banco de consulta: **não leia automaticamente** ao iniciar sessão; abra só quando precisar de histórico específico ou o Joab pedir. Nunca apague entradas antigas.
 - **`LESSONS.md`** — registre erros, acertos e pendências não resolvidas, no mesmo ritmo do changelog. Diferente do changelog, **pode e deve ser consultado** quando relevante para a tarefa atual.
 
+## Linear — banco de tarefas do projeto (Joab, 2026-09-19)
+
+Projeto `teoftsao` no Linear (workspace Joabse, time JOA), via ferramentas `mcp__claude_ai_Linear__*`. **Sempre que você identificar algo para resolver/executar no futuro** (pendência, divergência, decisão a tomar, próximo passo) — não só o que o Joab pedir diretamente — crie uma issue com `save_issue` (`team: "Joabse"`, `project: "teoftsao"`), título com prefixo da matéria entre colchetes, descrição com contexto e passos. Não basta anotar isso em memória/changelog: tem que virar tarefa executável no Linear.
+
 ## Scripts de Processamento (materias/biblia3/)
 
 Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de capítulos específicos (prefixos `_consolida_`, `_repara_`, `_fix`, `_diag`, `_dbg`). Cada um tem caminhos absolutos Windows hardcoded para um arquivo específico (ex.: `RAW = r"E:\...\08-Witherington_Joao.md"`) e não são uma biblioteca reutilizável. Executar individualmente com `python <script>.py`; não usar como base para uma nova ferramenta genérica sem adaptar os caminhos.
