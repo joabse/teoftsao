@@ -10,6 +10,13 @@ Este diretório é o workspace oficial da equipe FTSA. A equipe produz **textos 
 E:\00_ATUAL\04_PROJETO\teoftsao\
 ├── ESTRUTURA.md          ← este arquivo (organização geral, papéis e pipeline)
 ├── ORCA.md               ← guia de operação da equipe e comandos no Orca
+├── CLAUDE.md             ← wrapper de instruções para o Claude Code
+├── AGENTS.md             ← wrapper canônico (Codex CLI, opencode, Kimi, mmx, DeepSeek)
+├── GEMINI.md             ← wrapper de instruções para o Antigravity
+├── QWEN.md               ← wrapper de instruções para o Qwen Code
+├── .clinerules            ← wrapper de instruções para o Cline
+├── CHANGELOG.md          ← banco de alterações estruturais (não ler automaticamente)
+├── LESSONS.md            ← lições aprendidas (consultar quando relevante)
 ├── materias\             ← uma pasta por matéria (disciplina), com fluxo padronizado
 │   ├── README.md         ← documentação do fluxo de matérias
 │   ├── _TEMPLATE\        ← modelo de pastas para criar novas matérias
@@ -161,6 +168,12 @@ Duas ferramentas de rastreio complementares à memória do `ftsabrain\` (que é 
 - **Regra-chave:** sempre que qualquer agente (ftsalider ou teólogo) identificar algo para resolver ou executar depois — pendência, divergência de auditoria, decisão a tomar, próximo passo — deve criar uma issue no Linear (`save_issue`, `team: "Joabse"`, `project: "teoftsao"`), proativamente, sem esperar o Joab pedir.
 - Título com prefixo da matéria/área entre colchetes; descrição com contexto e passos; prioridade e estado (`Todo` se executável já, `Backlog` se depende de algo antes). Ao concluir, atualizar o `state` para `Done`/`Canceled`.
 - Quem não tiver acesso direto à ferramenta do Linear (ex.: Antigravity, dependendo da configuração) pede ao ftsalider para criar a issue.
+
+### Sincronização multi-LLM (Joab, 2026-09-19)
+
+O projeto precisa ser entendido por **qualquer LLM** que trabalhe nele, não só o Claude Code. Arquivos de instrução por ferramenta: `CLAUDE.md` (Claude Code), `AGENTS.md` (canônico — Codex CLI, opencode, Kimi, mmx, DeepSeek), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `.clinerules` (Cline).
+
+**Regra:** sempre que o ftsalider (ou qualquer agente) alterar `CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md` ou `ORCA.md` — regras, papéis, estrutura de pastas, pipeline — deve propagar a mesma mudança para **todos** os arquivos acima, para que todas as LLMs sigam as mesmas regras e a mesma execução que o Claude tem. Uma ferramenta sem convenção de arquivo própria e conhecida deve encontrar orientação em `AGENTS.md` (padrão de fato do ecossistema); se depois se descobrir que ela tem convenção própria, criar o wrapper correspondente e registrar no `CHANGELOG.md`.
 
 ## 4. Convenções
 

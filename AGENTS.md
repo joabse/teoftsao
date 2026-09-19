@@ -1,6 +1,8 @@
 # Repository Guidelines
 
 > Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca — workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
+>
+> **Este é o arquivo canônico multi-LLM do projeto.** `AGENTS.md` é o padrão aberto que a maioria dos CLIs de agente lê automaticamente na raiz do repositório — além do Codex CLI, é reconhecido (nativamente ou por convenção) por **opencode, Kimi CLI, mmx (MiniMax), DeepSeek** e outras ferramentas compatíveis com o padrão `AGENTS.md`. Ferramentas com convenção de arquivo própria têm um wrapper fino que remete para este arquivo + `ESTRUTURA.md`/`ORCA.md`: **`CLAUDE.md`** (Claude Code), **`GEMINI.md`** (Antigravity), **`QWEN.md`** (Qwen Code), **`.clinerules`** (Cline). Todos descrevem as mesmas regras e a mesma execução — ver seção "Sincronização multi-LLM" abaixo.
 
 ## Execução pelo Codex
 
@@ -54,3 +56,17 @@ Teólogos podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de bus
 - O projeto está registrado no Orca como repositório de pasta (`teoftsao`), rodando em **4 terminais nomeados**: `ftsalider`, `Teólogo 1`, `Teólogo 2` (você, Codex), `Teólogo 3`.
 - Agentes podem ser executados em abas dedicadas via `orca terminal create` (`claude`, `codex`, `agy`).
 - A documentação e comandos específicos do Orca encontram-se em `ORCA.md`.
+
+## Sincronização multi-LLM (Joab, 2026-09-19)
+
+O projeto precisa ser entendido por qualquer LLM que trabalhe nele — não só o Claude Code. **Regra para o ftsalider (e para qualquer agente que alterar regras/estrutura do projeto): toda vez que `CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md` ou `ORCA.md` mudar, propague a mesma mudança para TODOS os arquivos de instrução por ferramenta**, listados na tabela abaixo, para que todas as LLMs sigam as mesmas regras e a mesma execução que o Claude tem:
+
+| Arquivo | Ferramenta | Status |
+|---|---|---|
+| `CLAUDE.md` | Claude Code | wrapper (consolida AGENTS.md + ESTRUTURA.md + ORCA.md) |
+| `AGENTS.md` | Codex CLI, opencode, Kimi, mmx, DeepSeek e demais CLIs do padrão AGENTS.md | canônico (este arquivo) |
+| `GEMINI.md` | Antigravity | wrapper |
+| `QWEN.md` | Qwen Code | wrapper |
+| `.clinerules` | Cline | wrapper |
+
+Se uma ferramenta nova aparecer sem convenção de arquivo conhecida, ela deve encontrar orientação lendo `AGENTS.md` (padrão de fato do ecossistema) — e, se depois descobrirmos que ela usa um nome de arquivo próprio, crie o wrapper e registre isso no `CHANGELOG.md`.

@@ -13,6 +13,13 @@ tags:
 
 ---
 
+## 2026-09-19 11:58 — Claude Code — Executada JOA-14: projeto adaptado para todas as LLMs entenderem
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Tarefa:** JOA-14 (Linear) — pedido do Joab para que o projeto seja compreensível por qualquer LLM (Antigravity, Codex, opencode, Cline, Kimi, mmx, Qwen Code, DeepSeek), com regra de sincronização permanente sempre que o líder alterar a estrutura.
+- **O que foi feito:** `AGENTS.md` passou a ser tratado explicitamente como arquivo canônico multi-LLM (Codex CLI, opencode, e por convenção Kimi/mmx/DeepSeek). Criados `QWEN.md` (Qwen Code) e `.clinerules` (Cline), espelhando `CLAUDE.md`/`GEMINI.md`. Adicionada regra de "Sincronização multi-LLM" em todos os arquivos-fonte e wrappers (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`): toda mudança de regra/papel/estrutura deve ser propagada para todos. Diagramas de estrutura atualizados. Aberta issue **JOA-15** (Backlog) para confirmar, quando Kimi/mmx/DeepSeek forem de fato usados, se realmente leem `AGENTS.md` por conta própria.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`); Linear (JOA-14 concluída, JOA-15 aberta).
+
 ## 2026-09-19 11:49 — Claude Code — Linear (projeto `teoftsao`) formalizado como banco de tarefas; 1ª leva de issues criada
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

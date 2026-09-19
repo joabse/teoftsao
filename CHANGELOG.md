@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 11:58 — Claude Code — Execução da JOA-14: arquivos wrapper para todas as LLMs + regra de sincronização
+
+- **Motivo:** issue JOA-14 do Joab — "gostaria que as demais LLMs também pudessem entender o projeto... garanta que o líder sempre que mexer na estrutura do projeto atualize ele para as demais LLMs entenderem e sigam as mesmas regras e execuções que o Claude tem." Ferramentas citadas: Antigravity, Codex, opencode, Cline, Kimi, mmx, Qwen Code, DeepSeek.
+- **O que mudou:** `AGENTS.md` promovido a arquivo canônico multi-LLM (lido nativamente/por convenção por Codex CLI, opencode, Kimi, mmx e DeepSeek). Criados `QWEN.md` (wrapper para Qwen Code) e `.clinerules` (wrapper para Cline), no mesmo padrão de `CLAUDE.md`/`GEMINI.md`. Adicionada regra permanente de "Sincronização multi-LLM" em `CLAUDE.md` (item 11 + seção 12), `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules` e `ESTRUTURA.md`: sempre que uma regra crítica/papel/estrutura mudar em qualquer um dos arquivos-fonte (`CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md`, `ORCA.md`), a mudança deve ser propagada para todos os wrappers. Diagramas de estrutura de `CLAUDE.md` e `ESTRUTURA.md` atualizados para listar os novos arquivos. Criada issue **JOA-15** (Backlog, baixa prioridade) para verificar, quando essas ferramentas forem de fato usadas, se Kimi/mmx/DeepSeek realmente leem `AGENTS.md` por conta própria ou precisam de wrapper dedicado — essa parte foi assumida por convenção do ecossistema, sem confirmação direta.
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`); Linear (issue JOA-15).
+
 ## 2026-09-19 11:49 — Claude Code — Linear (`teoftsao`) formalizado como banco de tarefas do projeto
 
 - **Motivo:** o Joab apontou o projeto `teoftsao` no Linear (workspace Joabse, time JOA) como o gerenciador de tarefas correspondente ao que o ftsalider precisa executar. Encontrei o projeto vazio (0 issues); criei as 2 primeiras (JOA-12: localizar/reconstituir Q1–Q5 da Bíblia 3; JOA-13: extrair notas de fontes\ da Bíblia 2). O Joab então instruiu: sempre criar tarefas no Linear para soluções/pendências futuras encontradas, não só quando ele pedir.
