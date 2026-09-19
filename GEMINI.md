@@ -12,6 +12,8 @@
 4. **Fonte Primária Obrigatória (`fontes/`):** As notas de estudo em `ftsabrain/materias/<nome>/fontes/` são a base mandatória primária para qualquer análise ou rascunho. Buscas externas (Bíblia, léxicos, comentários) são puramente complementares; em qualquer divergência, **prevalece o material do curso**.
 5. **Memória de Trabalho:** O progresso do projeto é registrado em `ftsabrain/memoria/` (`00-registro-geral.md` para marcos gerais e `materias/<nome>/registro.md` por matéria).
 6. **Ciclo de Humanização:** Nenhum texto segue para `04_aprovados/` sem passar pelo Bereano (detector de IA) e, se reprovado, pelo Escriba em `03_revisao/` com versionamento numérico (`v1.md`, `v2.md`, etc.). Nunca sobrescrever versões anteriores.
+7. **`CHANGELOG.md` (raiz):** registre toda alteração de estrutura/arquivos do projeto (data/hora, motivo) antes de um commit ou ao finalizar a tarefa. É banco de consulta — **não leia automaticamente** ao iniciar sessão; abra só quando precisar de histórico específico ou o Joab pedir. Nunca apague entradas antigas.
+8. **`LESSONS.md` (raiz):** registre erros, acertos e pendências não resolvidas, no mesmo ritmo do changelog. Diferente dele, **pode e deve ser consultado** quando relevante para a tarefa atual.
 
 ---
 

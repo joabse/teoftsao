@@ -10,6 +10,8 @@
 4. **Fonte primária = material enviado.** As notas em `ftsabrain/materias/<nome>/fontes/` (extraídas dos originais do usuário) são a fonte mandatória e prioritária para qualquer resposta teológica. Busca externa (web, MCPs bíblicos) é só complementar, e em caso de conflito o material enviado prevalece — a menos que o usuário (Joab) diga o contrário.
 5. **Sem memória automática de progresso.** Como não há git, o único jeito de rastrear o que foi feito é registrar em `ftsabrain/memoria/` (ver seção 5). Ao concluir uma etapa, registre — quem registra formalmente é o ftsalider, mas se você (Claude Code) concluir uma etapa sozinho, documente o que fez.
 6. **Nunca sobrescreva versões em `03_revisao/`** — cada nova versão do ciclo de humanização é um arquivo novo (`v1.md`, `v2.md`, ...).
+7. **`CHANGELOG.md` (raiz) — obrigatório antes de cada commit/finalização de tarefa.** Registre toda alteração feita na estrutura ou nos arquivos do projeto, com data/hora e o motivo que originou a mudança (ver seção 10). É um banco de dados de consulta, **não leia `CHANGELOG.md` automaticamente** ao iniciar a sessão nem para responder perguntas gerais — consulte-o só quando precisar reconstruir um histórico específico ou quando o Joab pedir.
+8. **`LESSONS.md` (raiz) — registre erros, acertos e pendências não resolvidas.** Sempre que você (ou outro agente) errar algo, corrigir algo, ou não conseguir resolver um problema, registre em `LESSONS.md` (ver seção 10). Ao contrário do `CHANGELOG.md`, este arquivo **pode e deve ser consultado** quando for relevante para a tarefa atual.
 
 ## 1. Visão geral do projeto
 
@@ -125,3 +127,21 @@ Scripts Python autônomos e de uso único para reparo de OCR e consolidação de
 - Teólogos podem rodar em abas dedicadas: `orca terminal create --title "Teologo Claude" --command "claude"` (idem para `codex`, `agy`).
 - Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
 - Contexto isolado para conversões do file2md: criar terminal novo por conversão.
+
+## 10. `CHANGELOG.md` e `LESSONS.md` (raiz do projeto)
+
+Duas ferramentas de rastreio complementares à memória do `ftsabrain/` (que é sobre **conteúdo teológico**; estas duas são sobre **o projeto em si** — estrutura, arquivos, processo).
+
+### `CHANGELOG.md` — banco de dados de alterações estruturais
+
+- Registra **o que mudou** na estrutura/arquivos do projeto: data/hora, agente e motivo.
+- **Nunca leia este arquivo automaticamente** ao iniciar sessão ou para responder perguntas gerais — ele não é contexto de trabalho, é um log de consulta. Só abra quando precisar reconstruir um histórico específico ou quando o Joab pedir algo do histórico.
+- Toda LLM/agente que alterar estrutura ou arquivos do projeto adiciona uma entrada **antes do commit** ou **ao finalizar a tarefa** (o que vier primeiro). Nunca apague ou reescreva entradas antigas — só o Joab pode autorizar isso explicitamente.
+- Formato de entrada: `## AAAA-MM-DD HH:MM — <agente> — <resumo>` seguido de **Motivo**, **O que mudou** e **Local**.
+
+### `LESSONS.md` — lições aprendidas
+
+- Registra erros, acertos e pendências não resolvidas durante o trabalho, para orientar a própria LLM ou outra sessão/LLM no futuro.
+- Ao contrário do `CHANGELOG.md`, **pode e deve ser consultado** quando for relevante para a tarefa atual (ex.: antes de repetir uma ação que já deu problema).
+- Registre sempre que: algo deu errado e foi corrigido; uma abordagem não-óbvia funcionou; ou um problema ficou pendente. Mesmo ritmo do changelog — antes do commit ou ao finalizar a tarefa.
+- Formato de entrada: `## AAAA-MM-DD — <agente> — <resumo>` seguido de **O que aconteceu**, **Erro/acerto**, **Correção/solução** e **Lição**. Não apague entradas; se uma lição ficar obsoleta, marque `~~DESCONTINUADA~~` com data e motivo, mas mantenha o registro.

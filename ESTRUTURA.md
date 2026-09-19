@@ -135,6 +135,13 @@ Toda etapa concluída por qualquer assistente é registrada na memória do proje
 - Quem registra: o **ftsalider**, após validar a conclusão da etapa.
 - Formato: frontmatter `tipo: registro` + entradas cronológicas (mais recente no topo) com agente, tarefa, o que foi feito e local do produto gerado.
 
+### `CHANGELOG.md` e `LESSONS.md` (raiz do projeto)
+
+Duas ferramentas de rastreio complementares à memória do `ftsabrain\` (que é sobre **conteúdo teológico**; estas duas são sobre **o projeto em si** — estrutura, arquivos, processo).
+
+- **`CHANGELOG.md`** — banco de dados de alterações estruturais/arquivos: data/hora, agente e motivo. **Nunca lido automaticamente** por nenhuma LLM ao iniciar sessão; é consultado só quando alguém precisa reconstruir um histórico específico ou o Joab pede. Toda LLM/agente que alterar estrutura ou arquivos do projeto adiciona uma entrada **antes do commit** ou **ao finalizar a tarefa**. Nunca apagar/reescrever entradas antigas sem autorização explícita do Joab.
+- **`LESSONS.md`** — erros, acertos e pendências não resolvidas durante o trabalho, para orientar a própria LLM ou outra sessão/LLM no futuro. Ao contrário do changelog, **pode e deve ser consultado** quando for relevante para a tarefa atual. Mesmo ritmo de registro (antes do commit ou ao finalizar a tarefa); entradas obsoletas se marcam `~~DESCONTINUADA~~`, nunca se apagam.
+
 ## 4. Convenções
 
 - **Idioma:** todo conteúdo e documentação em português brasileiro.

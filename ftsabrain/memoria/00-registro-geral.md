@@ -13,6 +13,12 @@ tags:
 
 ---
 
+## 2026-09-19 11:15 — Claude Code — Criadas as funcionalidades CHANGELOG.md e LESSONS.md
+
+- **Matéria:** geral (infra/processo) | **Status:** **CONCLUÍDO** ✅
+- **O que foi feito:** o Joab pediu duas funcionalidades que o projeto ainda não tinha: um changelog de alterações estruturais/arquivos (banco de consulta, não deve ser lido automaticamente pela LLM) e um registro de lições aprendidas (erros, acertos, pendências, consultável pela LLM quando relevante). Criados `CHANGELOG.md` e `LESSONS.md` na raiz do projeto, cada um com regra de formato e uso no topo do próprio arquivo. `CLAUDE.md`, `AGENTS.md`, `GEMINI.md` e `ESTRUTURA.md` atualizados com as novas regras críticas e uma seção explicando os dois arquivos, para que todos os teólogos (Claude Code, Codex CLI, Antigravity) sigam o mesmo processo: registrar em ambos os arquivos antes de um commit ou ao finalizar uma tarefa.
+- **Resultado/Local:** `CHANGELOG.md`, `LESSONS.md` (raiz); `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`.
+
 ## 2026-09-19 — Claude Code — Removidas todas as referências ao AionUi e Maestri (pedido explícito do Joab)
 
 - **Matéria:** geral (infra/documentação) | **Status:** **CONCLUÍDO** ✅
