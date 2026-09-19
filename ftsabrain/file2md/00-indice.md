@@ -30,7 +30,6 @@ tags:
 
 | Data / Hora | Matéria | Arquivo Original | Formato | Destino Markdown | Ferramenta | Status |
 |---|---|---|---|---|---|---|
-| 2026-09-19 14:11 | biblia2 | `Apostila - Bíblia II - Introdução ao AT.pdf` | PDF nativo | `scratch/test_apostila.md` (validação anydoc) | `anydoc 0.2.4` | ✅ Sucesso (311 KB limpo) |
 | 2026-09-12 17:38 | biblia2 | `Apostila - Bíblia II - Introdução ao AT.pdf` | PDF nativo | `materias/biblia2/01_markdown/Apostila - Bíblia II - Introdução ao AT.md` | `file2md` | ✅ Convertido |
 | 2026-09-12 17:49 | biblia2 | `01_HILL_Andrew_51_70.pdf` | PDF escaneado | `materias/biblia2/01_markdown/adicionais/01_Hill_Andrew_51-70.md` | OCR / Python | ✅ Convertido |
 | 2026-09-12 17:51 | biblia2 | `01_HILL_Andrew_51_70a.pdf` | PDF escaneado | `materias/biblia2/01_markdown/adicionais/01_Hill_Andrew_51-70a.md` | OCR / Python | ✅ Convertido |
@@ -54,6 +53,7 @@ tags:
 - [[../materias|MOC de Matérias]]
 - [[../pipeline|Pipeline FTSA]]
 - [[../memoria/00-registro-geral|Registro Geral]]
+
 
 
 
