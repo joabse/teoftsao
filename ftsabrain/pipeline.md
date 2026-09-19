@@ -20,8 +20,9 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 
 ## Papéis (rápido)
 
-- **ftsalider (terminal "ftsalider" — hoje Claude Code, mas o papel pertence ao terminal, não à LLM)** — orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19; revisado 13:16).
+- **ftsalider (terminal "ftsalider" — hoje Claude Code, mas o papel pertence ao terminal, não à LLM)** — orquestra toda a equipe: coordena os 3 teólogos e o comitador, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19; revisado 13:16).
 - **Teólogo 1 / Teólogo 2 / Teólogo 3** — os 3 teólogos, um por terminal nomeado no Orca (papel fixo por terminal; ocupantes hoje: Claude Code, Codex CLI, Antigravity, respectivamente — mas podem mudar). Produzem textos. Anteriormente existia o gbooklm (4º teólogo NotebookLM), **removido pelo Joab** em 2026-09-13 — por isso essa função está descontinuada.
+- **comitador (terminal dedicado, hoje Claude Code)** — faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Nunca decide sozinho o que comitar (Joab, 2026-09-19, JOA-20).
   - 🌐 **Regra de pesquisa na Bíblia (Joab, 2026-09-13):** se precisarem consultar a Bíblia (texto, comentários, léxicos, contexto histórico), os teólogos estão **livres para buscar na internet** com os MCPs de busca do projeto ou pelo browser integrado do Orca (`orca tab`) — **sem necessidade de pedir autorização** ao líder. Devem **sempre indicar a fonte** (URL, obra, autor) na resposta. As notas em `fontes\` continuam sendo a base primária; a busca externa é complementar.
 - **file2md** — converte arquivos para Markdown.
 - **Bereano** — detector de IA (aprova/reprova).

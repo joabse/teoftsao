@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 13:40 — Claude Code — Execução da JOA-20: criado o agente/terminal comitador
+
+- **Motivo:** issue JOA-20 do Joab — criar um agente comitador, terminal dedicado que faz commits a pedido do ftsalider, com descrição detalhada fornecida por ele.
+- **O que mudou:** criado o terminal "comitador" no Orca (`orca terminal create --title "comitador" --command "claude"`). Documentado o 5º terminal nomeado e o fluxo de commit em `CLAUDE.md` (regra crítica 1 revisada + nova seção 4.1), `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md` (nova regra "Terminal comitador") e `ORCA.md`. A partir de agora, commits não são mais feitos diretamente pelo ftsalider/teólogos — são delegados ao comitador. Corrigida também uma referência residual a `KIMI.md` esquecida em `.clinerules` na limpeza da JOA-19.
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`; Orca (novo terminal "comitador").
+
 ## 2026-09-19 13:33 — Claude Code — Execução da JOA-19: removido o Kimi Code do projeto
 
 - **Motivo:** issue JOA-19 do Joab — "Remove do projeto a estrutura do Kimi, não irei utilizar esta LLM ainda."

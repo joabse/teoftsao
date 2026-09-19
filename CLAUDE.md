@@ -4,8 +4,8 @@
 
 ## 0. Regras críticas (leia antes de qualquer ação)
 
-1. **Sem VCS tradicional.** Este projeto NÃO usa git — é gerenciado como pasta/worktree no Orca. Nunca rode `git init`, `git add`, commits etc. aqui, a menos que o usuário peça explicitamente.
-2. **Papéis pertencem ao TERMINAL, não à LLM (Joab, 2026-09-19).** O projeto roda em 4 terminais nomeados no Orca: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. O papel de cada terminal é fixo (ver seção 4); **quem ocupa cada terminal pode mudar** — o Joab pode colocar qualquer LLM em qualquer terminal (ex.: Codex no terminal `ftsalider`, Claude Code no `Teólogo 2`). Ocupação atual (2026-09-19): `ftsalider` = Claude Code, `Teólogo 1` = Claude Code, `Teólogo 2` = Codex CLI, `Teólogo 3` = Antigravity — mas isso é um estado, não uma regra fixa. **Nunca assuma seu papel só porque você é Claude Code** — confirme em qual terminal está (nome do terminal no Orca) ou pergunte ao Joab/ftsalider antes de agir.
+1. **Commits passam pelo comitador (Joab, 2026-09-19).** O projeto usa git, mas quem faz commits é o terminal **comitador** — não o ftsalider nem os teólogos diretamente. Se você é o ftsalider: redija a descrição detalhada do commit e envie ao comitador (ver seção 4.1) em vez de rodar `git commit` você mesmo. Nunca rode `git init` ou apague histórico sem pedido explícito do Joab.
+2. **Papéis pertencem ao TERMINAL, não à LLM (Joab, 2026-09-19).** O projeto roda em 5 terminais nomeados no Orca: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador**. O papel de cada terminal é fixo (ver seção 4); **quem ocupa cada terminal pode mudar** — o Joab pode colocar qualquer LLM em qualquer terminal (ex.: Codex no terminal `ftsalider`, Claude Code no `Teólogo 2`). Ocupação atual (2026-09-19): `ftsalider` = Claude Code, `Teólogo 1` = Claude Code, `Teólogo 2` = Codex CLI, `Teólogo 3` = Antigravity, `comitador` = Claude Code — mas isso é um estado, não uma regra fixa. **Nunca assuma seu papel só porque você é Claude Code** — confirme em qual terminal está (nome do terminal no Orca) ou pergunte ao Joab/ftsalider antes de agir.
 3. **Idioma:** todo conteúdo e documentação produzidos são em **português brasileiro**.
 4. **`00_originais/` é imutável.** Qualquer transformação de um arquivo original gera um novo arquivo em outra pasta — nunca sobrescreva ou edite um original.
 5. **Fonte primária = material enviado.** As notas em `ftsabrain/materias/<nome>/fontes/` (extraídas dos originais do usuário) são a fonte mandatória e prioritária para qualquer resposta teológica. Busca externa (web, MCPs bíblicos) é só complementar, e em caso de conflito o material enviado prevalece — a menos que o usuário (Joab) diga o contrário.
@@ -18,7 +18,7 @@
 
 ## 1. Visão geral do projeto
 
-O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, em 4 terminais nomeados cujos papéis são fixos — **ftsalider** (orquestrador), **Teólogo 1**, **Teólogo 2**, **Teólogo 3** — mas cuja **LLM ocupante pode mudar** a critério do Joab. Hoje (2026-09-19): Claude Code no `ftsalider` e no `Teólogo 1`, Codex CLI no `Teólogo 2`, Antigravity no `Teólogo 3`.
+O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, em 5 terminais nomeados cujos papéis são fixos — **ftsalider** (orquestrador), **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador** (faz commits a pedido do ftsalider) — mas cuja **LLM ocupante pode mudar** a critério do Joab. Hoje (2026-09-19): Claude Code no `ftsalider`, `Teólogo 1` e `comitador`, Codex CLI no `Teólogo 2`, Antigravity no `Teólogo 3`.
 
 Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
 
@@ -93,16 +93,17 @@ Regras do ciclo:
 
 ## 4. Equipe de agentes e papéis
 
-**Os 4 papéis abaixo pertencem ao terminal (nome fixo no Orca), não à LLM.** A coluna "Ocupante atual" é um estado — o Joab pode trocá-lo a qualquer momento, sem que o papel/responsabilidade do terminal mude.
+**Os 5 papéis abaixo pertencem ao terminal (nome fixo no Orca), não à LLM.** A coluna "Ocupante atual" é um estado — o Joab pode trocá-lo a qualquer momento, sem que o papel/responsabilidade do terminal mude.
 
 | Terminal (papel) | Responsabilidade | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). | Claude Code |
+| **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos e o comitador, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). | Claude Code |
 | **Teólogo 1** | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. | Claude Code (terminal dedicado, separado do ftsalider) |
 | **Teólogo 2** | Idem | Codex CLI |
 | **Teólogo 3** | Idem | Antigravity |
+| **comitador** | Faz commits git a pedido do ftsalider. **Nunca decide sozinho o que comitar ou a mensagem** — só executa com a descrição detalhada que o ftsalider fornecer (ver seção 4.1). | Claude Code (terminal dedicado) |
 
-Outros agentes, sem terminal fixo dedicado dentre os 4 nomeados:
+Outros agentes, sem terminal fixo dedicado dentre os 5 nomeados:
 
 | Agente | Papel | Responsabilidade |
 |---|---|---|
@@ -111,7 +112,15 @@ Outros agentes, sem terminal fixo dedicado dentre os 4 nomeados:
 | **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
 | **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca — não produz conteúdo teológico |
 
-**Antes de agir, confirme seu papel pelo terminal em que você está** (nome do terminal no Orca), não pela sua identidade de ferramenta — a mesma LLM pode ser ftsalider num terminal e Teólogo em outro (é o caso do Claude Code hoje), e o Joab pode reatribuir qualquer terminal a qualquer LLM. Questões e produção teológica vão para os 3 terminais de Teólogo; o ftsalider consolida e valida. (Estrutura de 4 terminais nomeados definida pelo Joab em 2026-09-19; papéis desacoplados de LLM específica em 2026-09-19, mesmo dia — ver `ESTRUTURA.md` para o histórico completo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13.)
+**Antes de agir, confirme seu papel pelo terminal em que você está** (nome do terminal no Orca), não pela sua identidade de ferramenta — a mesma LLM pode ser ftsalider num terminal e Teólogo em outro (é o caso do Claude Code hoje), e o Joab pode reatribuir qualquer terminal a qualquer LLM. Questões e produção teológica vão para os 3 terminais de Teólogo; o ftsalider consolida e valida. (Estrutura de terminais nomeados definida pelo Joab em 2026-09-19; papéis desacoplados de LLM específica no mesmo dia; terminal `comitador` adicionado em 2026-09-19 — ver `ESTRUTURA.md` para o histórico completo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13.)
+
+### 4.1 Fluxo do comitador (Joab, 2026-09-19)
+
+- O **comitador** é o único terminal que faz commits git no projeto. Existe para que o ftsalider não precise (nem devesse) comitar diretamente todas as vezes.
+- **Antes de pedir um commit ao comitador, o ftsalider redige uma descrição detalhada** do que está sendo comitado e por quê (arquivos alterados, motivo, contexto) — é responsabilidade do ftsalider, não do comitador, decidir o que entra no commit e como descrevê-lo.
+- O comitador executa o `git add`/`git commit` (e `git push`, se instruído) exatamente com a descrição recebida, sem reinterpretar ou resumir por conta própria.
+- **Verifique sempre qual LLM/CLI ocupa o terminal comitador** antes de enviar instruções — a sintaxe de comando pode variar entre ferramentas; adapte a instrução ao CLI real em uso para ter a melhor performance.
+- Envio de instrução: `orca terminal send --terminal <handle-do-comitador> --text "<descrição do commit>" --enter --wait-submit 5 --json`.
 
 ## 5. Memória de trabalho (`ftsabrain\memoria\`)
 
@@ -139,7 +148,7 @@ Scripts Python autônomos e de uso único para reparo de OCR e consolidação de
 ## 9. Operação no Orca (resumo — detalhes em `ORCA.md`)
 
 - Projeto registrado no Orca como repositório de pasta (`teoftsao`).
-- 4 terminais nomeados no Orca, com papel fixo e ocupante variável (ver seção 4): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. Ocupação atual: Claude Code (`ftsalider` e `Teólogo 1`), `codex` (`Teólogo 2`), `agy`/Antigravity (`Teólogo 3`). O ftsalider cria/gerencia os terminais dos teólogos: `orca terminal create --title "Teologo 2" --command "codex"` (idem para `agy` ou `claude`, dependendo de quem o Joab designar).
+- 5 terminais nomeados no Orca, com papel fixo e ocupante variável (ver seção 4): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador**. Ocupação atual: Claude Code (`ftsalider`, `Teólogo 1` e `comitador`), `codex` (`Teólogo 2`), `agy`/Antigravity (`Teólogo 3`). O ftsalider cria/gerencia os terminais: `orca terminal create --title "Teologo 2" --command "codex"` (idem para `agy`, `claude`, dependendo de quem o Joab designar).
 - Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
 - Contexto isolado para conversões do file2md: criar terminal novo por conversão.
 

@@ -16,7 +16,8 @@
 8. **`LESSONS.md` (raiz):** registre erros, acertos e pendências não resolvidas, no mesmo ritmo do changelog. Diferente dele, **pode e deve ser consultado** quando relevante para a tarefa atual.
 9. **Linear (projeto `teoftsao`, workspace Joabse, time JOA):** banco de tarefas do projeto. Sempre que encontrar algo para resolver/executar no futuro (pendência, divergência, decisão a tomar), crie uma issue lá — não basta anotar em memória. Se você não tiver acesso direto à ferramenta do Linear, avise o ftsalider (Claude Code) para que ele crie a issue por você.
 10. **Sincronização multi-LLM:** este arquivo é um espelho de `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` para o Antigravity. Outras ferramentas têm o seu: `CLAUDE.md` (Claude Code), `QWEN.md` (Qwen Code), `.clinerules` (Cline). Se você perceber que uma regra sua está desatualizada em relação a `AGENTS.md`/`ESTRUTURA.md`, avise o ftsalider para sincronizar todos os arquivos.
-11. **Papéis pertencem ao terminal, não à LLM:** o projeto tem 4 terminais nomeados no Orca — `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3` — cada um com papel fixo, mas ocupante variável a critério do Joab. Confirme em qual terminal você está antes de agir; não assuma seu papel só por ser Antigravity. Ver seção 3.
+11. **Papéis pertencem ao terminal, não à LLM:** o projeto tem 5 terminais nomeados no Orca — `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`, `comitador` — cada um com papel fixo, mas ocupante variável a critério do Joab. Confirme em qual terminal você está antes de agir; não assuma seu papel só por ser Antigravity. Ver seção 3.
+12. **Commits passam pelo comitador:** nunca rode `git commit` você mesmo — se algo precisar ser comitado, avise o ftsalider.
 
 ---
 
@@ -85,7 +86,7 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab
 
 ## 3. Papéis da Equipe FTSA
 
-**Papel = terminal, não LLM.** O papel de cada um dos 4 terminais nomeados é fixo; quem o ocupa pode mudar a critério do Joab.
+**Papel = terminal, não LLM.** O papel de cada um dos 5 terminais nomeados é fixo; quem o ocupa pode mudar a critério do Joab.
 
 | Terminal (papel) | Função Principal | Ocupante atual (2026-09-19) |
 |---|---|---|
@@ -93,8 +94,9 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab
 | **Teólogo 1** | Análise e produção teológica. | Claude Code (terminal dedicado) |
 | **Teólogo 2** | Análise e produção teológica. | Codex CLI |
 | **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity (você, hoje) |
+| **comitador** | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Claude Code (terminal dedicado) |
 
-Outros agentes (sem terminal fixo entre os 4 nomeados):
+Outros agentes (sem terminal fixo entre os 5 nomeados):
 
 | Agente | Papel | Função Principal |
 |---|---|---|

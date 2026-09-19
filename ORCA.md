@@ -18,14 +18,15 @@ No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, 
 
 ## 2. Mapeamento da Equipe FTSA no Orca
 
-Desde 2026-09-19, o Joab nomeou 4 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. **O papel FTSA pertence ao nome do terminal — é fixo. Quem/qual LLM ocupa cada terminal é um estado, não uma regra**, e o Joab pode trocar a qualquer momento (ex.: `orca terminal create --title "ftsalider" --command "codex"` colocaria o Codex no papel de líder). A coluna "Executável / Agente" abaixo é a ocupação **atual**.
+Desde 2026-09-19, o Joab nomeou 5 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador**. **O papel FTSA pertence ao nome do terminal — é fixo. Quem/qual LLM ocupa cada terminal é um estado, não uma regra**, e o Joab pode trocar a qualquer momento (ex.: `orca terminal create --title "ftsalider" --command "codex"` colocaria o Codex no papel de líder). A coluna "Executável / Agente" abaixo é a ocupação **atual**.
 
 | Terminal (nome no Orca) | Executável / Agente (ocupante atual) | Papel FTSA (fixo) | Finalidade |
 |---|---|---|---|
-| **ftsalider** | `claude` (Claude Code) | Líder/Orquestrador | Orquestra toda a equipe: distribui tarefas aos 3 teólogos, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente.** |
+| **ftsalider** | `claude` (Claude Code) | Líder/Orquestrador | Orquestra toda a equipe: distribui tarefas aos 3 teólogos e ao comitador, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente.** |
 | **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider — mesmo agente (Claude Code) hoje, papel diferente. |
 | **Teólogo 2** | `codex` | Teólogo | Análise e produção teológica. |
 | **Teólogo 3** | `agy` (Antigravity) | Teólogo | Análise e produção teológica. |
+| **comitador** | `claude` (Claude Code) | Comitador | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Verificar sempre qual LLM/CLI ocupa este terminal para adaptar a sintaxe do comando. |
 | — | Script / CLI de conversão (**file2md**) | Conversor | Terminal sob demanda — conversão de originais para Markdown em `01_markdown/`. |
 | — | Prompt / Sessão dedicada (**Bereano**) | Detector de IA | Terminal ou prompt de verificação — detecção de marcas de IA nos rascunhos em `02_rascunhos/`. |
 | — | Prompt / Sessão dedicada (**Escriba**) | Humanizador | Terminal de redação — humanização e reescrita de textos reprovados em `03_revisao/`. |
@@ -46,7 +47,12 @@ orca terminal create --title "Teologo 2" --command "codex" --json
 
 # Iniciar o Antigravity CLI (Teólogo 3)
 orca terminal create --title "Teologo 3" --command "agy" --json
+
+# Iniciar o comitador (se não estiver aberto)
+orca terminal create --title "comitador" --command "claude" --json
 ```
+
+Fluxo de commit: o ftsalider redige a descrição detalhada e envia ao comitador via `orca terminal send` (ver `CLAUDE.md`, seção 4.1) — nunca comita diretamente.
 
 Listar e monitorar terminais ativos:
 ```bash

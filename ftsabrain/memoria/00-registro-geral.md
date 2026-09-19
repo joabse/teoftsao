@@ -13,6 +13,14 @@ tags:
 
 ---
 
+## 2026-09-19 13:40 — Claude Code — Executada JOA-20: criado o agente/terminal comitador
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Pedido do Joab:** criar o agente comitador — terminal dedicado a fazer commits git, sempre a pedido do ftsalider e com descrição detalhada fornecida por ele.
+- **O que foi feito:** criado o terminal "comitador" no Orca. Documentado como 5º terminal nomeado (junto a ftsalider, Teólogo 1/2/3) em `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md` e `ftsabrain/pipeline.md`. A partir de agora, commits são delegados ao comitador em vez de feitos diretamente pelo ftsalider.
+- **Próxima etapa:** ao precisar comitar algo, enviar a descrição detalhada ao terminal comitador via `orca terminal send`, em vez de rodar `git commit` diretamente.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`; Orca (terminal "comitador").
+
 ## 2026-09-19 13:33 — Claude Code — Executada JOA-19: Kimi Code removido do projeto
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

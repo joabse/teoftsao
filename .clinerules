@@ -4,8 +4,8 @@
 
 ## 0. Regras Críticas (Obrigatórias)
 
-1. **Controle de Versão:** repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. Nunca rode `git init`/commits por conta própria — só a pedido explícito do Joab.
-2. **Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19):** o projeto roda em 4 terminais nomeados no Orca — **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3** — cada um com papel fixo, mas ocupante variável a critério do Joab. Hoje: Claude Code (`ftsalider` e `Teólogo 1`), Codex CLI (`Teólogo 2`), Antigravity (`Teólogo 3`). Se você (Cline) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual terminal você ocupa — nunca assuma um papel só por ser Cline.
+1. **Controle de Versão:** repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. **Commits passam pelo terminal comitador** — nunca rode `git commit` por conta própria; avise o ftsalider se algo precisar ser comitado.
+2. **Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19):** o projeto roda em 5 terminais nomeados no Orca — **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador** — cada um com papel fixo, mas ocupante variável a critério do Joab. Hoje: Claude Code (`ftsalider`, `Teólogo 1` e `comitador`), Codex CLI (`Teólogo 2`), Antigravity (`Teólogo 3`). Se você (Cline) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual terminal você ocupa — nunca assuma um papel só por ser Cline.
 3. **Idioma:** toda comunicação, documentação e textos produzidos são em **português do Brasil**.
 4. **`00_originais/` é imutável:** arquivos brutos recebidos nunca são alterados. Qualquer conversão/processamento gera novos arquivos em outra pasta.
 5. **Fonte primária obrigatória (`fontes/`):** as notas em `ftsabrain/materias/<nome>/fontes/` são a base mandatória para qualquer análise ou rascunho. Busca externa é só complementar; em conflito, prevalece o material do curso.
@@ -20,7 +20,7 @@
 
 - `materias\<nome>\` — pipeline de 5 etapas: `00_originais\` (imutável) → `01_markdown\` (file2md) → `02_rascunhos\` (teólogos) → `03_revisao\` (humanização, v1/v2/...) → `04_aprovados\` (final).
 - `ftsabrain\` — vault Obsidian: `materias\<nome>\fontes\` (notas de conhecimento) e `memoria\` (log de atividades).
-- `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` / `QWEN.md` / `KIMI.md` / `.clinerules` — mesmo conteúdo essencial, um wrapper por ferramenta. `AGENTS.md` é o canônico.
+- `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` / `QWEN.md` / `.clinerules` — mesmo conteúdo essencial, um wrapper por ferramenta. `AGENTS.md` é o canônico.
 
 ## 2. Papéis da Equipe FTSA
 
@@ -32,8 +32,9 @@
 | Teólogo 1 | Analisa materiais em `fontes\` e produz rascunhos. | Claude Code (terminal dedicado) |
 | Teólogo 2 | Idem | Codex CLI |
 | Teólogo 3 | Idem | Antigravity |
+| comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Claude Code (terminal dedicado) |
 
-Outros agentes (sem terminal fixo entre os 4 nomeados):
+Outros agentes (sem terminal fixo entre os 5 nomeados):
 
 | Agente | Papel | Função |
 |---|---|---|

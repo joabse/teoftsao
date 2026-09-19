@@ -6,8 +6,8 @@
 
 ## 0. Regras Críticas (Obrigatórias)
 
-1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. Nunca rode `git init`/commits por conta própria — só a pedido explícito do Joab.
-2. **Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19):** o projeto roda em 4 terminais nomeados no Orca — **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3** — cada um com papel fixo, mas ocupante variável a critério do Joab. Hoje: Claude Code (`ftsalider` e `Teólogo 1`), Codex CLI (`Teólogo 2`), Antigravity (`Teólogo 3`). Se você (Qwen Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual terminal você ocupa — nunca assuma um papel só por ser Qwen Code.
+1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. **Commits passam pelo terminal comitador** — nunca rode `git commit` por conta própria; avise o ftsalider se algo precisar ser comitado.
+2. **Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19):** o projeto roda em 5 terminais nomeados no Orca — **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**, **comitador** — cada um com papel fixo, mas ocupante variável a critério do Joab. Hoje: Claude Code (`ftsalider`, `Teólogo 1` e `comitador`), Codex CLI (`Teólogo 2`), Antigravity (`Teólogo 3`). Se você (Qwen Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual terminal você ocupa — nunca assuma um papel só por ser Qwen Code.
 3. **Idioma:** toda comunicação, documentação e textos produzidos são em **português do Brasil**.
 4. **`00_originais/` é imutável:** arquivos brutos recebidos nunca são alterados. Qualquer conversão/processamento gera novos arquivos em outra pasta.
 5. **Fonte primária obrigatória (`fontes/`):** as notas em `ftsabrain/materias/<nome>/fontes/` são a base mandatória para qualquer análise ou rascunho. Busca externa é só complementar; em conflito, prevalece o material do curso.
@@ -91,8 +91,9 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab (via ftsalider)
 | **Teólogo 1** | Análise e produção teológica. | Claude Code (terminal dedicado) |
 | **Teólogo 2** | Análise e produção teológica. | Codex CLI |
 | **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity |
+| **comitador** | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Claude Code (terminal dedicado) |
 
-Outros agentes (sem terminal fixo entre os 4 nomeados):
+Outros agentes (sem terminal fixo entre os 5 nomeados):
 
 | Agente | Papel | Função Principal |
 |---|---|---|

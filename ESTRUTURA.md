@@ -36,14 +36,15 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 
 ## 2. Papéis da equipe
 
-O Orca roda o projeto em **4 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2** e **Teólogo 3**. **O papel pertence ao terminal, não à LLM que o ocupa** (Joab, 2026-09-19, revisão 13:16): o líder é sempre quem estiver no terminal `ftsalider` — hoje Claude Code, mas o Joab pode trocar para Codex, Antigravity ou qualquer outra LLM a qualquer momento. O mesmo vale para os 3 terminais de Teólogo. A tabela abaixo mostra o papel fixo de cada terminal e o ocupante **atual** (um estado, não uma regra).
+O Orca roda o projeto em **5 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3** e **comitador**. **O papel pertence ao terminal, não à LLM que o ocupa** (Joab, 2026-09-19, revisão 13:16): o líder é sempre quem estiver no terminal `ftsalider` — hoje Claude Code, mas o Joab pode trocar para Codex, Antigravity ou qualquer outra LLM a qualquer momento. O mesmo vale para os 3 terminais de Teólogo e para o comitador. A tabela abaixo mostra o papel fixo de cada terminal e o ocupante **atual** (um estado, não uma regra).
 
 | Terminal (papel) | Responsabilidade no pipeline | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente.** | Claude Code |
+| **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos e o comitador, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente.** | Claude Code |
 | **Teólogo 1** | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). | Claude Code (terminal dedicado, separado do ftsalider) |
 | **Teólogo 2** | Íd. — análise de materiais e produção de textos. | Codex CLI |
 | **Teólogo 3** | Íd. — análise de materiais e produção de textos. | Antigravity |
+| **comitador** | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. **Nunca decide sozinho** o que comitar ou a mensagem. | Claude Code (terminal dedicado) |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
@@ -127,6 +128,14 @@ Entrega ao usuário (via ftsalider)
 3. **Terminais `Teólogo 1`, `Teólogo 2`, `Teólogo 3`** — quem estiver neles analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. Ocupantes atuais: Claude Code (Teólogo 1, terminal dedicado), Codex CLI (Teólogo 2), Antigravity (Teólogo 3).
 4. **Nenhuma LLM deve assumir seu papel só pela própria identidade** — antes de agir, confirme o nome do terminal em que está (no Orca) ou pergunte ao Joab/ftsalider. A mesma LLM pode ocupar papéis diferentes em terminais diferentes (caso do Claude Code hoje: ftsalider num terminal, Teólogo 1 em outro).
 5. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos**, não ocupam um dos 4 terminais nomeados, e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+
+### Regra — Terminal comitador (Joab, 2026-09-19, 13:35, issue JOA-20)
+
+1. **Terminal `comitador`** — 5º terminal nomeado no Orca. Faz commits git a pedido do ftsalider.
+2. **O ftsalider é responsável por redigir uma descrição detalhada** do commit (o que mudou, por quê) antes de pedir ao comitador. O comitador nunca decide sozinho o que comitar ou como descrever.
+3. O comitador executa exatamente com a descrição recebida — não resume, não reinterpreta.
+4. Antes de instruir o comitador, **verificar qual LLM/CLI ocupa aquele terminal** para adaptar a sintaxe do comando e obter a melhor performance.
+5. Commits deixam de ser feitos diretamente pelo ftsalider ou pelos teólogos — passam sempre pelo comitador.
 
 ### ~~Regra anterior — Estrutura de 4 terminais nomeados no Orca (Joab, 2026-09-19, 11:40)~~ — SUPERSEDIDA
 
