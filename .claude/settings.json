@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Bash(ls*)",
+      "Bash(dir*)",
+      "Bash(python *.py)"
+    ],
+    "deny": [
+      "Bash(git *)",
+      "Bash(rm -rf *)"
+    ]
+  }
+}

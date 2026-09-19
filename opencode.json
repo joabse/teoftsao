@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "teologo",
+  "permission": {
+    "edit": {
+      "materias/**/00_originais/**": "deny",
+      "materias/_TEMPLATE/**": "deny"
+    },
+    "bash": {
+      "git *": "deny",
+      "rm -rf *": "deny"
+    }
+  }
+}

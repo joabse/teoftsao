@@ -1,0 +1,127 @@
+# CLAUDE.md — Projeto teoftsa
+
+> Este arquivo é carregado automaticamente pelo Claude Code no início de cada sessão neste diretório. Consolida `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Claude Code (um dos "teólogos" da equipe FTSA) opere corretamente sem precisar reler os três arquivos separadamente. Em caso de dúvida ou divergência, os arquivos originais (`AGENTS.md`, `ESTRUTURA.md`, `ORCA.md`) são a fonte de verdade.
+
+## 0. Regras críticas (leia antes de qualquer ação)
+
+1. **Sem VCS tradicional.** Este projeto NÃO usa git — é gerenciado como pasta/worktree no Orca. Nunca rode `git init`, `git add`, commits etc. aqui, a menos que o usuário peça explicitamente.
+2. **Idioma:** todo conteúdo e documentação produzidos são em **português brasileiro**.
+3. **`00_originais/` é imutável.** Qualquer transformação de um arquivo original gera um novo arquivo em outra pasta — nunca sobrescreva ou edite um original.
+4. **Fonte primária = material enviado.** As notas em `ftsabrain/materias/<nome>/fontes/` (extraídas dos originais do usuário) são a fonte mandatória e prioritária para qualquer resposta teológica. Busca externa (web, MCPs bíblicos) é só complementar, e em caso de conflito o material enviado prevalece — a menos que o usuário (Joab) diga o contrário.
+5. **Sem memória automática de progresso.** Como não há git, o único jeito de rastrear o que foi feito é registrar em `ftsabrain/memoria/` (ver seção 5). Ao concluir uma etapa, registre — quem registra formalmente é o ftsalider, mas se você (Claude Code) concluir uma etapa sozinho, documente o que fez.
+6. **Nunca sobrescreva versões em `03_revisao/`** — cada nova versão do ciclo de humanização é um arquivo novo (`v1.md`, `v2.md`, ...).
+
+## 1. Visão geral do projeto
+
+O `teoftsa` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca** e no **AionUi**.
+
+Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
+
+## 2. Estrutura de diretórios
+
+```
+teoftsa\
+├── CLAUDE.md             ← este arquivo (carregado automaticamente pelo Claude Code)
+├── AGENTS.md              ← guia operacional resumido (equivalente a este arquivo, para outros agentes/CLIs)
+├── ESTRUTURA.md           ← detalhamento completo de papéis, pipeline e regras
+├── ORCA.md                ← comandos e operação específica no Orca
+├── materias\               ← uma pasta por disciplina/matéria
+│   ├── README.md           ← documentação do fluxo de matérias
+│   ├── _TEMPLATE\          ← modelo de pastas para criar nova matéria
+│   ├── biblia2\            ← matéria "Bíblia 2"
+│   ├── biblia3\            ← matéria "Bíblia 3" (contém também scripts .py avulsos de OCR)
+│   └── <nome>\
+│       ├── 00_originais\   ← arquivos enviados pelo usuário — IMUTÁVEL
+│       ├── 01_markdown\    ← convertidos pelo agente file2md
+│       ├── 02_rascunhos\   ← textos produzidos pelos teólogos
+│       ├── 03_revisao\     ← ciclo de humanização, versionado (v1.md, v2.md, ...)
+│       └── 04_aprovados\   ← entrega final, aprovada pelo Bereano
+└── ftsabrain\              ← vault Obsidian, o "cérebro" do projeto
+    ├── Bem-vindo.md
+    ├── materias.md         ← MOC/índice geral das matérias
+    ├── pipeline.md         ← resumo do pipeline de produção
+    ├── materias\<nome>\    ← notas de conhecimento extraídas (00-visao-geral.md + fontes\)
+    └── memoria\
+        ├── 00-registro-geral.md      ← log de atividades gerais
+        └── materias\<nome>\registro.md ← log por matéria
+```
+
+Nova matéria: copiar `materias\_TEMPLATE\` e registrar em `ftsabrain\materias.md` (detalhes em `materias\README.md`).
+
+## 3. Pipeline de produção de conteúdo
+
+```
+Usuário envia materiais da matéria
+        │
+        ▼
+materias\<nome>\00_originais\        (imutável)
+        │  file2md converte
+        ▼
+materias\<nome>\01_markdown\         (Markdown pronto para análise)
+        │  teólogos analisam e escrevem
+        ▼
+materias\<nome>\02_rascunhos\        (textos produzidos pelos teólogos)
+        │
+        ▼
+╔═════════════ CICLO DE HUMANIZAÇÃO ═════════════╗
+║  texto ──► Bereano (detector de IA)            ║
+║       aprovado? ── SIM ──► 04_aprovados\       ║
+║       │ NÃO                                    ║
+║       ▼                                        ║
+║  Escriba humaniza → nova versão em 03_revisao\ ║
+║       └──► volta ao Bereano (repete até OK)    ║
+╚═════════════════════════════════════════════════╝
+        │
+        ▼
+materias\<nome>\04_aprovados\   → Entrega ao usuário (via ftsalider)
+```
+
+Regras do ciclo:
+1. Todo texto produzido pelos teólogos passa **obrigatoriamente** pelo Bereano.
+2. Reprovado → Escriba humaniza → nova versão numerada em `03_revisao\` (nunca sobrescrever) → volta ao Bereano.
+3. Repete até aprovação; só então vai para `04_aprovados\`.
+
+## 4. Equipe de agentes e papéis
+
+| Agente | Papel | Responsabilidade |
+|---|---|---|
+| **ftsalider** | Líder | Coordena, distribui tarefas, valida entregas com o usuário, registra na memória |
+| **Claude Code** | Teólogo (1º) | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\` |
+| **Codex CLI** | Teólogo (2º) | Idem |
+| **Antigravity** | Teólogo (3º) | Idem |
+| **file2md** | Conversor | Converte originais (PDF, DOCX, PPTX etc.) para Markdown em `01_markdown\` |
+| **Bereano** | Detector de IA | Aprova/reprova textos no ciclo de humanização |
+| **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
+| **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca/AionUi — não produz conteúdo teológico |
+
+**Os teólogos são SOMENTE 3:** Claude Code, Codex CLI e Antigravity. Questões e produção teológica vão exclusivamente para eles. (O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13; ver histórico arquivado em `ESTRUTURA.md` caso seja readicionado.)
+
+## 5. Memória de trabalho (`ftsabrain\memoria\`)
+
+Como não há git, a memória do vault é a única forma de rastrear progresso:
+- Atividades **gerais** (montagem, manutenção, mudanças estruturais) → `ftsabrain\memoria\00-registro-geral.md`.
+- Atividades de uma **matéria** → `ftsabrain\memoria\materias\<nome>\registro.md`.
+- Formato: frontmatter `tipo: registro` + entradas cronológicas (mais recente no topo) com agente, tarefa, o que foi feito e local do produto gerado.
+- Quem registra formalmente: o **ftsalider**, após validar a conclusão da etapa — mas ao concluir algo relevante nesta sessão, documente lá mesmo se não houver o líder por perto.
+
+## 6. Regra de pesquisa bíblica (teólogos)
+
+1. Prioridade absoluta é o material enviado em `fontes\` — busca externa é só complementar, para confirmar/verificar.
+2. Podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização.
+3. Em caso de conflito, prevalece o material enviado.
+4. Sempre indicar a fonte da consulta externa (URL, obra, autor) na resposta ao usuário.
+
+## 7. Questões de múltipla escolha
+
+Quando o usuário enviar questões de múltipla escolha, cada teólogo responde individualmente; o líder consolida ao final uma tabela-resumo com: nº da questão, resposta de cada teólogo (A/B/C/D/E), e sugestão do líder (letra + justificativa em 1 linha, citando `fontes\` e/ou fonte externa). A tabela vem **depois** de todas as questões respondidas, nunca intercalada.
+
+## 8. Scripts de processamento (`materias\biblia3\*.py`)
+
+Scripts Python autônomos e de uso único para reparo de OCR e consolidação de capítulos (prefixos `_consolida_`, `_repara_`, `_fix`, `_diag`, `_dbg`). Cada um tem caminhos absolutos Windows hardcoded para um arquivo específico. Executar individualmente com `python <script>.py`; **não** usar como base para uma ferramenta genérica sem adaptar os caminhos.
+
+## 9. Operação no Orca (resumo — detalhes em `ORCA.md`)
+
+- Projeto registrado no Orca como repositório de pasta (`teoftsa`).
+- Teólogos podem rodar em abas dedicadas: `orca terminal create --title "Teologo Claude" --command "claude"` (idem para `codex`, `agy`).
+- Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
+- Contexto isolado para conversões do file2md: criar terminal novo por conversão.

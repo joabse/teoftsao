@@ -1,0 +1,14 @@
+# Materiais originais enviados pelo usuário (PDFs grandes e imutáveis, não versionados)
+materias/*/00_originais/
+
+# Arquivos temporários e binários de processamento OCR
+materias/*/_ocr*.pdf
+materias/*/*.out
+
+# Variáveis de ambiente e segredos
+.env
+.env.local
+.env.*.local
+
+# Estado local de runtime e locks
+.claude/scheduled_tasks.lock

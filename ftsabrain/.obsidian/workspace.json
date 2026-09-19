@@ -1,0 +1,243 @@
+{
+  "main": {
+    "id": "add8f339dacc8407",
+    "type": "split",
+    "children": [
+      {
+        "id": "31be42af3203567b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "64a60e43020c9e43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pipeline.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "pipeline"
+            }
+          }
+        ]
+      },
+      {
+        "id": "af7d2072f7857561",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e0d38218f0ce9ad",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6e22d906a9bcb010",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba8de82ef9999a06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8a1c009a670bbf18",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "7ddf5cfed85f3200",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "2abd206775023b37",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6a735cff43556d83",
+    "type": "split",
+    "children": [
+      {
+        "id": "bf310203755594bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a7f9d9da8b80871",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos"
+            }
+          },
+          {
+            "id": "007b7a98d282f4d8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída"
+            }
+          },
+          {
+            "id": "de5acc183626decf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "1ce9eae2877c2424",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas as propriedades"
+            }
+          },
+          {
+            "id": "1932a5e7805fb556",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false
+    }
+  },
+  "active": "8a1c009a670bbf18",
+  "lastOpenFiles": [
+    "materias/biblia3/fontes/pdfs/10-Boer_ApocalipticaJudaicaOrigensCristas.md",
+    "materias/biblia3/fontes/pdfs/10-Boer_ApocalipticaJudaicaOrigensCristas.md.tmp.124296.4888baf6ab27",
+    "materias/biblia3/fontes/pdfs/09-Almeida_JudeusExclusaoSinagoga.md.tmp.124296.fc3aee22c4be",
+    "materias/biblia3/fontes/pdfs/09-Almeida_JudeusExclusaoSinagoga.md",
+    "materias/biblia3/fontes/pdfs/09-Almeida_JudeusExclusaoSinagoga.md.tmp.124296.ee2e9ad53518",
+    "materias/biblia3/fontes/pdfs/08-Witherington_Joao.md",
+    "materias/biblia3/fontes/pdfs/08-Witherington_Joao.md.tmp.124296.f2939afb6fce",
+    "materias/biblia3/fontes/pdfs/07-Witherington_Cartas.md",
+    "materias/biblia3/fontes/pdfs/07-Witherington_Cartas.md.tmp.124296.62a6505006a9",
+    "materias/biblia3/fontes/pdfs/06-Witherington_Evangelhos.md",
+    "materias/biblia3/fontes/pdfs/06-Witherington_Evangelhos.md.tmp.124296.66691a3d2c10",
+    "materias/biblia3/fontes/pdfs/05-Witherington_Sinoticos.md",
+    "materias/biblia3/fontes/pdfs/05-Witherington_Sinoticos.md.tmp.124296.42b8fd3a7292",
+    "materias/biblia3/fontes/pdfs/04-Alter_NTLiterGrecoRomana.md",
+    "materias/biblia3/fontes/pdfs/04-Alter_NTLiterGrecoRomana.md.tmp.124296.09f768ea05c6",
+    "materias/biblia3/fontes/pdfs/03-Stambaugh_Bauch_EstruturasSociaisImpRomano.md",
+    "materias/biblia3/fontes/pdfs/03-Stambaugh_Bauch_EstruturasSociaisImpRomano.md.tmp.124296.14ed268911d6",
+    "materias/biblia3/fontes/pdfs/02-Bright_TeologiaJudaismo.md",
+    "materias/biblia3/fontes/pdfs/02-Bright_TeologiaJudaismo.md.tmp.124296.f96b5cb49748",
+    "materias/biblia3/fontes/pdfs/01-Stambaugh_Bauch_ContextoHistorico.md",
+    "materias/biblia3/fontes/pdfs/Apostila_Biblia_III.md",
+    "materias/biblia3/fontes/aulas/aula_15_-_uma_identidade_para_quem_não_tem.md",
+    "materias/biblia3/fontes/aulas/aula_14_-_a_carta_de_tiago_e_o_sermão_do_monte.md",
+    "materias/biblia3/fontes/aulas/aula_13_-_hebreus_e_o_culto_no_tabernáculo.md",
+    "materias/biblia3/fontes/aulas/aula_11_-_paulo_e_a_experiência_religiosa.md",
+    "materias/biblia3/fontes/aulas/aula_10_-_paulo_e_as_culturas.md",
+    "materias/biblia3/fontes/aulas/aula_9_-_o_desenvolvimento_do_pensamento_paulino.md",
+    "materias/biblia3/fontes/aulas/aula_7_-_lucas_atos_espirito_santo_e_profecia.md",
+    "materias/biblia3/fontes/aulas/aula_6_-_o_sermao_do_monte.md",
+    "materias/biblia3/fontes/extras/profeta_e_luz_no_evangelho_de_joão__diálogo_sem_fronteira_2015.md",
+    "pipeline.md",
+    "materias/biblia3/fontes/extras/podcast_-_o_novo_testamento_e_os_discursos_de_seu_tempo_lucas_me.md",
+    "materias/biblia3/fontes/aulas/aula_5_-_a_cruz_o_serviço_e_o_discípulo_em_marcos.md",
+    "materias/biblia3/fontes/aulas/aula_3_-_o_uso_do_antigo_testamento_no_novo_testamento.md",
+    "materias/biblia3/fontes/aulas/aula_2_-_o_contexto_do_novo_testamento.md",
+    "materias/biblia3/fontes/aulas/aula_1_-_três_dimensões_para_estudar_o_novo_testamento.md"
+  ]
+}
