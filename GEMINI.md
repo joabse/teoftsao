@@ -94,7 +94,7 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab
 | **Teólogo 1** | Análise e produção teológica. | Claude Code (terminal dedicado) |
 | **Teólogo 2** | Análise e produção teológica. | Codex CLI |
 | **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity (você, hoje) |
-| **comitador** | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Claude Code (terminal dedicado) |
+| **comitador** | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Cline (terminal dedicado, já aberto pelo Joab) |
 
 Outros agentes (sem terminal fixo entre os 5 nomeados):
 

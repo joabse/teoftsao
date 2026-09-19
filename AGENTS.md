@@ -50,7 +50,7 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 | Teólogo 1 | Analisa materiais em `fontes/` e produz rascunhos | Claude Code (terminal dedicado) |
 | Teólogo 2 | Idem | Codex CLI (você, hoje) |
 | Teólogo 3 | Idem | Antigravity |
-| comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. Nunca decide sozinho o que comitar. | Claude Code (terminal dedicado) |
+| comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. Nunca decide sozinho o que comitar. | Cline (terminal dedicado, já aberto pelo Joab) |
 
 Outros agentes (sem um dos 5 terminais nomeados):
 

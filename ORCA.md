@@ -26,7 +26,7 @@ Desde 2026-09-19, o Joab nomeou 5 terminais fixos no Orca para este projeto: **f
 | **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider — mesmo agente (Claude Code) hoje, papel diferente. |
 | **Teólogo 2** | `codex` | Teólogo | Análise e produção teológica. |
 | **Teólogo 3** | `agy` (Antigravity) | Teólogo | Análise e produção teológica. |
-| **comitador** | `claude` (Claude Code) | Comitador | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Verificar sempre qual LLM/CLI ocupa este terminal para adaptar a sintaxe do comando. |
+| **comitador** | `cline` (Cline) | Comitador | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. Verificar sempre qual LLM/CLI ocupa este terminal para adaptar a sintaxe do comando. |
 | — | Script / CLI de conversão (**file2md**) | Conversor | Terminal sob demanda — conversão de originais para Markdown em `01_markdown/`. |
 | — | Prompt / Sessão dedicada (**Bereano**) | Detector de IA | Terminal ou prompt de verificação — detecção de marcas de IA nos rascunhos em `02_rascunhos/`. |
 | — | Prompt / Sessão dedicada (**Escriba**) | Humanizador | Terminal de redação — humanização e reescrita de textos reprovados em `03_revisao/`. |
@@ -48,8 +48,8 @@ orca terminal create --title "Teologo 2" --command "codex" --json
 # Iniciar o Antigravity CLI (Teólogo 3)
 orca terminal create --title "Teologo 3" --command "agy" --json
 
-# Iniciar o comitador (se não estiver aberto)
-orca terminal create --title "comitador" --command "claude" --json
+# Iniciar o comitador (se não estiver aberto) — hoje ocupado por Cline
+orca terminal create --title "comitador" --command "cline" --json
 ```
 
 Fluxo de commit: o ftsalider redige a descrição detalhada e envia ao comitador via `orca terminal send` (ver `CLAUDE.md`, seção 4.1) — nunca comita diretamente.

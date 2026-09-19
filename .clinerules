@@ -32,7 +32,7 @@
 | Teólogo 1 | Analisa materiais em `fontes\` e produz rascunhos. | Claude Code (terminal dedicado) |
 | Teólogo 2 | Idem | Codex CLI |
 | Teólogo 3 | Idem | Antigravity |
-| comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | Claude Code (terminal dedicado) |
+| comitador | Faz commits git a pedido do ftsalider, com a descrição que ele fornecer. | **Você (Cline)** — este é o seu terminal/papel. |
 
 Outros agentes (sem terminal fixo entre os 5 nomeados):
 

@@ -44,7 +44,7 @@ O Orca roda o projeto em **5 terminais nomeados** (Joab, 2026-09-19): **ftsalide
 | **Teólogo 1** | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). | Claude Code (terminal dedicado, separado do ftsalider) |
 | **Teólogo 2** | Íd. — análise de materiais e produção de textos. | Codex CLI |
 | **Teólogo 3** | Íd. — análise de materiais e produção de textos. | Antigravity |
-| **comitador** | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. **Nunca decide sozinho** o que comitar ou a mensagem. | Claude Code (terminal dedicado) |
+| **comitador** | Faz commits git a pedido do ftsalider, com a descrição detalhada que ele fornecer. **Nunca decide sozinho** o que comitar ou a mensagem. | Cline (terminal dedicado, já aberto pelo Joab) |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
