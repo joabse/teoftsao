@@ -1,12 +1,12 @@
 # ORCA.md — Guia de Operação da Equipe FTSA no Orca
 
-> Este documento estabelece como a equipe de agentes de IA (**FTSA**) opera dentro do ambiente **Orca** no projeto `teoftsa`.
+> Este documento estabelece como a equipe de agentes de IA (**FTSA**) opera dentro do ambiente **Orca** no projeto `teoftsao`.
 
 ---
 
 ## 1. Visão Geral
 
-O projeto **teoftsa** é um workspace colaborativo onde agentes de IA produzem textos e reflexões teológicas a partir de materiais acadêmicos (apostilas, livros, transcrições de aulas).
+O projeto **teoftsao** é um workspace colaborativo onde agentes de IA produzem textos e reflexões teológicas a partir de materiais acadêmicos (apostilas, livros, transcrições de aulas).
 
 No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, permitindo:
 - Terminais independentes e paralelos para os diferentes papéis da equipe.

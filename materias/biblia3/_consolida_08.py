@@ -2,7 +2,7 @@
 """Consolida 08-Witherington_Joao.md (pp. 85-96 do cap. 4) — fidelidade 1:1."""
 import io, re
 
-RAW = r"E:\00_ATUAL\04_PROJETO\teoftsa\materias\biblia3\01_markdown\adicionais\08-Witherington_Joao.md"
+RAW = r"E:\00_ATUAL\04_PROJETO\teoftsao\materias\biblia3\01_markdown\adicionais\08-Witherington_Joao.md"
 
 with io.open(RAW, "r", encoding="utf-8") as f:
     raw = f.read()

@@ -1,4 +1,4 @@
-# CLAUDE.md — Projeto teoftsa
+# CLAUDE.md — Projeto teoftsao
 
 > Este arquivo é carregado automaticamente pelo Claude Code no início de cada sessão neste diretório. Consolida `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Claude Code (um dos "teólogos" da equipe FTSA) opere corretamente sem precisar reler os três arquivos separadamente. Em caso de dúvida ou divergência, os arquivos originais (`AGENTS.md`, `ESTRUTURA.md`, `ORCA.md`) são a fonte de verdade.
 
@@ -13,14 +13,14 @@
 
 ## 1. Visão geral do projeto
 
-O `teoftsa` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca** e no **AionUi**.
+O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca** e no **AionUi**.
 
 Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
 
 ## 2. Estrutura de diretórios
 
 ```
-teoftsa\
+teoftsao\
 ├── CLAUDE.md             ← este arquivo (carregado automaticamente pelo Claude Code)
 ├── AGENTS.md              ← guia operacional resumido (equivalente a este arquivo, para outros agentes/CLIs)
 ├── ESTRUTURA.md           ← detalhamento completo de papéis, pipeline e regras
@@ -121,7 +121,7 @@ Scripts Python autônomos e de uso único para reparo de OCR e consolidação de
 
 ## 9. Operação no Orca (resumo — detalhes em `ORCA.md`)
 
-- Projeto registrado no Orca como repositório de pasta (`teoftsa`).
+- Projeto registrado no Orca como repositório de pasta (`teoftsao`).
 - Teólogos podem rodar em abas dedicadas: `orca terminal create --title "Teologo Claude" --command "claude"` (idem para `codex`, `agy`).
 - Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
 - Contexto isolado para conversões do file2md: criar terminal novo por conversão.

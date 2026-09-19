@@ -2,7 +2,7 @@
 """Correções finais do 08: inserção das notas 12-16 em limites mesclados por espaço."""
 import io
 
-F = r"E:\00_ATUAL\04_PROJETO\teoftsa\materias\biblia3\01_markdown\adicionais\08-Witherington_Joao.md"
+F = r"E:\00_ATUAL\04_PROJETO\teoftsao\materias\biblia3\01_markdown\adicionais\08-Witherington_Joao.md"
 with io.open(F, "r", encoding="utf-8") as f:
     txt = f.read()
 

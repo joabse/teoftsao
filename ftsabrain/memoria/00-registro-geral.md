@@ -13,6 +13,19 @@ tags:
 
 ---
 
+## 2026-09-19 — Claude Code — Projeto e repositório renomeados de `teoftsa` para `teoftsao`
+
+- **Matéria:** geral (infra/vcs) | **Status:** **CONCLUÍDO** ✅
+- **O que foi feito:** atendendo à solicitação do Joab, todas as referências ao nome antigo do projeto (`teoftsa`) foram atualizadas para `teoftsao` em `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md` e nos caminhos absolutos hardcoded dos scripts de `materias/biblia3/` (`_consolida_08.py`, `_consolida_04_alter.py`, `_fix08.py`). O remote `origin` do git foi trocado para o novo repositório e feito o primeiro commit/push no novo endereço. A regra de `.claude/settings.json` que bloqueava `Bash(git *)` foi removida a pedido explícito do usuário, já que o projeto usa git nesta pasta.
+- **Repositório remoto (novo):** `https://github.com/joabse/teoftsao.git`
+- **Observação:** entradas anteriores desta memória que citam `teoftsa`/`joabse/teoftsa` foram mantidas como registro histórico do estado do projeto na época — não foram reescritas.
+
+## 2026-09-18 22:15 — opencode (2º teólogo, pedido explícito do Joab) — Projeto preparado para uso com o opencode
+
+- **Matéria:** geral (infra/opencode) | **Status:** **CONFIGURADO** ✅
+- **O que foi feito:** criação da configuração do opencode no projeto: `opencode.json` (schema oficial, agente padrão `teologo`, permissões — negados edit em `00_originais/` e `_TEMPLATE/`, negado `rm -rf *`, `git *` sob aprovação); agentes em `.opencode/agent/` — `teologo.md` (agente primário, papel do 2º teólogo), `bereano.md` (subagente detector de IA, somente leitura) e `escriba.md` (subagente humanizador, grava versões numeradas em `03_revisao/`); comando `/ciclo-humanizacao` em `.opencode/command/` que orquestra Bereano→Escriba até aprovação, move para `04_aprovados/` e registra na memória. Config validada com `opencode debug config` (sem erros). Regras de conteúdo continuam em `AGENTS.md` (carregado automaticamente pelo opencode).
+- **Próxima etapa:** produção teológica sob demanda; demais ferramentas (Orca, Claude Code, Antigravity) permanecem válidas.
+
 ## 2026-09-18 22:05 — Antigravity — Repositório Git inicializado e publicado no GitHub (joabse/teoftsa)
 
 - **Matéria:** geral (infra/vcs) | **Status:** **PUBLICADO** ✅

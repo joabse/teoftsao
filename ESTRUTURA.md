@@ -7,7 +7,7 @@
 Este diretório é o workspace oficial da equipe FTSA. A equipe produz **textos teológicos de qualidade humana** a partir de materiais de estudo enviados pelo usuário (Joab), usando um pipeline de agentes com etapa de detecção e humanização de texto gerado por IA.
 
 ```
-E:\00_ATUAL\04_PROJETO\teoftsa\
+E:\00_ATUAL\04_PROJETO\teoftsao\
 ├── ESTRUTURA.md          ← este arquivo (organização geral, papéis e pipeline)
 ├── ORCA.md               ← guia de operação da equipe e comandos no Orca
 ├── materias\             ← uma pasta por matéria (disciplina), com fluxo padronizado

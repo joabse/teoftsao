@@ -1,4 +1,4 @@
-# GEMINI.md — Diretrizes para Antigravity no Projeto teoftsa
+# GEMINI.md — Diretrizes para Antigravity no Projeto teoftsao
 
 > Este arquivo é carregado automaticamente pelo **Antigravity (`agy`)** no início de cada sessão neste diretório. Consolida as diretrizes de `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Antigravity (o 3º Teólogo da equipe FTSA) opere com máxima precisão, sem ambiguidades.
 
@@ -6,7 +6,7 @@
 
 ## 0. Regras Críticas (Obrigatórias)
 
-1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsa`) gerenciado no Orca. Manter o repositório leve respeitando o `.gitignore` (não versionar `00_originais/` e temporários de OCR).
+1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. Manter o repositório leve respeitando o `.gitignore` (não versionar `00_originais/` e temporários de OCR).
 2. **Idioma:** Toda a comunicação, documentação e textos produzidos devem ser estritamente em **português do Brasil**.
 3. **`00_originais/` é imutável:** Arquivos brutos recebidos nunca são alterados. Qualquer conversão ou processamento gera novos arquivos nas pastas subsequentes.
 4. **Fonte Primária Obrigatória (`fontes/`):** As notas de estudo em `ftsabrain/materias/<nome>/fontes/` são a base mandatória primária para qualquer análise ou rascunho. Buscas externas (Bíblia, léxicos, comentários) são puramente complementares; em qualquer divergência, **prevalece o material do curso**.
@@ -18,7 +18,7 @@
 ## 1. Estrutura de Diretórios do Workspace
 
 ```
-teoftsa\
+teoftsao\
 ├── GEMINI.md              ← este arquivo (carregado pelo Antigravity CLI)
 ├── CLAUDE.md              ← instruções para o Claude Code
 ├── AGENTS.md              ← diretrizes gerais compartilhadas

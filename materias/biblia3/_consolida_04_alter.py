@@ -11,7 +11,7 @@ titulos, une fragmentos e reordena apenas onde a ordem original e certa.
 from pathlib import Path
 import re, sys
 
-P = Path(r"E:\00_ATUAL\04_PROJETO\teoftsa\materias\biblia3\01_markdown\adicionais\04-Alter_NTLiterGrecoRomana.md")
+P = Path(r"E:\00_ATUAL\04_PROJETO\teoftsao\materias\biblia3\01_markdown\adicionais\04-Alter_NTLiterGrecoRomana.md")
 txt = P.read_text(encoding="utf-8").replace("\r\n", "\n")
 erros = []
 

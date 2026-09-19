@@ -7,7 +7,7 @@
       "materias/_TEMPLATE/**": "deny"
     },
     "bash": {
-      "git *": "deny",
+      "git *": "ask",
       "rm -rf *": "deny"
     }
   }

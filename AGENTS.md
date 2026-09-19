@@ -1,10 +1,10 @@
 # Repository Guidelines
 
-> Repositório Git privado (`joabse/teoftsa`) gerenciado no Orca — workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
+> Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca — workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
 
 ## Execução pelo Codex
 
-- Este arquivo é a configuração de projeto reconhecida pelo Codex CLI. Execute o Codex a partir da raiz `E:\00_ATUAL\04_PROJETO\teoftsa`; não crie nem exija um repositório Git para trabalhar aqui.
+- Este arquivo é a configuração de projeto reconhecida pelo Codex CLI. Execute o Codex a partir da raiz `E:\00_ATUAL\04_PROJETO\teoftsao`; não crie nem exija um repositório Git para trabalhar aqui.
 - O Codex atua como **2º teólogo** da FTSA. Não assume as funções de `file2md`, Bereano, Escriba ou `tecfix`, salvo pedido explícito do usuário ou do líder.
 - Antes de produzir conteúdo para uma matéria, leia `ftsabrain/materias/<nome>/00-visao-geral.md`, as notas pertinentes em `ftsabrain/materias/<nome>/fontes/` e o registro de memória da matéria. Para entender o estado global, consulte `ftsabrain/memoria/00-registro-geral.md`.
 - Para tarefas de conteúdo, salve primeiro o resultado em `materias/<nome>/02_rascunhos/`. Não coloque texto teológico diretamente em `04_aprovados/`: a aprovação cabe ao Bereano, e eventuais versões humanizadas pertencem a `03_revisao/`.
@@ -41,6 +41,6 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 Teólogos podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização, mas as notas de `fontes/` são sempre a fonte primária — em conflito, prevalece o material enviado. Questões de múltipla escolha exigem tabela-resumo final (resposta de cada teólogo + sugestão do líder).
 
 ## Operação com Orca
-- O projeto está registrado no Orca como repositório de pasta (`teoftsa`).
+- O projeto está registrado no Orca como repositório de pasta (`teoftsao`).
 - Agentes podem ser executados em abas dedicadas via `orca terminal create` (`claude`, `codex`, `agy`).
 - A documentação e comandos específicos do Orca encontram-se em `ORCA.md`.

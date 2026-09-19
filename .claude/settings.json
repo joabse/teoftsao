@@ -9,7 +9,6 @@
       "Bash(python *.py)"
     ],
     "deny": [
-      "Bash(git *)",
       "Bash(rm -rf *)"
     ]
   }
