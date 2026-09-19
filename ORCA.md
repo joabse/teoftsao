@@ -18,12 +18,12 @@ No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, 
 
 ## 2. Mapeamento da Equipe FTSA no Orca
 
-Desde 2026-09-19, o Joab nomeou 4 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**.
+Desde 2026-09-19, o Joab nomeou 4 terminais fixos no Orca para este projeto: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. **O papel FTSA pertence ao nome do terminal — é fixo. Quem/qual LLM ocupa cada terminal é um estado, não uma regra**, e o Joab pode trocar a qualquer momento (ex.: `orca terminal create --title "ftsalider" --command "codex"` colocaria o Codex no papel de líder). A coluna "Executável / Agente" abaixo é a ocupação **atual**.
 
-| Terminal (nome no Orca) | Executável / Agente | Papel FTSA | Finalidade |
+| Terminal (nome no Orca) | Executável / Agente (ocupante atual) | Papel FTSA (fixo) | Finalidade |
 |---|---|---|---|
 | **ftsalider** | `claude` (Claude Code) | Líder/Orquestrador | Orquestra toda a equipe: distribui tarefas aos 3 teólogos, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente.** |
-| **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider — mesmo agente (Claude Code), papel diferente. |
+| **Teólogo 1** | `claude` (Claude Code) | Teólogo | Análise e produção teológica. Terminal separado do ftsalider — mesmo agente (Claude Code) hoje, papel diferente. |
 | **Teólogo 2** | `codex` | Teólogo | Análise e produção teológica. |
 | **Teólogo 3** | `agy` (Antigravity) | Teólogo | Análise e produção teológica. |
 | — | Script / CLI de conversão (**file2md**) | Conversor | Terminal sob demanda — conversão de originais para Markdown em `01_markdown/`. |
@@ -36,7 +36,7 @@ Desde 2026-09-19, o Joab nomeou 4 terminais fixos no Orca para este projeto: **f
 ## 3. Comandos Úteis do Orca para o Projeto
 
 ### 3.1 Gerenciamento de Terminais dos Agentes
-Você (Claude Code / ftsalider) roda no terminal "ftsalider" e usa os terminais nomeados dos teólogos (Teólogo 1 = Claude Code em outro terminal; Teólogo 2 = Codex CLI; Teólogo 3 = Antigravity). Para criar novos terminais de teólogo quando necessário:
+Quem estiver no terminal "ftsalider" (hoje Claude Code) usa os terminais nomeados dos teólogos (hoje: Teólogo 1 = Claude Code em outro terminal; Teólogo 2 = Codex CLI; Teólogo 3 = Antigravity — mas o `--command` pode apontar para qualquer LLM, a critério do Joab). Para criar novos terminais de teólogo quando necessário:
 ```bash
 # Iniciar mais um Claude Code (ex.: Teólogo 1, se não estiver aberto)
 orca terminal create --title "Teologo 1" --command "claude" --json
@@ -89,4 +89,4 @@ orca worktree ps --json
    - Textos produzidos pelos teólogos vão para `materias/<materia>/02_rascunhos/`.
    - São submetidos ao Bereano. Se reprovados, o Escriba grava em `materias/<materia>/03_revisao/v{n}.md`.
    - Somente após aprovação do Bereano o arquivo é movido para `04_aprovados/`.
-4. **Memória Contínua:** Toda etapa finalizada deve ser registrada pelo líder (você, Claude Code/ftsalider) em `ftsabrain/memoria/`.
+4. **Memória Contínua:** Toda etapa finalizada deve ser registrada por quem estiver no terminal ftsalider (hoje Claude Code) em `ftsabrain/memoria/`.

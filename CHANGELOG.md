@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 13:26 — Claude Code — Execução da JOA-16: papéis desacoplados da LLM (papel = terminal)
+
+- **Motivo:** issue JOA-16 do Joab — esclareceu que, quando disse que o líder era o Claude Code, na verdade queria dizer que **o líder é sempre quem estiver no terminal `ftsalider`**, o que pode variar de LLM (ex.: trocar para Codex ou Antigravity). O mesmo vale para os teólogos: o que se mantém é o terminal, não a LLM.
+- **O que mudou:** reescrita a definição de papéis em todos os arquivos-fonte e wrappers (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `KIMI.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`): as tabelas de papéis agora têm uma coluna "Ocupante atual" separada do "Papel/Terminal" (fixo), com nota explícita de que a ocupação é um estado que o Joab pode trocar a qualquer momento — nenhuma LLM deve assumir seu papel só pela própria identidade, e sim confirmar em qual terminal está. Em `ESTRUTURA.md`, a regra anterior ("estrutura de 4 terminais", 11:40) foi arquivada como histórico (SUPERSEDIDA) e substituída pela regra atual ("papéis pertencem ao terminal").
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `KIMI.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`.
+
 ## 2026-09-19 13:16 — Claude Code — JOA-15 fechada como Done; Kimi desmembrado para JOA-17
 
 - **Motivo:** o Joab apontou que a JOA-15 não tinha sido marcada como concluída, apesar de mmx e DeepSeek já estarem resolvidos — só o Kimi Code restava pendente, e esse item específico exige login interativo (`kimi login`, device-code no navegador) que só o Joab pode autorizar. Perguntei como proceder; ele escolheu marcar a JOA-15 como concluída mesmo assim.

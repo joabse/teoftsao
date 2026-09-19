@@ -1,11 +1,11 @@
 # CLAUDE.md — Projeto teoftsao
 
-> Este arquivo é carregado automaticamente pelo Claude Code no início de cada sessão neste diretório. Consolida `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Claude Code (o **ftsalider** — líder e orquestrador de toda a equipe FTSA) opere corretamente sem precisar reler os três arquivos separadamente. Em caso de dúvida ou divergência, os arquivos originais (`AGENTS.md`, `ESTRUTURA.md`, `ORCA.md`) são a fonte de verdade.
+> Este arquivo é carregado automaticamente pelo Claude Code no início de cada sessão neste diretório. Consolida `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Claude Code opere corretamente sem precisar reler os três arquivos separadamente. **Seu papel neste projeto (ftsalider ou Teólogo) depende do terminal em que você está, não do fato de você ser Claude Code** — ver regra 2. Em caso de dúvida ou divergência, os arquivos originais (`AGENTS.md`, `ESTRUTURA.md`, `ORCA.md`) são a fonte de verdade.
 
 ## 0. Regras críticas (leia antes de qualquer ação)
 
 1. **Sem VCS tradicional.** Este projeto NÃO usa git — é gerenciado como pasta/worktree no Orca. Nunca rode `git init`, `git add`, commits etc. aqui, a menos que o usuário peça explicitamente.
-2. **Identifique seu papel pelo nome do terminal antes de agir.** No Orca (2026-09-19), este projeto roda com 4 terminais nomeados: **ftsalider**, **Teólogo 1**, **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity). Claude Code ocupa dois desses papéis em terminais diferentes — **ftsalider** (padrão, se o terminal não tiver sido explicitamente designado de outra forma) e **Teólogo 1** (só quando o Joab ou o ftsalider disser explicitamente "você é o Teólogo 1 neste terminal"). Ver seção 4 para o que cada papel faz.
+2. **Papéis pertencem ao TERMINAL, não à LLM (Joab, 2026-09-19).** O projeto roda em 4 terminais nomeados no Orca: **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. O papel de cada terminal é fixo (ver seção 4); **quem ocupa cada terminal pode mudar** — o Joab pode colocar qualquer LLM em qualquer terminal (ex.: Codex no terminal `ftsalider`, Claude Code no `Teólogo 2`). Ocupação atual (2026-09-19): `ftsalider` = Claude Code, `Teólogo 1` = Claude Code, `Teólogo 2` = Codex CLI, `Teólogo 3` = Antigravity — mas isso é um estado, não uma regra fixa. **Nunca assuma seu papel só porque você é Claude Code** — confirme em qual terminal está (nome do terminal no Orca) ou pergunte ao Joab/ftsalider antes de agir.
 3. **Idioma:** todo conteúdo e documentação produzidos são em **português brasileiro**.
 4. **`00_originais/` é imutável.** Qualquer transformação de um arquivo original gera um novo arquivo em outra pasta — nunca sobrescreva ou edite um original.
 5. **Fonte primária = material enviado.** As notas em `ftsabrain/materias/<nome>/fontes/` (extraídas dos originais do usuário) são a fonte mandatória e prioritária para qualquer resposta teológica. Busca externa (web, MCPs bíblicos) é só complementar, e em caso de conflito o material enviado prevalece — a menos que o usuário (Joab) diga o contrário.
@@ -18,7 +18,7 @@
 
 ## 1. Visão geral do projeto
 
-O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, em 4 terminais nomeados: **ftsalider** (orquestrador — Claude Code), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity).
+O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, em 4 terminais nomeados cujos papéis são fixos — **ftsalider** (orquestrador), **Teólogo 1**, **Teólogo 2**, **Teólogo 3** — mas cuja **LLM ocupante pode mudar** a critério do Joab. Hoje (2026-09-19): Claude Code no `ftsalider` e no `Teólogo 1`, Codex CLI no `Teólogo 2`, Antigravity no `Teólogo 3`.
 
 Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
 
@@ -94,18 +94,25 @@ Regras do ciclo:
 
 ## 4. Equipe de agentes e papéis
 
+**Os 4 papéis abaixo pertencem ao terminal (nome fixo no Orca), não à LLM.** A coluna "Ocupante atual" é um estado — o Joab pode trocá-lo a qualquer momento, sem que o papel/responsabilidade do terminal mude.
+
+| Terminal (papel) | Responsabilidade | Ocupante atual (2026-09-19) |
+|---|---|---|
+| **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). | Claude Code |
+| **Teólogo 1** | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. | Claude Code (terminal dedicado, separado do ftsalider) |
+| **Teólogo 2** | Idem | Codex CLI |
+| **Teólogo 3** | Idem | Antigravity |
+
+Outros agentes, sem terminal fixo dedicado dentre os 4 nomeados:
+
 | Agente | Papel | Responsabilidade |
 |---|---|---|
-| **Claude Code** — terminal **ftsalider** | **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). |
-| **Claude Code** — terminal **Teólogo 1** | Teólogo (1º) | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. Só assume este papel quando o Joab/ftsalider designar explicitamente o terminal como "Teólogo 1". |
-| **Codex CLI** | Teólogo (2º) | Idem |
-| **Antigravity** | Teólogo (3º) | Idem |
 | **file2md** | Conversor | Converte originais (PDF, DOCX, PPTX etc.) para Markdown em `01_markdown\` |
 | **Bereano** | Detector de IA | Aprova/reprova textos no ciclo de humanização |
 | **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
 | **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca — não produz conteúdo teológico |
 
-**Os teólogos de produção de conteúdo são 3:** Teólogo 1 (Claude Code, terminal dedicado), Teólogo 2 (Codex CLI) e Teólogo 3 (Antigravity), todos coordenados pelo ftsalider (Claude Code, terminal principal). Questões e produção teológica vão para eles; o ftsalider consolida e valida. (Estrutura de 4 terminais nomeados definida pelo Joab em 2026-09-19; antes disso, Claude Code era só ftsalider, sem papel de teólogo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13; ver histórico arquivado em `ESTRUTURA.md` caso seja readicionado.)
+**Antes de agir, confirme seu papel pelo terminal em que você está** (nome do terminal no Orca), não pela sua identidade de ferramenta — a mesma LLM pode ser ftsalider num terminal e Teólogo em outro (é o caso do Claude Code hoje), e o Joab pode reatribuir qualquer terminal a qualquer LLM. Questões e produção teológica vão para os 3 terminais de Teólogo; o ftsalider consolida e valida. (Estrutura de 4 terminais nomeados definida pelo Joab em 2026-09-19; papéis desacoplados de LLM específica em 2026-09-19, mesmo dia — ver `ESTRUTURA.md` para o histórico completo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13.)
 
 ## 5. Memória de trabalho (`ftsabrain\memoria\`)
 
@@ -113,7 +120,7 @@ Como não há git, a memória do vault é a única forma de rastrear progresso:
 - Atividades **gerais** (montagem, manutenção, mudanças estruturais) → `ftsabrain\memoria\00-registro-geral.md`.
 - Atividades de uma **matéria** → `ftsabrain\memoria\materias\<nome>\registro.md`.
 - Formato: frontmatter `tipo: registro` + entradas cronológicas (mais recente no topo) com agente, tarefa, o que foi feito e local do produto gerado.
-- Quem registra formalmente: **o ftsalider** (Claude Code, terminal principal), após validar a conclusão da etapa — própria ou de Teólogo 1/2/3/qualquer outro agente.
+- Quem registra formalmente: **quem estiver no terminal ftsalider** (hoje Claude Code — ver seção 4), após validar a conclusão da etapa — própria ou de Teólogo 1/2/3/qualquer outro agente.
 
 ## 6. Regra de pesquisa bíblica (Teólogos 1, 2 e 3)
 
@@ -133,7 +140,7 @@ Scripts Python autônomos e de uso único para reparo de OCR e consolidação de
 ## 9. Operação no Orca (resumo — detalhes em `ORCA.md`)
 
 - Projeto registrado no Orca como repositório de pasta (`teoftsao`).
-- 4 terminais nomeados no Orca: **ftsalider** (Claude Code, orquestrador — este terminal, por padrão), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (`codex`) e **Teólogo 3** (`agy`/Antigravity). O ftsalider cria/gerencia os terminais dos teólogos: `orca terminal create --title "Teologo 2" --command "codex"` (idem para `agy`).
+- 4 terminais nomeados no Orca, com papel fixo e ocupante variável (ver seção 4): **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3**. Ocupação atual: Claude Code (`ftsalider` e `Teólogo 1`), `codex` (`Teólogo 2`), `agy`/Antigravity (`Teólogo 3`). O ftsalider cria/gerencia os terminais dos teólogos: `orca terminal create --title "Teologo 2" --command "codex"` (idem para `agy` ou `claude`, dependendo de quem o Joab designar).
 - Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
 - Contexto isolado para conversões do file2md: criar terminal novo por conversão.
 
@@ -169,6 +176,8 @@ Duas ferramentas de rastreio complementares à memória do `ftsabrain/` (que é 
 ## 12. Sincronização multi-LLM (Joab, 2026-09-19)
 
 O projeto precisa ser entendido por **qualquer LLM** que trabalhe nele, não só você (Claude Code). Isso surgiu de um pedido explícito: "gostaria que as demais LLMs também pudessem entender o projeto... garanta que o líder sempre que mexer na estrutura do projeto atualize para as demais LLMs entenderem e sigam as mesmas regras e execuções que o Claude tem."
+
+Esta tabela é sobre **qual arquivo cada ferramenta lê** — é ortogonal à seção 4 (que é sobre **qual papel cada terminal tem**). Uma LLM lê sempre o mesmo arquivo (pela sua identidade de ferramenta), mas seu papel no projeto (ftsalider ou Teólogo) depende de qual terminal ela está ocupando no momento — os dois eixos não se confundem.
 
 **Arquivos de instrução por ferramenta:**
 

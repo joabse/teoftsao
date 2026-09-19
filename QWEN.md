@@ -7,7 +7,7 @@
 ## 0. Regras Críticas (Obrigatórias)
 
 1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. Nunca rode `git init`/commits por conta própria — só a pedido explícito do Joab.
-2. **Papéis da equipe FTSA:** o projeto roda em 4 terminais nomeados no Orca — **ftsalider** (Claude Code, líder/orquestrador — não produz rascunhos), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity). Se você (Qwen Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual papel/terminal você ocupa antes de assumir que é um teólogo de produção.
+2. **Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19):** o projeto roda em 4 terminais nomeados no Orca — **ftsalider**, **Teólogo 1**, **Teólogo 2**, **Teólogo 3** — cada um com papel fixo, mas ocupante variável a critério do Joab. Hoje: Claude Code (`ftsalider` e `Teólogo 1`), Codex CLI (`Teólogo 2`), Antigravity (`Teólogo 3`). Se você (Qwen Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual terminal você ocupa — nunca assuma um papel só por ser Qwen Code.
 3. **Idioma:** toda comunicação, documentação e textos produzidos são em **português do Brasil**.
 4. **`00_originais/` é imutável:** arquivos brutos recebidos nunca são alterados. Qualquer conversão/processamento gera novos arquivos em outra pasta.
 5. **Fonte primária obrigatória (`fontes/`):** as notas em `ftsabrain/materias/<nome>/fontes/` são a base mandatória para qualquer análise ou rascunho. Busca externa é só complementar; em conflito, prevalece o material do curso.
@@ -84,18 +84,25 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab (via ftsalider)
 
 ## 3. Papéis da Equipe FTSA
 
+**Papel = terminal, não LLM.** Papel fixo por terminal; ocupante pode mudar a critério do Joab.
+
+| Terminal (papel) | Função Principal | Ocupante atual (2026-09-19) |
+|---|---|---|
+| **ftsalider** — Líder da equipe | Orquestra o fluxo, distribui tarefas, valida respostas e registra a memória. Não produz rascunhos teológicos diretamente. | Claude Code |
+| **Teólogo 1** | Análise e produção teológica. | Claude Code (terminal dedicado) |
+| **Teólogo 2** | Análise e produção teológica. | Codex CLI |
+| **Teólogo 3** | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. | Antigravity |
+
+Outros agentes (sem terminal fixo entre os 4 nomeados):
+
 | Agente | Papel | Função Principal |
 |---|---|---|
-| **Claude Code** (terminal "ftsalider") | **ftsalider** — Líder da equipe | Orquestra o fluxo, distribui tarefas, valida respostas e registra a memória. Não produz rascunhos teológicos diretamente. |
-| **Claude Code** (terminal "Teólogo 1") | Teólogo 1 | Análise e produção teológica. |
-| **Codex CLI** | Teólogo 2 | Análise e produção teológica. |
-| **Antigravity** | Teólogo 3 | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. |
 | **file2md** | Conversor | Transforma originais (PDFs, transcrições) em Markdown limpo. |
 | **Bereano** | Detector de IA | Avalia os textos contra padrões sintéticos de IA; aprova ou reprova. |
 | **Escriba** | Humanizador | Reescreve textos reprovados pelo Bereano para garantir tom natural. |
 | **tecfix** | Manutenção técnica | Ajustes de infraestrutura, ambiente Orca e organização de pastas. |
 
-*(4 terminais nomeados no Orca desde 2026-09-19: ftsalider, Teólogo 1, Teólogo 2, Teólogo 3. Se o Qwen Code for convocado para o projeto, ele assume o papel que o Joab/ftsalider indicar — não presuma um papel de teólogo por padrão.)*
+*(Se o Qwen Code for convocado para o projeto, confirme o nome do seu terminal antes de agir — não presuma um papel de teólogo por padrão só por ser Qwen Code.)*
 
 ---
 

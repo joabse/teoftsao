@@ -37,14 +37,14 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 
 ## 2. Papéis da equipe
 
-O Orca roda o projeto em **4 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2** e **Teólogo 3**. Claude Code ocupa dois papéis, em terminais diferentes — por padrão é o ftsalider; só atua como Teólogo 1 no terminal explicitamente designado assim.
+O Orca roda o projeto em **4 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2** e **Teólogo 3**. **O papel pertence ao terminal, não à LLM que o ocupa** (Joab, 2026-09-19, revisão 13:16): o líder é sempre quem estiver no terminal `ftsalider` — hoje Claude Code, mas o Joab pode trocar para Codex, Antigravity ou qualquer outra LLM a qualquer momento. O mesmo vale para os 3 terminais de Teólogo. A tabela abaixo mostra o papel fixo de cada terminal e o ocupante **atual** (um estado, não uma regra).
 
-| Agente | Papel | Responsabilidade no pipeline |
+| Terminal (papel) | Responsabilidade no pipeline | Ocupante atual (2026-09-19) |
 |---|---|---|
-| **Claude Code** (terminal *ftsalider*) | **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente** (desde 2026-09-19). |
-| **Claude Code** (terminal *Teólogo 1*) | Teólogo (1º) | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). |
-| **Codex CLI** | Teólogo (2º) | Íd. — análise de materiais e produção de textos. |
-| **Antigravity** | Teólogo (3º) | Íd. — análise de materiais e produção de textos. |
+| **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente.** | Claude Code |
+| **Teólogo 1** | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). | Claude Code (terminal dedicado, separado do ftsalider) |
+| **Teólogo 2** | Íd. — análise de materiais e produção de textos. | Codex CLI |
+| **Teólogo 3** | Íd. — análise de materiais e produção de textos. | Antigravity |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
@@ -115,19 +115,23 @@ Entrega ao usuário (via ftsalider)
 ### Regra de pesquisa na Bíblia (teólogos com MCPs de busca)
 
 1. **PRIORIDADE ABSOLUTA — MATERIAL ENVIADO (Joab, 2026-09-13):** todas as respostas dos teólogos devem ser **baseadas nas notas de estudo em `fontes\`** (as 27 notas de biblia3, e equivalentes para outras matérias). O material do curso é a **fonte primária e obrigatória**; a busca externa é apenas **complementar** para confirmar/verificar.
-2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (Teólogo 1/Claude Code, Teólogo 2/Codex CLI, Teólogo 3/Antigravity) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
+2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (terminais Teólogo 1, 2 e 3 — ver ocupantes atuais na seção 2) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
 3. **Não é necessário pedir autorização** ao líder a cada busca — o uso é parte do trabalho normal de pesquisa teológica.
 4. Os teólogos devem **sempre indicar a fonte** da consulta externa (URL, obra, autor) na resposta ao usuário, para que o líder possa validar e citar.
 5. Em caso de **conflito** entre o material enviado e uma fonte externa, **prevalece o material enviado** (a menos que o Joab decida o contrário).
 6. Decisão registrada pelo usuário em 2026-09-13.
 
-### Regra — Estrutura de 4 terminais nomeados no Orca (Joab, 2026-09-19, 11:40)
+### Regra — Papéis pertencem ao terminal, não à LLM (Joab, 2026-09-19, 13:16)
 
-1. **O Orca roda o projeto em 4 terminais nomeados:** `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`.
-2. **ftsalider** = Claude Code no terminal orquestrador (padrão, se o terminal não tiver sido designado de outra forma). Lidera a equipe: distribui tarefas aos 3 teólogos, valida entregas com o Joab, consolida tabelas de múltipla escolha, registra a memória. **Não produz rascunhos teológicos diretamente.**
-3. **Teólogo 1** = Claude Code, em terminal dedicado e **explicitamente designado** para isso pelo Joab ou pelo ftsalider. **Teólogo 2** = Codex CLI. **Teólogo 3** = Antigravity. Os 3 analisam materiais em `fontes\` e produzem rascunhos em `02_rascunhos\`.
-4. Claude Code deve identificar seu papel pelo contexto do terminal: assume **ftsalider por padrão**, e só assume **Teólogo 1** quando instruído explicitamente naquele terminal.
-5. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos** e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+1. **O Orca roda o projeto em 4 terminais nomeados:** `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`. O **papel** de cada terminal é fixo; a **LLM que o ocupa é um estado, não uma regra**, e pode ser trocada pelo Joab a qualquer momento (ex.: colocar Codex no terminal `ftsalider`, ou Claude Code num terminal de Teólogo).
+2. **Terminal `ftsalider`** — quem estiver nele lidera a equipe: distribui tarefas aos 3 teólogos, valida entregas com o Joab, consolida tabelas de múltipla escolha, registra a memória. **Não produz rascunhos teológicos diretamente.** Ocupante atual: Claude Code.
+3. **Terminais `Teólogo 1`, `Teólogo 2`, `Teólogo 3`** — quem estiver neles analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. Ocupantes atuais: Claude Code (Teólogo 1, terminal dedicado), Codex CLI (Teólogo 2), Antigravity (Teólogo 3).
+4. **Nenhuma LLM deve assumir seu papel só pela própria identidade** — antes de agir, confirme o nome do terminal em que está (no Orca) ou pergunte ao Joab/ftsalider. A mesma LLM pode ocupar papéis diferentes em terminais diferentes (caso do Claude Code hoje: ftsalider num terminal, Teólogo 1 em outro).
+5. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos**, não ocupam um dos 4 terminais nomeados, e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+
+### ~~Regra anterior — Estrutura de 4 terminais nomeados no Orca (Joab, 2026-09-19, 11:40)~~ — SUPERSEDIDA
+
+> Arquivada como histórico: definia a estrutura de 4 terminais, mas ainda amarrava cada papel à LLM específica ("ftsalider = Claude Code", "Teólogo 2 = Codex CLI") como se fosse regra fixa, não estado. Corrigida ~1h35min depois: o Joab esclareceu que o papel pertence ao terminal, e a LLM ocupante pode variar (ex.: trocar para Codex ou Antigravity no terminal ftsalider).
 
 ### ~~Regra anterior — Claude Code é o ftsalider, só 2 teólogos (Joab, 2026-09-19, 11:27)~~ — SUPERSEDIDA
 

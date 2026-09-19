@@ -13,6 +13,13 @@ tags:
 
 ---
 
+## 2026-09-19 13:26 — Claude Code — Executada JOA-16: papel pertence ao terminal, não à LLM
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Esclarecimento do Joab:** "o ftsalider que é o líder do projeto é Claude, porém quis dizer que o líder sempre será quem estiver no terminal ftsalider, que pode variar de LLMs... Assim são também os teólogos, que se mantém é o terminal e não a LLM."
+- **O que foi feito:** reescrevi a definição de papéis em todos os arquivos-fonte e wrappers (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `KIMI.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`) para separar o **papel** (fixo por terminal: ftsalider, Teólogo 1, 2, 3) do **ocupante atual** (LLM que roda nele hoje — pode mudar a qualquer momento). Adicionada regra explícita: nenhuma LLM deve assumir seu papel só pela própria identidade, sempre confirmar em qual terminal está. Em `ESTRUTURA.md`, arquivada a regra anterior (11:40) como histórico e substituída pela atual.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `QWEN.md`, `KIMI.md`, `.clinerules`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`.
+
 ## 2026-09-19 13:16 — Claude Code — JOA-15 marcada como Done; Kimi desmembrado em JOA-17
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

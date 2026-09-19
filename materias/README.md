@@ -8,7 +8,7 @@ Esta pasta contém uma subpasta por matéria (disciplina). Cada matéria segue *
 |---|---|---|
 | `00_originais\` | Arquivos **como enviados pelo usuário** (PDF, DOCX, PPTX etc.). Nunca modificar o conteúdo original. | Usuário → arquivo de entrada |
 | `01_markdown\` | Conversões dos originais para **Markdown**, produzidas pelo agente **file2md**. | file2md |
-| `02_rascunhos\` | **Textos produzidos pelos teólogos** (Teólogo 1/Claude Code, Teólogo 2/Codex CLI, Teólogo 3/Antigravity) a partir dos materiais. | Teólogos |
+| `02_rascunhos\` | **Textos produzidos pelos teólogos** (Teólogo 1, 2 e 3 — terminais nomeados no Orca; hoje ocupados por Claude Code, Codex CLI e Antigravity) a partir dos materiais. | Teólogos |
 | `03_revisao\` | Textos em **ciclo de revisão/humanização** (Bereano detecta IA, Escriba humaniza), com versões numeradas (`v1.md`, `v2.md`, …). | Bereano + Escriba |
 | `04_aprovados\` | Textos **finais validados** (aprovados pelo Bereano como humanos). Entrega para o usuário. | Saída final |
 
