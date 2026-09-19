@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 12:04 — Claude Code — Execução da JOA-15: investigação real de Kimi/mmx/DeepSeek, correção de suposição
+
+- **Motivo:** issue JOA-15 (aberta por mim na JOA-14) pedia para verificar, quando Kimi/mmx/DeepSeek fossem de fato usados, se realmente leem `AGENTS.md`. O Joab pediu para executar a JOA-15 agora, então investiguei o que estava realmente disponível neste ambiente em vez de esperar.
+- **O que foi encontrado:** `kimi` e `mmx` **estão instalados** neste ambiente (`~/.kimi-code/`, `~/AppData/Roaming/npm/mmx`); `deepseek` **não está instalado**. `mmx --help`/`mmx agent setup --help` revelou que **mmx não é um agente de codificação** — é a CLI da MiniMax para configurar *outros* agentes (claude-code, codex, opencode, grok, hermes, pi) a usar modelos MiniMax como provedor; nunca lê arquivos de projeto por conta própria. Minha suposição original (de que mmx lia `AGENTS.md`) estava **errada** e foi corrigida em todos os arquivos. Tentei rodar `kimi -p "..."` para perguntar diretamente o que ele carrega, mas falhou por falta de login/modelo configurado (`No model configured`) — não foi possível confirmar empiricamente. A arquitetura de hooks do Kimi Code (`UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PermissionRequest`, `Stop` — vistos em `~/.kimi-code/config.toml`) é idêntica à do Claude Code, sugerindo forte compatibilidade, mas sem confirmação real.
+- **O que mudou:** corrigido `AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md` (remoção de "mmx" e "DeepSeek" da lista de leitores confirmados de `AGENTS.md`; nota explicando a real natureza do mmx). Criado `KIMI.md` como wrapper **defensivo** (mesmo padrão de `QWEN.md`/`GEMINI.md`), marcado explicitamente como não confirmado. Referências a `KIMI.md` adicionadas em `QWEN.md`, `.clinerules`, `GEMINI.md`. Issue JOA-15 atualizada no Linear com os achados; mantida em aberto (estado "In Progress") só para o item real pendente: confirmar Kimi Code com login real e verificar se DeepSeek chega a ser instalado.
+- **Local:** raiz do projeto (`AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md`, `.clinerules`, `KIMI.md` novo); Linear (JOA-15).
+
 ## 2026-09-19 11:58 — Claude Code — Execução da JOA-14: arquivos wrapper para todas as LLMs + regra de sincronização
 
 - **Motivo:** issue JOA-14 do Joab — "gostaria que as demais LLMs também pudessem entender o projeto... garanta que o líder sempre que mexer na estrutura do projeto atualize ele para as demais LLMs entenderem e sigam as mesmas regras e execuções que o Claude tem." Ferramentas citadas: Antigravity, Codex, opencode, Cline, Kimi, mmx, Qwen Code, DeepSeek.

@@ -14,7 +14,7 @@
 8. **`CHANGELOG.md` (raiz) — obrigatório antes de cada commit/finalização de tarefa.** Registre toda alteração feita na estrutura ou nos arquivos do projeto, com data/hora e o motivo que originou a mudança (ver seção 10). É um banco de dados de consulta, **não leia `CHANGELOG.md` automaticamente** ao iniciar a sessão nem para responder perguntas gerais — consulte-o só quando precisar reconstruir um histórico específico ou quando o Joab pedir.
 9. **`LESSONS.md` (raiz) — registre erros, acertos e pendências não resolvidas.** Sempre que você (ou outro agente) errar algo, corrigir algo, ou não conseguir resolver um problema, registre em `LESSONS.md` (ver seção 10). Ao contrário do `CHANGELOG.md`, este arquivo **pode e deve ser consultado** quando for relevante para a tarefa atual.
 10. **Sempre que encontrar algo para resolver/executar no futuro, crie uma tarefa no Linear.** Projeto `teoftsao` (workspace Joabse, time JOA) no Linear (ferramentas `mcp__claude_ai_Linear__*`) é o gerenciador de tarefas do projeto. Toda pendência, decisão a tomar, bug, ou trabalho futuro que você identificar (não só o que o Joab pedir diretamente) deve virar uma issue lá com `save_issue` — não basta anotar em memória/changelog/lessons. Ver seção 11.
-11. **Sincronize os arquivos de todas as LLMs sempre que alterar regras/estrutura.** Além deste `CLAUDE.md`, existem wrappers equivalentes para outras ferramentas: `AGENTS.md` (canônico — Codex CLI, opencode, Kimi, mmx, DeepSeek), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `.clinerules` (Cline). Toda vez que você mudar uma regra crítica, papel da equipe, estrutura de pastas ou pipeline aqui, **propague a mesma mudança para todos eles** — nenhuma LLM que trabalhar neste projeto deve ver uma versão desatualizada ou divergente das regras. Ver seção 12.
+11. **Sincronize os arquivos de todas as LLMs sempre que alterar regras/estrutura.** Além deste `CLAUDE.md`, existem wrappers equivalentes para outras ferramentas: `AGENTS.md` (canônico — Codex CLI, opencode), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `KIMI.md` (Kimi Code, defensivo — leitura não confirmada, ver JOA-15), `.clinerules` (Cline). `mmx` não é um agente que leia arquivos de projeto (é a CLI da MiniMax para configurar outros agentes) — não tem wrapper. `DeepSeek` não está instalado neste ambiente — convenção não verificada. Toda vez que você mudar uma regra crítica, papel da equipe, estrutura de pastas ou pipeline aqui, **propague a mesma mudança para todos os wrappers existentes** — nenhuma LLM que trabalhar neste projeto deve ver uma versão desatualizada ou divergente das regras. Ver seção 12.
 
 ## 1. Visão geral do projeto
 
@@ -27,9 +27,10 @@ Não é um projeto de software: não há build, testes ou dependências no senti
 ```
 teoftsao\
 ├── CLAUDE.md             ← este arquivo (carregado automaticamente pelo Claude Code)
-├── AGENTS.md              ← wrapper canônico (Codex CLI, opencode, Kimi, mmx, DeepSeek)
+├── AGENTS.md              ← wrapper canônico (Codex CLI, opencode)
 ├── GEMINI.md              ← wrapper para o Antigravity
 ├── QWEN.md                ← wrapper para o Qwen Code
+├── KIMI.md                ← wrapper defensivo para o Kimi Code
 ├── .clinerules             ← wrapper para o Cline
 ├── ESTRUTURA.md           ← detalhamento completo de papéis, pipeline e regras
 ├── ORCA.md                ← comandos e operação específica no Orca
@@ -174,10 +175,13 @@ O projeto precisa ser entendido por **qualquer LLM** que trabalhe nele, não só
 | Arquivo | Ferramenta(s) |
 |---|---|
 | `CLAUDE.md` | Claude Code (este arquivo) |
-| `AGENTS.md` | **Canônico** — Codex CLI, opencode, e (por convenção do padrão AGENTS.md) Kimi, mmx (MiniMax), DeepSeek |
+| `AGENTS.md` | **Canônico** — Codex CLI, opencode |
 | `GEMINI.md` | Antigravity |
 | `QWEN.md` | Qwen Code |
+| `KIMI.md` | Kimi Code (defensivo — leitura ainda não confirmada, ver JOA-15) |
 | `.clinerules` | Cline |
+| *(sem wrapper)* | **mmx** — não lê arquivos de projeto; é a CLI da MiniMax para configurar outros agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax |
+| *(a verificar)* | **DeepSeek** — não instalado neste ambiente; convenção de arquivo desconhecida (JOA-15) |
 
 **Regra permanente:** sempre que você (ftsalider) — ou qualquer agente — alterar uma regra crítica, papel da equipe, estrutura de pastas ou pipeline em `CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md` ou `ORCA.md`, **propague a mesma mudança para todos os arquivos da tabela acima**, mesmo que a ferramenta correspondente não esteja ativa no momento. O objetivo é que, se qualquer uma dessas LLMs for chamada para trabalhar no projeto (mesmo pela primeira vez), ela encontre as regras e a execução atualizadas, iguais às suas.
 

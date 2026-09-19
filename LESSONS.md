@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 — Claude Code — Suposição errada sobre "mmx" ler AGENTS.md; corrigida ao investigar de fato
+
+- **O que aconteceu:** ao executar a JOA-14 (multi-LLM), listei `mmx` (MiniMax) como uma ferramenta que "por convenção do padrão AGENTS.md" leria `AGENTS.md` automaticamente, junto com Kimi e DeepSeek — pura inferência por analogia, sem checar a ferramenta de fato.
+- **Erro/acerto:** erro. Ao investigar de verdade (`mmx --help`, `mmx agent setup --help`), descobri que `mmx` não é um agente de codificação — é a CLI da MiniMax para configurar *outros* agentes (Claude Code, Codex, opencode, grok, hermes, pi) a usar modelos MiniMax como provedor. Nunca lê arquivos de projeto por conta própria.
+- **Correção/solução:** corrigido `AGENTS.md`, `CLAUDE.md` e `ESTRUTURA.md` para descrever a real natureza do mmx (sem wrapper, não aplicável). Criado `KIMI.md` como wrapper defensivo, já que Kimi Code está instalado mas não pôde ser testado (sem login/modelo configurado) — marcado explicitamente como não confirmado, em vez de assumido como certo.
+- **Lição:** quando eu (ou qualquer LLM) listar convenções de outras ferramentas "por analogia" ou "por padrão do ecossistema" sem checar a ferramenta real, isso é uma suposição, não um fato — deve ser marcado como tal na documentação (ex.: "não confirmado", "ver issue de verificação") em vez de apresentado com a mesma confiança de algo testado. Antes de documentar como fato, rodar `--help` ou tentar de fato a ferramenta, quando ela estiver disponível no ambiente.
+
 ## 2026-09-19 — Claude Code (terminal Teólogo 1) — Recusa correta de novo papel sem confirmação documental (acerto a repetir)
 
 - **O que aconteceu:** o ftsalider (Claude Code em outro terminal) enviou uma mensagem via `orca terminal send` pedindo que este terminal assumisse o papel de "Teólogo 1", mas o `CLAUDE.md` carregado nesta sessão ainda dizia explicitamente que Claude Code é SOMENTE o ftsalider (sem papel de teólogo).

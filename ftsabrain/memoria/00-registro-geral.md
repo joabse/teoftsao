@@ -13,6 +13,14 @@ tags:
 
 ---
 
+## 2026-09-19 12:04 — Claude Code — Executada JOA-15: investigação real de Kimi/mmx/DeepSeek
+
+- **Matéria:** geral (equipe/processo) | **Status:** **PARCIALMENTE CONCLUÍDO** ⚠️ (2 de 3 ferramentas esclarecidas; Kimi Code pendente de teste real com login)
+- **Tarefa:** JOA-15 (Linear) — verificar se Kimi, mmx e DeepSeek de fato leem `AGENTS.md`, ao invés de assumir por convenção.
+- **O que foi feito:** confirmei que `kimi` e `mmx` estão instalados neste ambiente; `deepseek` não está. Descobri via `mmx --help`/`mmx agent setup --help` que **mmx não é um agente de codificação** — é uma CLI de configuração que aponta *outros* agentes (Claude Code, Codex, opencode, grok, hermes, pi) para usar modelos MiniMax; corrigido em toda a documentação (não precisa de wrapper). Tentei `kimi -p "..."` para perguntar diretamente, mas falhou por falta de login/modelo (`No model configured`) — criei `KIMI.md` como wrapper defensivo (arquitetura de hooks idêntica à do Claude Code, mas sem confirmação real) e deixei isso explícito no próprio arquivo e na issue.
+- **Próxima etapa:** quando o Kimi Code for autenticado neste ambiente, testar de fato (`kimi -p "quais arquivos de contexto você carregou?"`) e atualizar `KIMI.md`/JOA-15 com a confirmação. Repetir a verificação se o DeepSeek for instalado no futuro.
+- **Resultado/Local:** `AGENTS.md`, `CLAUDE.md`, `ESTRUTURA.md`, `GEMINI.md`, `QWEN.md`, `.clinerules` corrigidos; `KIMI.md` criado; `LESSONS.md` (suposição errada corrigida); Linear (JOA-15 atualizada, mantida em aberto).
+
 ## 2026-09-19 11:58 — Claude Code — Executada JOA-14: projeto adaptado para todas as LLMs entenderem
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

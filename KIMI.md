@@ -1,13 +1,15 @@
-# QWEN.md — Diretrizes para Qwen Code no Projeto teoftsao
+# KIMI.md — Diretrizes para Kimi Code no Projeto teoftsao
 
-> Este arquivo é carregado automaticamente pelo **Qwen Code** no início de cada sessão neste diretório. Consolida as diretrizes de `AGENTS.md` (arquivo canônico), `ESTRUTURA.md` e `ORCA.md` para que qualquer LLM rodando como Qwen Code neste projeto entenda a estrutura, os papéis e as regras sem precisar reler os três arquivos separadamente. Em caso de dúvida ou divergência, `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` são a fonte de verdade — este arquivo é um espelho.
+> **Wrapper defensivo (2026-09-19):** Kimi Code está instalado neste ambiente (`~/.kimi-code/`), mas não há login/modelo configurado nesta máquina, então não foi possível confirmar empiricamente se ele lê `AGENTS.md` automaticamente ou espera um arquivo próprio como este. A arquitetura de hooks do Kimi Code (`UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PermissionRequest`, `Stop`) é idêntica à do Claude Code, o que sugere forte compatibilidade — por isso este arquivo existe como garantia. Ver issue **JOA-15** no Linear para a verificação pendente; quando o Kimi Code for autenticado e usado de fato neste projeto, confirme e atualize esta nota.
+>
+> Consolida as diretrizes de `AGENTS.md` (arquivo canônico), `ESTRUTURA.md` e `ORCA.md` para que qualquer LLM rodando como Kimi Code neste projeto entenda a estrutura, os papéis e as regras sem precisar reler os três arquivos separadamente. Em caso de dúvida ou divergência, `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` são a fonte de verdade — este arquivo é um espelho.
 
 ---
 
 ## 0. Regras Críticas (Obrigatórias)
 
 1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsao`) gerenciado no Orca. Nunca rode `git init`/commits por conta própria — só a pedido explícito do Joab.
-2. **Papéis da equipe FTSA:** o projeto roda em 4 terminais nomeados no Orca — **ftsalider** (Claude Code, líder/orquestrador — não produz rascunhos), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity). Se você (Qwen Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual papel/terminal você ocupa antes de assumir que é um teólogo de produção.
+2. **Papéis da equipe FTSA:** o projeto roda em 4 terminais nomeados no Orca — **ftsalider** (Claude Code, líder/orquestrador — não produz rascunhos), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity). Se você (Kimi Code) for chamado para atuar no projeto, pergunte ao Joab ou ao ftsalider qual papel/terminal você ocupa antes de assumir que é um teólogo de produção.
 3. **Idioma:** toda comunicação, documentação e textos produzidos são em **português do Brasil**.
 4. **`00_originais/` é imutável:** arquivos brutos recebidos nunca são alterados. Qualquer conversão/processamento gera novos arquivos em outra pasta.
 5. **Fonte primária obrigatória (`fontes/`):** as notas em `ftsabrain/materias/<nome>/fontes/` são a base mandatória para qualquer análise ou rascunho. Busca externa é só complementar; em conflito, prevalece o material do curso.
@@ -16,7 +18,7 @@
 8. **`CHANGELOG.md` (raiz):** registre toda alteração de estrutura/arquivos (data/hora, motivo) antes de um commit ou ao finalizar a tarefa. Banco de consulta — não leia automaticamente ao iniciar sessão.
 9. **`LESSONS.md` (raiz):** registre erros, acertos e pendências não resolvidas, no mesmo ritmo do changelog. Pode e deve ser consultado quando relevante.
 10. **Linear (projeto `teoftsao`, workspace Joabse, time JOA):** banco de tarefas do projeto. Sempre que encontrar algo para resolver/executar no futuro, crie uma issue lá — não basta anotar em memória. Se você não tiver acesso à ferramenta do Linear, avise o ftsalider (Claude Code) para criar a issue por você.
-11. **Sincronização multi-LLM:** este arquivo é um espelho de `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` para o Qwen Code. Outras ferramentas têm o seu: `CLAUDE.md` (Claude Code), `GEMINI.md` (Antigravity), `KIMI.md` (Kimi Code), `.clinerules` (Cline). Se você perceber que uma regra sua está desatualizada em relação a `AGENTS.md`/`ESTRUTURA.md`, avise o ftsalider para sincronizar todos os arquivos.
+11. **Sincronização multi-LLM:** este arquivo é um espelho de `AGENTS.md`/`ESTRUTURA.md`/`ORCA.md` para o Kimi Code. Outras ferramentas têm o seu: `CLAUDE.md` (Claude Code), `GEMINI.md` (Antigravity), `QWEN.md` (Qwen Code), `.clinerules` (Cline). Se você perceber que uma regra sua está desatualizada em relação a `AGENTS.md`/`ESTRUTURA.md`, avise o ftsalider para sincronizar todos os arquivos.
 
 ---
 
@@ -27,8 +29,8 @@ teoftsao\
 ├── CLAUDE.md              ← wrapper para Claude Code
 ├── AGENTS.md              ← arquivo canônico (Codex CLI, opencode)
 ├── GEMINI.md              ← wrapper para Antigravity
-├── QWEN.md                ← este arquivo (wrapper para Qwen Code)
-├── KIMI.md                ← wrapper defensivo para Kimi Code
+├── QWEN.md                ← wrapper para Qwen Code
+├── KIMI.md                ← este arquivo (wrapper defensivo para Kimi Code)
 ├── .clinerules             ← wrapper para Cline
 ├── ESTRUTURA.md           ← detalhamento completo de papéis, pipeline e regras
 ├── ORCA.md                ← comandos e operação específica no Orca
@@ -95,7 +97,7 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab (via ftsalider)
 | **Escriba** | Humanizador | Reescreve textos reprovados pelo Bereano para garantir tom natural. |
 | **tecfix** | Manutenção técnica | Ajustes de infraestrutura, ambiente Orca e organização de pastas. |
 
-*(4 terminais nomeados no Orca desde 2026-09-19: ftsalider, Teólogo 1, Teólogo 2, Teólogo 3. Se o Qwen Code for convocado para o projeto, ele assume o papel que o Joab/ftsalider indicar — não presuma um papel de teólogo por padrão.)*
+*(4 terminais nomeados no Orca desde 2026-09-19: ftsalider, Teólogo 1, Teólogo 2, Teólogo 3. Se o Kimi Code for convocado para o projeto, ele assume o papel que o Joab/ftsalider indicar — não presuma um papel de teólogo por padrão.)*
 
 ---
 
