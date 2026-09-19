@@ -13,6 +13,12 @@ tags:
 
 ---
 
+## 2026-09-19 — Claude Code — Removidas todas as referências ao AionUi e Maestri (pedido explícito do Joab)
+
+- **Matéria:** geral (infra/documentação) | **Status:** **CONCLUÍDO** ✅
+- **O que foi feito:** Maestri não tinha nenhuma referência no projeto (nada a remover). AionUi foi removido de `CLAUDE.md`, `AGENTS.md`, `ESTRUTURA.md` e `ftsabrain/pipeline.md` (equipe agora descrita como coordenada só no Orca; papel do tecfix sem menção a AionUi). Removida a subseção "backend aionrs não suporta context reset" de `ESTRUTURA.md` e `ftsabrain/pipeline.md`. Em `ftsabrain/memoria/00-registro-geral.md`, excluídas por completo 4 entradas históricas inteiramente sobre mecânica interna do AionUi (assistants/aioncore/aionrs/modelo "9aionui"/membro "arquivista"), a pedido do Joab (removeu inclusive histórico, diferente do padrão usual de preservar registros antigos). Em `ftsabrain/memoria/materias/biblia3/registro.md`, 3 menções pontuais a ferramentas internas do AionUi (`team_clear_agent_context`, `team_interrupt_agent`) foram reescritas de forma genérica, mantendo o restante do relato (instabilidade do Codex CLI) intacto.
+- **Observação:** diferente da renomeação `teoftsa→teoftsao` (entrada abaixo), aqui o próprio Joab pediu para apagar também o histórico de memória, não apenas atualizar a documentação ativa.
+
 ## 2026-09-19 — Claude Code — Projeto e repositório renomeados de `teoftsa` para `teoftsao`
 
 - **Matéria:** geral (infra/vcs) | **Status:** **CONCLUÍDO** ✅
@@ -92,25 +98,10 @@ tags:
 - **O que foi feito:** file2md entregou a T16/16 (diálogo "Profeta e luz no Ev. de João", 89 linhas) e o **consolidado geral das 16 transcrições**: 989 linhas / 189.502 bytes / 118 seções H2 / 0 U+FFFD em todos; 13 solos (Lucas Merlo) + 2 diálogos + 1 entrevista tripla; aulas 4, 8 e 12 não existem na pasta original. `00-visao-geral.md` atualizado para `status: fontes_prontas` com o índice completo das 16 transcrições.
 - **Próxima etapa:** definir com o Joab o entregável dos teólogos (sugestão pendente: notas de estudo por aula/unidade em `ftsabrain\fontes\`) e lembrar da **regra do gbooklm** (só pergunta + nome do notebook — perguntar ao Joab).
 
-## 2026-09-13 03:25 — tecfix — Linha "Isolamento por despacho" no prompt do file2md (persistida e verificada)
-
-- **Matéria:** geral (equipe/infra) | **Task:** —
-- **Conteúdo:** "Processe APENAS o arquivo da mensagem atual; ignore conversões anteriores nesta conversa. Cada despacho é uma ação independente — as instruções completas (origem, destino, escopo, formato do report) virão sempre na mensagem do líder." — mesma linha nas 3 variantes de locale (pt-BR, default, default sem sufixo; 5.855 bytes), `config assistants get` verificada (rules.content termina na nova linha; defaults intactos: model 9aionui, permission yolo, skills convert-documents-to-markdown, mcps [google-drive-upload, composio]).
-- **Lições (tecfix, salvar para futuros edits de assistants):** (1) mexer em `rules.content` usa `config assistants rule write`, não `assistants update`; (2) `assistants update` substitui sub-objetos inteiros (defaults, rules) — sempre enviar o sub-objeto completo ou só campos não-aninhados; (3) `assistants get` mostra o locale default, mas o runtime usa o locale da UI (pt-BR) — conferir `*.pt-BR.md` no disco.
-- **Vigência:** a regra vale a partir do **próximo despacho** recebido pelo file2md. Fila T2–T16 intocada.
-
-## 2026-09-13 01:40 — tecfix + ftsalider — Diagnóstico: backend aionrs não suporta context reset (solução A autorizada)
-
-- **Matéria:** geral (equipe/infra) | **Task:** —
-- **Causa raiz (3 tentativas, RuntimeContextMissing):** `"Team member does not support context reset: 01a096e8-…"` — o backend aionrs (assistente custom do file2md) **não implementa** `team_clear_agent_context`. A tool é lead_only e chega ao executor, mas o backend recusa imediatamente (duration_ms: 0). Não é permissão nem runtime ocupado.
-- **Solução A (autorizada pelo ftsalider):** 1 linha no system prompt do file2md — "processe APENAS o arquivo da mensagem atual; ignore conversões anteriores nesta conversa". O contexto LLM continua acumulando tokens, mas o agente trata cada arquivo isoladamente. O líder sempre reenvia instruções completas em cada despacho.
-- **Plano B (reserva):** remover e re-adicionar o membro → contexto realmente zerado, mas a fila precisa ser reenviada item a item. Só usar se o acúmulo quebrar o file2md de fato.
-- **Estado:** estrutura revisada (`ESTRUTURA.md`, `pipeline.md`, memória); tecfix aplicando a linha no prompt. Fila T2–T16 intocada.
-
 ## 2026-09-13 00:50 — ftsalider — Regra do contexto fresco por arquivo (file2md) [REVISADA]
 
 - **Matéria:** geral (equipe/processo) | **Task:** —
-- **Definição do Joab:** cada conversão do file2md é uma **ação independente**. Tentativa inicial: limpar contexto via `team_clear_agent_context` — **falhou** (backend aionrs não suporta). Solução A (prompt + despachos autocontidos) adotada — ver entrada 01:40 acima.
+- **Definição do Joab:** cada conversão do file2md é uma **ação independente**. Solução adotada: regra no prompt do file2md + despachos autocontidos (instruções completas reenviadas em cada mensagem).
 - **Onde foi registrado:** `ESTRUTURA.md` (regra revisada), `ftsabrain\pipeline.md`, memória AppData (fluxo + roster).
 
 ## 2026-09-12 23:40 — ftsalider — Ajuste no fluxo do gbooklm (definido pelo Joab)
@@ -118,19 +109,6 @@ tags:
 - **Matéria:** geral (equipe/processo) | **Task:** —
 - **O que foi feito:** Joab definiu nova regra para o **gbooklm (4º teólogo)**: ele **já possui todo o conteúdo** enviado aos demais teólogos — **nunca mais se envia conteúdo/arquivos a ele**. A delegação passa a conter **apenas a pergunta/tarefa + o NOME do notebook do NotebookLM** em que ele deve consultar; esse nome **somente o Joab sabe**, então o líder **sempre pergunta a ele** antes de delegar ao gbooklm (sem indicação = tarefa do gbooklm pausada; demais teólogos seguem).
 - **Onde foi registrado:** `ESTRUTURA.md` (regra especial do gbooklm + tabela de papéis), `ftsabrain\pipeline.md` (papéis + regras de ouro), memória AppData (fluxo-trabalho-ftsa.md + equipe-ftsa-roster.md).
-
-## 2026-09-12 23:10 — tecfix — Diagnóstico e correção do assistente "arquivista" (aguardando re-adição pelo Joab)
-
-- **Matéria:** geral (equipe/infra) | **Task:** —
-- **Causa raiz (logs aioncore):** `runtime_start_failed ... Bad request: Provider 'aionrs' not found` — o assistente custom do arquivista estava com `defaults.model = auto`, resolvendo para provider "aionrs"/modelo "default" inexistente; o runtime do membro nunca subia (status error, mensagens falhavam). Todos os demais custom saudáveis usam modelo **fixado "9aionui"**.
-- **Correções aplicadas pelo tecfix (persistidas):** `defaults.model` → `fixed: "9aionui"`; efeito colateral corrigido no mesmo passe (reset de `defaults.mcps` restaurado para fixed: notion + abrain-filesystem). Estado final verificado: assistente enabled, team_selectable, regra intacta, MCPs fixados.
-- **Pendente (ação do Joab na UI):** re-adicionar o membro "arquivista" ao time teoftsa (o slot foi removido durante o diagnóstico; o assistente em si está saudável). Pós-adição: conferir que o roster mostra model **"9aionui"** (se mostrar "default", chamar o tecfix); depois mensagem-teste.
-
-## 2026-09-12 22:45 — ftsalider — Novo membro "arquivista" adicionado e removido (falha de inicialização)
-
-- **Matéria:** geral (equipe) | **Task:** —
-- **O que foi feito:** Joab adicionou manualmente o membro **arquivista** (slot_id 01a097f3-ef56-79b0-ada1-c469dacae84a), que ficou em **status: error** — 2 tentativas de briefing via team_send_message falharam ("local team tool returned an error"). Diagnóstico delegado ao tecfix, mas o agente foi **removido da equipe** pouco depois (mesmo dia), encerrando o incidente. Roster de memória atualizado com registro da remoção; se for re-adicionado, refazer o briefing.
-- **Resultado/Local:** memória AppData `equipe-ftsa-roster.md` atualizada; nenhum impacto no fluxo (fila biblia3 segue com file2md)
 
 ## 2026-09-12 15:20 — tecfix — Organização do vault ftsabrain por matéria (horário aproximado)
 

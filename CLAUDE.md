@@ -13,7 +13,7 @@
 
 ## 1. Visão geral do projeto
 
-O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca** e no **AionUi**.
+O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**.
 
 Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
 
@@ -92,7 +92,7 @@ Regras do ciclo:
 | **file2md** | Conversor | Converte originais (PDF, DOCX, PPTX etc.) para Markdown em `01_markdown\` |
 | **Bereano** | Detector de IA | Aprova/reprova textos no ciclo de humanização |
 | **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
-| **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca/AionUi — não produz conteúdo teológico |
+| **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca — não produz conteúdo teológico |
 
 **Os teólogos são SOMENTE 3:** Claude Code, Codex CLI e Antigravity. Questões e produção teológica vão exclusivamente para eles. (O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13; ver histórico arquivado em `ESTRUTURA.md` caso seja readicionado.)
 

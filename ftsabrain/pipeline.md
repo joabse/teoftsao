@@ -26,7 +26,7 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 - **file2md** — converte arquivos para Markdown.
 - **Bereano** — detector de IA (aprova/reprova).
 - **Escriba** — humaniza textos reprovados.
-- **tecfix** — manutenção técnica do projeto, ambiente Orca e AionUi (estrutura, config, diagnóstico).
+- **tecfix** — manutenção técnica do projeto e ambiente Orca (estrutura, config, diagnóstico).
 
 ## Regras de ouro
 
@@ -38,7 +38,7 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 - **Múltipla escolha: sempre fechar com tabela-resumo** — nº da questão · resposta de cada teólogo · **sugestão do líder** (letra correta + justificativa 1 linha). Divergências destacadas e explicadas antes da sugestão. (Joab, 2026-09-13)
 - **Teólogos = SOMENTE Claude Code + Codex CLI + Antigravity.** (Joab, 2026-09-13)
 - Manter histórico de versões em `03_revisao\`.
-- **file2md: contexto isolado por arquivo** — o backend aionrs não suporta `team_clear_agent_context`; solução: regra no prompt do agente ("processe APENAS o arquivo atual; ignore anteriores") + o líder sempre reenvia instruções completas em cada despacho. Cada conversão é tratada como independente. (tecfix, 2026-09-13)
+- **file2md: contexto isolado por arquivo** — regra no prompt do agente ("processe APENAS o arquivo atual; ignore anteriores") + o líder sempre reenvia instruções completas em cada despacho. Cada conversão é tratada como independente. (tecfix, 2026-09-13)
 - Toda etapa concluída é registrada na memória do vault (`ftsabrain\memoria\`), por matéria ou no registro geral.
 - Toda nova matéria copia `materias\_TEMPLATE\` e é registrada em `materias.md`.
 - Conteúdo e documentação sempre em português brasileiro.

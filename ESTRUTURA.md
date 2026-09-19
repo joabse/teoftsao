@@ -1,6 +1,6 @@
 # ESTRUTURA.md — Projeto FTSA
 
-> FTSA — Fluxo de Trabalho de Textos com Agentes (equipe de agentes coordenada no Orca e AionUi).
+> FTSA — Fluxo de Trabalho de Textos com Agentes (equipe de agentes coordenada no Orca).
 
 ## 1. Visão geral
 
@@ -39,7 +39,7 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
 | **Escriba** | Humanizador | **Humaniza textos reprovados** pelo Bereano (reescreve para soar humano). |
-| **tecfix** | Manutenção técnica | **Manutenção do projeto, do Orca e do AionUi**: estrutura de pastas, configuração, diagnósticos e infraestrutura. Não produz conteúdo teológico. |
+| **tecfix** | Manutenção técnica | **Manutenção do projeto e do Orca**: estrutura de pastas, configuração, diagnósticos e infraestrutura. Não produz conteúdo teológico. |
 
 ## 3. Pipeline de produção
 
@@ -88,12 +88,10 @@ Entrega ao usuário (via ftsalider)
 ### Regra do contexto fresco por arquivo (file2md) — **REVISADA (tecfix, 2026-09-13)**
 
 1. Cada nova conversão é uma **ação independente** — um arquivo convertido não tem relação com o anterior.
-2. ⚠️ **Não é possível zerar o contexto do file2md** — o backend aionrs não suporta `team_clear_agent_context` ("Team member does not support context reset", 3 tentativas falhadas, RuntimeContextMissing).
-3. **Solução adotada (opção A, aprovada pelo Joab):** regra no system prompt do file2md — "processe APENAS o arquivo da mensagem atual; ignore conversões anteriores nesta conversa". O contexto LLM acumula tokens, mas o agente trata cada arquivo isoladamente.
-4. O lead **sempre reenvia as instruções completas** (origem, destino, escopo, formato do report) em cada despacho — o agente processa cada arquivo como se fosse o primeiro.
-5. Isso **isola as conversões** e impede que artefatos/OCR residual de uma conversão se infiltrem na seguinte. Reduz parcialmente o consumo (o histórico LLM acumula, mas cada turno é autocontido).
-6. Aplica-se a **todos os lotes** (PDFs, transcrições, futuros arquivos), sem exceção.
-7. **Plano B (caso o acúmulo de contexto quebre o file2md de fato):** remover e re-adicionar o membro → contexto realmente zerado, mas a fila precisa ser reenviada item a item para o novo slot (mailbox da conversa antiga não migra). Só usar se necessário.
+2. **Solução adotada (opção A, aprovada pelo Joab):** regra no system prompt do file2md — "processe APENAS o arquivo da mensagem atual; ignore conversões anteriores nesta conversa". O contexto LLM acumula tokens, mas o agente trata cada arquivo isoladamente.
+3. O lead **sempre reenvia as instruções completas** (origem, destino, escopo, formato do report) em cada despacho — o agente processa cada arquivo como se fosse o primeiro.
+4. Isso **isola as conversões** e impede que artefatos/OCR residual de uma conversão se infiltrem na seguinte.
+5. Aplica-se a **todos os lotes** (PDFs, transcrições, futuros arquivos), sem exceção.
 
 ### ~~Regra especial do gbooklm (4º teólogo)~~ — DESCONTINUADA (Joab, 2026-09-13)
 
@@ -147,4 +145,4 @@ Toda etapa concluída por qualquer assistente é registrada na memória do proje
 
 ## 5. Manutenção
 
-Alterações estruturais (novas pastas globais, mudança de pipeline, configuração do AionUi) são responsabilidade do **tecfix**, acionado pelo líder. Dúvidas sobre onde salvar um arquivo? Consultar `materias\README.md` ou perguntar ao líder.
+Alterações estruturais (novas pastas globais, mudança de pipeline) são responsabilidade do **tecfix**, acionado pelo líder. Dúvidas sobre onde salvar um arquivo? Consultar `materias\README.md` ou perguntar ao líder.

@@ -36,7 +36,7 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 | file2md | Converte originais para Markdown (contexto isolado por arquivo — sempre reenviar instruções completas) |
 | Bereano | Detector de IA — aprova/reprova no ciclo de humanização |
 | Escriba | Humaniza textos reprovados pelo Bereano |
-| tecfix | Manutenção técnica do projeto, ambiente Orca e AionUi (não produz conteúdo teológico) |
+| tecfix | Manutenção técnica do projeto e ambiente Orca (não produz conteúdo teológico) |
 
 Teólogos podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização, mas as notas de `fontes/` são sempre a fonte primária — em conflito, prevalece o material enviado. Questões de múltipla escolha exigem tabela-resumo final (resposta de cada teólogo + sugestão do líder).
 

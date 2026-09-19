@@ -128,7 +128,7 @@ tags:
 ## 2026-09-13 16:50 — 3 teólogos + ftsalider — Q14 Questão objetiva (cartas gerais) · APROVADO (consenso 2/3; Codex CLI pausado) · ENTREGUE
 - **Matéria:** biblia3 | **Task:** [NT-Q14]
 - **Pergunta:** Tipologia das cartas gerais (Sermão do Monte / falsos mestres / superioridade de Cristo / anticristos+amor / identidade cristã)
-- **O que foi feito:** Claude e Antigravity responderam **c) I. Tiago; II. 2Pedro e Judas; III. Hebreus; IV. 1-3 João; V. 1 Pedro** com concordância total. Codex CLI permanece pausado (falhas de entrega sucessivas; team_clear_agent_context e team_interrupt_agent não resolveram).
+- **O que foi feito:** Claude e Antigravity responderam **c) I. Tiago; II. 2Pedro e Judas; III. Hebreus; IV. 1-3 João; V. 1 Pedro** com concordância total. Codex CLI permanece pausado (falhas de entrega sucessivas; tentativas de reinício não resolveram).
 - **Resposta final:** **c)**. Justificativa central: Tiago ↔ ética prática do Sermão do Monte (Tg/Mt); 2Pe+Jd ↔ combate a falsos mestres; Hb ↔ superioridade cristológica (Sumo Sacerdote); 1-3Jo ↔ cisão/anticristos + amor fraternal; 1Pe ↔ identidade cristã ("povo eleito, sacerdócio real" — aula_15).
 - **⚠️ Atenção:** Codex CLI continua instável. Nas próximas questões, consolidar com 2/3 (Claude + Antigravity) e monitorar. Se Joab quiser, tentar reiniciar o assistente.
 - **Arquivado em:** `materias\biblia3\04_aprovados\NT-Q14_questao_objetiva_cartas_gerais.md`
@@ -136,9 +136,9 @@ tags:
 ## 2026-09-13 16:35 — 3 teólogos + ftsalider — Q13 Questão objetiva (tipologia das cartas paulinas) · APROVADO (consenso 2/3; Codex CLI com falha técnica) · ENTREGUE
 - **Matéria:** biblia3 | **Task:** [NT-Q13]
 - **Pergunta:** Tipologia das cartas paulinas (pastorais / escatológicas / justificação / cristologia cósmica)
-- **O que foi feito:** Claude e Antigravity responderam **a) I. 1-2 Tm e Tt; II. 1-2 Ts; III. Gl e Rm; IV. Cl e Ef** com concordância total. Codex CLI ficou pausado após 3 falhas de entrega (reenviado via team_interrupt_agent, sem sucesso).
+- **O que foi feito:** Claude e Antigravity responderam **a) I. 1-2 Tm e Tt; II. 1-2 Ts; III. Gl e Rm; IV. Cl e Ef** com concordância total. Codex CLI ficou pausado após 3 falhas de entrega (reenviado, sem sucesso).
 - **Resposta final:** **a)**. Justificativa central: Pastorais = 1-2Tm/Tt (orientação de jovens pastores); Escatológicas = 1-2Ts (parousia); Justificação = Gl/Rm (Gl 2,15-21; Rm 1,16-17); Cristologia cósmica = Cl/Ef (Cl 1,15-20; Ef 1,20-23).
-- **⚠️ Atenção:** Codex CLI instável nesta rodada — monitorar nas próximas questões. Se falhar novamente, considerar team_clear_agent_context.
+- **⚠️ Atenção:** Codex CLI instável nesta rodada — monitorar nas próximas questões. Se falhar novamente, considerar reiniciar o agente.
 - **Arquivado em:** `materias\biblia3\04_aprovados\NT-Q13_questao_objetiva_tipologia_cartas_paulinas.md`
 
 ## 2026-09-13 16:20 — 3 teólogos + ftsalider — Q12 Questão objetiva (nascimento e educação de Paulo) · APROVADO (consenso unânime) · ENTREGUE
