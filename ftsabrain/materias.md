@@ -7,7 +7,7 @@ tags:
 
 # 📚 Matérias — MOC
 
-> Map of Content: índice geral das matérias do projeto FTSA. Este vault (`ftsabrain`) é o **cérebro do projeto** — todo conhecimento extraído dos materiais fica aqui, consultado pelos teólogos (Codex CLI e Antigravity) e orquestrado pelo ftsalider (Claude Code). Fluxo e papéis: [[pipeline]].
+> Map of Content: índice geral das matérias do projeto FTSA. Este vault (`ftsabrain`) é o **cérebro do projeto** — todo conhecimento extraído dos materiais fica aqui, consultado pelos 3 teólogos (Teólogo 1/Claude Code, Teólogo 2/Codex CLI, Teólogo 3/Antigravity) e orquestrado pelo ftsalider (Claude Code, outro terminal). Fluxo e papéis: [[pipeline]].
 
 ## Matérias
 

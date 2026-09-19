@@ -5,8 +5,8 @@
 ## Execução pelo Codex
 
 - Este arquivo é a configuração de projeto reconhecida pelo Codex CLI. Execute o Codex a partir da raiz `E:\00_ATUAL\04_PROJETO\teoftsao`; não crie nem exija um repositório Git para trabalhar aqui.
-- O Codex atua como **teólogo (1º)** da FTSA. Não assume as funções de `file2md`, Bereano, Escriba ou `tecfix`, salvo pedido explícito do usuário ou do líder.
-- **O líder da equipe (ftsalider) é o Claude Code** — orquestra o trabalho entre você (Codex), o Antigravity e os demais agentes, distribui tarefas, valida entregas com o Joab e registra a memória. Claude Code não produz rascunhos teológicos diretamente.
+- O Codex atua como **Teólogo 2** da FTSA (terminal nomeado "Teólogo 2" no Orca). Não assume as funções de `file2md`, Bereano, Escriba ou `tecfix`, salvo pedido explícito do usuário ou do líder.
+- **O líder da equipe (ftsalider) é o Claude Code**, no terminal "ftsalider" — orquestra o trabalho entre você (Teólogo 2), o Teólogo 1 (Claude Code em terminal dedicado), o Teólogo 3 (Antigravity) e os demais agentes; distribui tarefas, valida entregas com o Joab e registra a memória. O ftsalider não produz rascunhos teológicos diretamente.
 - Antes de produzir conteúdo para uma matéria, leia `ftsabrain/materias/<nome>/00-visao-geral.md`, as notas pertinentes em `ftsabrain/materias/<nome>/fontes/` e o registro de memória da matéria. Para entender o estado global, consulte `ftsabrain/memoria/00-registro-geral.md`.
 - Para tarefas de conteúdo, salve primeiro o resultado em `materias/<nome>/02_rascunhos/`. Não coloque texto teológico diretamente em `04_aprovados/`: a aprovação cabe ao Bereano, e eventuais versões humanizadas pertencem a `03_revisao/`.
 - Ao concluir uma etapa material, atualize o registro de memória pertinente, com data, papel/agente, escopo, resultado e caminho do arquivo. Não registre apenas consultas ou diagnósticos sem mudança.
@@ -37,8 +37,8 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 
 | Agente | Função |
 |---|---|
-| Claude Code | **ftsalider** — Líder/Orquestrador. Coordena Codex CLI e Antigravity, distribui tarefas, valida com o usuário, registra na memória. Não produz rascunhos teológicos diretamente. |
-| Codex CLI / Antigravity | **Únicos teólogos** — analisam materiais em `fontes/` e produzem rascunhos |
+| Claude Code (terminal "ftsalider") | **ftsalider** — Líder/Orquestrador. Coordena os 3 teólogos, distribui tarefas, valida com o usuário, registra na memória. Não produz rascunhos teológicos diretamente. |
+| Claude Code (terminal "Teólogo 1") / Codex CLI ("Teólogo 2") / Antigravity ("Teólogo 3") | **Teólogos** — analisam materiais em `fontes/` e produzem rascunhos |
 | file2md | Converte originais para Markdown (contexto isolado por arquivo — sempre reenviar instruções completas) |
 | Bereano | Detector de IA — aprova/reprova no ciclo de humanização |
 | Escriba | Humaniza textos reprovados pelo Bereano |
@@ -47,6 +47,6 @@ Scripts Python autônomos, de uso único, para reparo de OCR e consolidação de
 Teólogos podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização, mas as notas de `fontes/` são sempre a fonte primária — em conflito, prevalece o material enviado. Questões de múltipla escolha exigem tabela-resumo final (resposta de cada teólogo + sugestão do líder/ftsalider).
 
 ## Operação com Orca
-- O projeto está registrado no Orca como repositório de pasta (`teoftsao`).
+- O projeto está registrado no Orca como repositório de pasta (`teoftsao`), rodando em **4 terminais nomeados**: `ftsalider`, `Teólogo 1`, `Teólogo 2` (você, Codex), `Teólogo 3`.
 - Agentes podem ser executados em abas dedicadas via `orca terminal create` (`claude`, `codex`, `agy`).
 - A documentação e comandos específicos do Orca encontram-se em `ORCA.md`.

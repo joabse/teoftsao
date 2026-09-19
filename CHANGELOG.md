@@ -24,6 +24,12 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 11:38 — Claude Code — Estrutura de 4 terminais nomeados: ftsalider + Teólogo 1/2/3
+
+- **Motivo:** o Joab renomeou os terminais do Orca (`ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`) e explicou que Claude Code atua em dois papéis: ftsalider (este terminal) e Teólogo 1 (outro terminal dedicado). Codex CLI = Teólogo 2, Antigravity = Teólogo 3. Pedido também incluía testar a configuração enviando um "olá" a cada teólogo.
+- **O que mudou:** revertida a decisão das 11:27 (que só tinha 2 teólogos, sem papel de teólogo para Claude Code). Atualizados `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md` e `materias/README.md` para refletir os 3 teólogos (Teólogo 1 = Claude Code em terminal dedicado, Teólogo 2 = Codex CLI, Teólogo 3 = Antigravity) coordenados pelo ftsalider (Claude Code no terminal principal). Documentado que Claude Code deve inferir seu papel pelo terminal em que está: ftsalider por padrão, Teólogo 1 só quando explicitamente designado. Teste de comunicação via `orca terminal send` confirmou que Codex CLI e Antigravity responderam normalmente; a outra instância de Claude Code (Teólogo 1) recusou corretamente assumir o papel novo até a documentação ser atualizada — ver `LESSONS.md`.
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`.
+
 ## 2026-09-19 11:27 — Claude Code — Claude Code passa a ser o ftsalider (líder/orquestrador do projeto)
 
 - **Motivo:** pedido explícito do Joab — "Você sempre será o ftsalider, aqui no Orca. Estruture para isso. O orquestrador de todo o projeto." Decisão confirmada com o Joab: a mudança vale para o projeto todo (não só dentro do Orca) e Claude Code passa a SÓ orquestrar (deixa de produzir rascunhos teológicos diretamente).

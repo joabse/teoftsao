@@ -13,6 +13,14 @@ tags:
 
 ---
 
+## 2026-09-19 11:38 — Claude Code — Estrutura de 4 terminais nomeados no Orca: ftsalider + Teólogo 1/2/3, testada e confirmada
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Decisão do Joab:** renomeou os terminais do Orca para `ftsalider`, `Teólogo 1`, `Teólogo 2` e `Teólogo 3`. Teólogo 1 é feito também pelo Claude Code (em outro terminal); Teólogo 2 é o Codex CLI; Teólogo 3 é o Antigravity. O ftsalider (este terminal) lidera os 3, enviando demandas e recebendo respostas. Pediu para testar a configuração dando um "olá" aos teólogos.
+- **O que foi feito:** localizei os terminais do projeto via `orca terminal list`/`read` e enviei mensagens de teste via `orca terminal send` aos 3 teólogos. **Codex CLI (Teólogo 2)** e **Antigravity (Teólogo 3)** confirmaram normalmente. **Teólogo 1 (outra instância de Claude Code)** recusou assumir o papel, corretamente, porque o `CLAUDE.md` que ele tinha carregado ainda dizia que Claude Code é só ftsalider — pediu confirmação com o Joab antes de agir (ver `LESSONS.md`, entrada de acerto). Atualizei `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md` e `materias/README.md` para documentar a estrutura de 4 terminais: Claude Code ocupa dois papéis em terminais diferentes (ftsalider por padrão; Teólogo 1 só quando designado explicitamente no terminal), Codex CLI = Teólogo 2, Antigravity = Teólogo 3. A regra anterior (só 2 teólogos, sem Claude Code) foi arquivada como histórico em `ESTRUTURA.md`, não apagada.
+- **Próxima etapa:** o Teólogo 1 (outro terminal) já pode assumir o papel — a documentação está atualizada; se ele reler o `CLAUDE.md`/`AGENTS.md` ou for informado disso, deve aceitar produzir rascunhos normalmente.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`; `CHANGELOG.md`, `LESSONS.md`.
+
 ## 2026-09-19 11:27 — Claude Code — Passa a ser o ftsalider (líder/orquestrador de todo o projeto)
 
 - **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅

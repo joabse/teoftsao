@@ -29,11 +29,14 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 
 ## 2. Papéis da equipe
 
+O Orca roda o projeto em **4 terminais nomeados** (Joab, 2026-09-19): **ftsalider**, **Teólogo 1**, **Teólogo 2** e **Teólogo 3**. Claude Code ocupa dois papéis, em terminais diferentes — por padrão é o ftsalider; só atua como Teólogo 1 no terminal explicitamente designado assim.
+
 | Agente | Papel | Responsabilidade no pipeline |
 |---|---|---|
-| **Claude Code** | **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente** (desde 2026-09-19). |
-| **Codex CLI** | Teólogo | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). |
-| **Antigravity** | Teólogo | Íd. — análise de materiais e produção de textos. |
+| **Claude Code** (terminal *ftsalider*) | **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente** (desde 2026-09-19). |
+| **Claude Code** (terminal *Teólogo 1*) | Teólogo (1º) | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). |
+| **Codex CLI** | Teólogo (2º) | Íd. — análise de materiais e produção de textos. |
+| **Antigravity** | Teólogo (3º) | Íd. — análise de materiais e produção de textos. |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
 | **Bereano** | Detector de IA | **Detecta se o texto foi gerado por IA**; aprova ou reprova textos no ciclo de revisão. |
@@ -104,22 +107,27 @@ Entrega ao usuário (via ftsalider)
 ### Regra de pesquisa na Bíblia (teólogos com MCPs de busca)
 
 1. **PRIORIDADE ABSOLUTA — MATERIAL ENVIADO (Joab, 2026-09-13):** todas as respostas dos teólogos devem ser **baseadas nas notas de estudo em `fontes\`** (as 27 notas de biblia3, e equivalentes para outras matérias). O material do curso é a **fonte primária e obrigatória**; a busca externa é apenas **complementar** para confirmar/verificar.
-2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (Codex CLI, Antigravity) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
+2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (Teólogo 1/Claude Code, Teólogo 2/Codex CLI, Teólogo 3/Antigravity) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
 3. **Não é necessário pedir autorização** ao líder a cada busca — o uso é parte do trabalho normal de pesquisa teológica.
 4. Os teólogos devem **sempre indicar a fonte** da consulta externa (URL, obra, autor) na resposta ao usuário, para que o líder possa validar e citar.
 5. Em caso de **conflito** entre o material enviado e uma fonte externa, **prevalece o material enviado** (a menos que o Joab decida o contrário).
 6. Decisão registrada pelo usuário em 2026-09-13.
 
-### Regra — Claude Code é o ftsalider / orquestrador do projeto (Joab, 2026-09-19)
+### Regra — Estrutura de 4 terminais nomeados no Orca (Joab, 2026-09-19, 11:40)
 
-1. **Claude Code deixa de atuar como teólogo e passa a ser o ftsalider** — líder e orquestrador de toda a equipe FTSA, em qualquer contexto (dentro ou fora do Orca).
-2. Como ftsalider, Claude Code coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o Joab, consolida tabelas de múltipla escolha e registra a memória. **Não produz rascunhos teológicos diretamente** — só o faz sob pedido explícito do Joab, ou se nenhum teólogo estiver disponível para a tarefa.
-3. **Os teólogos de produção de conteúdo passam a ser SOMENTE 2:** Codex CLI (1º) e Antigravity (2º). Questões e produção teológica vão exclusivamente para eles.
-4. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos** e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+1. **O Orca roda o projeto em 4 terminais nomeados:** `ftsalider`, `Teólogo 1`, `Teólogo 2`, `Teólogo 3`.
+2. **ftsalider** = Claude Code no terminal orquestrador (padrão, se o terminal não tiver sido designado de outra forma). Lidera a equipe: distribui tarefas aos 3 teólogos, valida entregas com o Joab, consolida tabelas de múltipla escolha, registra a memória. **Não produz rascunhos teológicos diretamente.**
+3. **Teólogo 1** = Claude Code, em terminal dedicado e **explicitamente designado** para isso pelo Joab ou pelo ftsalider. **Teólogo 2** = Codex CLI. **Teólogo 3** = Antigravity. Os 3 analisam materiais em `fontes\` e produzem rascunhos em `02_rascunhos\`.
+4. Claude Code deve identificar seu papel pelo contexto do terminal: assume **ftsalider por padrão**, e só assume **Teólogo 1** quando instruído explicitamente naquele terminal.
+5. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos** e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+
+### ~~Regra anterior — Claude Code é o ftsalider, só 2 teólogos (Joab, 2026-09-19, 11:27)~~ — SUPERSEDIDA
+
+> Arquivada como histórico: dizia que os teólogos de produção eram SOMENTE 2 (Codex CLI e Antigravity), sem papel de teólogo para Claude Code. Substituída ~13 minutos depois pela estrutura de 4 terminais acima, quando o Joab renomeou os terminais do Orca e explicou que Claude Code também atuaria como Teólogo 1 em terminal separado.
 
 ### ~~Regra anterior — quem são os teólogos (Joab, 2026-09-13)~~ — SUPERSEDIDA em 2026-09-19
 
-> Arquivada como histórico: "Os teólogos são SOMENTE 3: Claude Code (1º), Codex CLI (2º), Antigravity (3º)." Substituída pela regra acima — Claude Code passou a ser o ftsalider.
+> Arquivada como histórico: "Os teólogos são SOMENTE 3: Claude Code (1º), Codex CLI (2º), Antigravity (3º)." (a estrutura atual chegou de volta a esse número, mas agora com terminais nomeados e o papel de ftsalider formalizado.)
 
 ### Regra de consolidação de questões de múltipla escolha
 

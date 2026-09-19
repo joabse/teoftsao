@@ -10,7 +10,7 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 
 1. **Entrada** — usuário envia arquivos da matéria para `materias\<nome>\00_originais\` (imutáveis).
 2. **Conversão** — **file2md** converte tudo para Markdown em `01_markdown\`.
-3. **Produção** — teólogos (**Codex CLI e Antigravity**) analisam os materiais e escrevem textos em `02_rascunhos\`.
+3. **Produção** — teólogos (**Teólogo 1/Claude Code, Teólogo 2/Codex CLI, Teólogo 3/Antigravity**) analisam os materiais e escrevem textos em `02_rascunhos\`.
 4. **Ciclo de humanização** (em `03_revisao\`, versões numeradas v1, v2, v3…):
    - **Bereano** avalia se o texto parece gerado por IA.
    - **Aprovado** → vai para `04_aprovados\`.
@@ -20,8 +20,8 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 
 ## Papéis (rápido)
 
-- **ftsalider (Claude Code)** — orquestra toda a equipe: coordena Codex CLI e Antigravity, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19).
-- **Codex CLI / Antigravity** — **ÚNICOS teólogos** (Joab, 2026-09-19; antes incluía Claude Code, que agora é o ftsalider). Produzem textos. Anteriormente existia o gbooklm (4º teólogo NotebookLM), **removido pelo Joab** em 2026-09-13 — por isso essa função está descontinuada.
+- **ftsalider (Claude Code, terminal "ftsalider")** — orquestra toda a equipe: coordena os 3 teólogos, distribui tarefas e valida entregas com o usuário. Não produz rascunhos teológicos diretamente (Joab, 2026-09-19).
+- **Teólogo 1 (Claude Code, terminal dedicado) / Teólogo 2 (Codex CLI) / Teólogo 3 (Antigravity)** — os 3 teólogos (4 terminais nomeados no Orca desde 2026-09-19: ftsalider, Teólogo 1, Teólogo 2, Teólogo 3). Produzem textos. Anteriormente existia o gbooklm (4º teólogo NotebookLM), **removido pelo Joab** em 2026-09-13 — por isso essa função está descontinuada.
   - 🌐 **Regra de pesquisa na Bíblia (Joab, 2026-09-13):** se precisarem consultar a Bíblia (texto, comentários, léxicos, contexto histórico), os teólogos estão **livres para buscar na internet** com os MCPs de busca do projeto ou pelo browser integrado do Orca (`orca tab`) — **sem necessidade de pedir autorização** ao líder. Devem **sempre indicar a fonte** (URL, obra, autor) na resposta. As notas em `fontes\` continuam sendo a base primária; a busca externa é complementar.
 - **file2md** — converte arquivos para Markdown.
 - **Bereano** — detector de IA (aprova/reprova).
@@ -36,7 +36,7 @@ Originais → Markdown → Rascunhos → **Ciclo de Humanização (Bereano ⇄ E
 - **PRIORIDADE ABSOLUTA: material enviado** — respostas baseadas nas notas de `fontes\`; internet/MCPs de busca apenas complementares para confirmar. Em conflito, prevalece o material. (Joab, 2026-09-13)
 - **Teólogos podem buscar na internet com MCPs de busca** para consultar a Bíblia (texto/comentários/léxicos); citar sempre a fonte. Notas de `fontes\` são a base primária.
 - **Múltipla escolha: sempre fechar com tabela-resumo** — nº da questão · resposta de cada teólogo · **sugestão do líder** (letra correta + justificativa 1 linha). Divergências destacadas e explicadas antes da sugestão. (Joab, 2026-09-13)
-- **Teólogos = SOMENTE Codex CLI + Antigravity.** Claude Code é o ftsalider (líder/orquestrador), não teólogo. (Joab, 2026-09-19; antes incluía Claude Code)
+- **Teólogos = Teólogo 1 (Claude Code) + Teólogo 2 (Codex CLI) + Teólogo 3 (Antigravity)**, cada um em terminal nomeado no Orca. Claude Code também é o ftsalider (líder/orquestrador) em outro terminal — mesmo agente, papel diferente conforme o terminal. (Joab, 2026-09-19)
 - Manter histórico de versões em `03_revisao\`.
 - **file2md: contexto isolado por arquivo** — regra no prompt do agente ("processe APENAS o arquivo atual; ignore anteriores") + o líder sempre reenvia instruções completas em cada despacho. Cada conversão é tratada como independente. (tecfix, 2026-09-13)
 - Toda etapa concluída é registrada na memória do vault (`ftsabrain\memoria\`), por matéria ou no registro geral.

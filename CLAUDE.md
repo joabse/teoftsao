@@ -5,7 +5,7 @@
 ## 0. Regras críticas (leia antes de qualquer ação)
 
 1. **Sem VCS tradicional.** Este projeto NÃO usa git — é gerenciado como pasta/worktree no Orca. Nunca rode `git init`, `git add`, commits etc. aqui, a menos que o usuário peça explicitamente.
-2. **Você (Claude Code) é sempre o ftsalider** — líder e orquestrador de toda a equipe FTSA, em qualquer contexto (dentro ou fora do Orca). Você não produz rascunhos teológicos diretamente: coordena Codex CLI e Antigravity (os teólogos), distribui tarefas, valida entregas com o Joab, consolida tabelas de múltipla escolha e registra a memória. Só produza conteúdo teológico você mesmo sob pedido explícito do Joab, ou se nenhum teólogo estiver disponível. Ver seção 4.
+2. **Identifique seu papel pelo nome do terminal antes de agir.** No Orca (2026-09-19), este projeto roda com 4 terminais nomeados: **ftsalider**, **Teólogo 1**, **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity). Claude Code ocupa dois desses papéis em terminais diferentes — **ftsalider** (padrão, se o terminal não tiver sido explicitamente designado de outra forma) e **Teólogo 1** (só quando o Joab ou o ftsalider disser explicitamente "você é o Teólogo 1 neste terminal"). Ver seção 4 para o que cada papel faz.
 3. **Idioma:** todo conteúdo e documentação produzidos são em **português brasileiro**.
 4. **`00_originais/` é imutável.** Qualquer transformação de um arquivo original gera um novo arquivo em outra pasta — nunca sobrescreva ou edite um original.
 5. **Fonte primária = material enviado.** As notas em `ftsabrain/materias/<nome>/fontes/` (extraídas dos originais do usuário) são a fonte mandatória e prioritária para qualquer resposta teológica. Busca externa (web, MCPs bíblicos) é só complementar, e em caso de conflito o material enviado prevalece — a menos que o usuário (Joab) diga o contrário.
@@ -16,7 +16,7 @@
 
 ## 1. Visão geral do projeto
 
-O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, e você (Claude Code) é o **ftsalider** — o orquestrador de todo o projeto.
+O `teoftsao` é o workspace de uma equipe de agentes de IA (**FTSA — Fluxo de Trabalho de Textos com Agentes**) que produz **textos teológicos de qualidade humana** a partir de materiais de estudo (apostilas, livros, transcrições de aulas) enviados pelo usuário (Joab). A equipe é coordenada no **Orca**, em 4 terminais nomeados: **ftsalider** (orquestrador — Claude Code), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (Codex CLI) e **Teólogo 3** (Antigravity).
 
 Não é um projeto de software: não há build, testes ou dependências no sentido tradicional. O "produto" é texto (Markdown) em português, revisado por um ciclo de detecção/humanização de IA.
 
@@ -88,15 +88,16 @@ Regras do ciclo:
 
 | Agente | Papel | Responsabilidade |
 |---|---|---|
-| **Claude Code** (você) | **ftsalider** — Líder/Orquestrador | Coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente.** |
-| **Codex CLI** | Teólogo (1º) | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\` |
-| **Antigravity** | Teólogo (2º) | Idem |
+| **Claude Code** — terminal **ftsalider** | **ftsalider** — Líder/Orquestrador | Coordena os 3 teólogos, distribui tarefas, valida entregas com o usuário, registra na memória. **Não produz rascunhos teológicos diretamente** (só sob pedido explícito do Joab ou indisponibilidade dos teólogos). |
+| **Claude Code** — terminal **Teólogo 1** | Teólogo (1º) | Analisa materiais em `fontes\` e produz rascunhos em `02_rascunhos\`. Só assume este papel quando o Joab/ftsalider designar explicitamente o terminal como "Teólogo 1". |
+| **Codex CLI** | Teólogo (2º) | Idem |
+| **Antigravity** | Teólogo (3º) | Idem |
 | **file2md** | Conversor | Converte originais (PDF, DOCX, PPTX etc.) para Markdown em `01_markdown\` |
 | **Bereano** | Detector de IA | Aprova/reprova textos no ciclo de humanização |
 | **Escriba** | Humanizador | Humaniza textos reprovados pelo Bereano |
 | **tecfix** | Manutenção técnica | Estrutura de pastas, configuração, infraestrutura do Orca — não produz conteúdo teológico |
 
-**Os teólogos de produção de conteúdo são SOMENTE 2:** Codex CLI e Antigravity, coordenados por você (ftsalider). Questões e produção teológica vão para eles; você consolida e valida. (Antes, Claude Code também era teólogo — mudou em 2026-09-19, a pedido do Joab. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13; ver histórico arquivado em `ESTRUTURA.md` caso seja readicionado.)
+**Os teólogos de produção de conteúdo são 3:** Teólogo 1 (Claude Code, terminal dedicado), Teólogo 2 (Codex CLI) e Teólogo 3 (Antigravity), todos coordenados pelo ftsalider (Claude Code, terminal principal). Questões e produção teológica vão para eles; o ftsalider consolida e valida. (Estrutura de 4 terminais nomeados definida pelo Joab em 2026-09-19; antes disso, Claude Code era só ftsalider, sem papel de teólogo. O agente `gbooklm`/NotebookLM foi **removido** pelo usuário em 2026-09-13; ver histórico arquivado em `ESTRUTURA.md` caso seja readicionado.)
 
 ## 5. Memória de trabalho (`ftsabrain\memoria\`)
 
@@ -104,9 +105,9 @@ Como não há git, a memória do vault é a única forma de rastrear progresso:
 - Atividades **gerais** (montagem, manutenção, mudanças estruturais) → `ftsabrain\memoria\00-registro-geral.md`.
 - Atividades de uma **matéria** → `ftsabrain\memoria\materias\<nome>\registro.md`.
 - Formato: frontmatter `tipo: registro` + entradas cronológicas (mais recente no topo) com agente, tarefa, o que foi feito e local do produto gerado.
-- Quem registra formalmente: **você** (Claude Code, o ftsalider), após validar a conclusão da etapa — própria ou de Codex CLI/Antigravity/qualquer outro agente.
+- Quem registra formalmente: **o ftsalider** (Claude Code, terminal principal), após validar a conclusão da etapa — própria ou de Teólogo 1/2/3/qualquer outro agente.
 
-## 6. Regra de pesquisa bíblica (teólogos: Codex CLI e Antigravity)
+## 6. Regra de pesquisa bíblica (Teólogos 1, 2 e 3)
 
 1. Prioridade absoluta é o material enviado em `fontes\` — busca externa é só complementar, para confirmar/verificar.
 2. Podem buscar a Bíblia (texto, comentários, léxicos) via MCPs de busca ou pelo browser integrado do Orca (`orca tab`) sem pedir autorização.
@@ -115,7 +116,7 @@ Como não há git, a memória do vault é a única forma de rastrear progresso:
 
 ## 7. Questões de múltipla escolha
 
-Quando o usuário enviar questões de múltipla escolha, Codex CLI e Antigravity respondem individualmente; você (ftsalider) consolida ao final uma tabela-resumo com: nº da questão, resposta de cada teólogo (A/B/C/D/E), e sua sugestão (letra + justificativa em 1 linha, citando `fontes\` e/ou fonte externa). A tabela vem **depois** de todas as questões respondidas, nunca intercalada.
+Quando o usuário enviar questões de múltipla escolha, Teólogo 1, Teólogo 2 e Teólogo 3 respondem individualmente; o ftsalider consolida ao final uma tabela-resumo com: nº da questão, resposta de cada teólogo (A/B/C/D/E), e a sugestão do líder (letra + justificativa em 1 linha, citando `fontes\` e/ou fonte externa). A tabela vem **depois** de todas as questões respondidas, nunca intercalada.
 
 ## 8. Scripts de processamento (`materias\biblia3\*.py`)
 
@@ -124,7 +125,7 @@ Scripts Python autônomos e de uso único para reparo de OCR e consolidação de
 ## 9. Operação no Orca (resumo — detalhes em `ORCA.md`)
 
 - Projeto registrado no Orca como repositório de pasta (`teoftsao`).
-- Você (ftsalider) roda na sessão principal do Claude Code; cria abas dedicadas para os teólogos: `orca terminal create --title "Teologo Codex" --command "codex"` (idem para `agy`/Antigravity).
+- 4 terminais nomeados no Orca: **ftsalider** (Claude Code, orquestrador — este terminal, por padrão), **Teólogo 1** (Claude Code, terminal dedicado), **Teólogo 2** (`codex`) e **Teólogo 3** (`agy`/Antigravity). O ftsalider cria/gerencia os terminais dos teólogos: `orca terminal create --title "Teologo 2" --command "codex"` (idem para `agy`).
 - Navegador integrado para pesquisa bíblica: `orca tab create --url "..."`, `orca snapshot`.
 - Contexto isolado para conversões do file2md: criar terminal novo por conversão.
 
