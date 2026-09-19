@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 13:16 — Claude Code — JOA-15 fechada como Done; Kimi desmembrado para JOA-17
+
+- **Motivo:** o Joab apontou que a JOA-15 não tinha sido marcada como concluída, apesar de mmx e DeepSeek já estarem resolvidos — só o Kimi Code restava pendente, e esse item específico exige login interativo (`kimi login`, device-code no navegador) que só o Joab pode autorizar. Perguntei como proceder; ele escolheu marcar a JOA-15 como concluída mesmo assim.
+- **O que mudou:** JOA-15 atualizada (descrição resumindo o que foi resolvido: mmx corrigido, DeepSeek documentado como não instalado) e marcada **Done**. Aberta issue nova **JOA-17** (Backlog, baixa prioridade), só para o item real que restava: confirmar se o Kimi Code lê `AGENTS.md`/`KIMI.md` automaticamente, quando alguém fizer login nele.
+- **Lição aplicada:** uma tarefa com partes resolvidas e uma parte pendente que depende de ação exclusiva do usuário deve ser fechada como concluída (com a parte executável já feita) e a parte pendente desmembrada em issue própria — não deixada em "In Progress" indefinidamente à espera de uma ação que não é minha.
+- **Local:** Linear (JOA-15 → Done, JOA-17 criada).
+
 ## 2026-09-19 12:04 — Claude Code — Execução da JOA-15: investigação real de Kimi/mmx/DeepSeek, correção de suposição
 
 - **Motivo:** issue JOA-15 (aberta por mim na JOA-14) pedia para verificar, quando Kimi/mmx/DeepSeek fossem de fato usados, se realmente leem `AGENTS.md`. O Joab pediu para executar a JOA-15 agora, então investiguei o que estava realmente disponível neste ambiente em vez de esperar.

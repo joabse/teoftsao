@@ -24,6 +24,13 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 — Claude Code — Issue Linear ficou "In Progress" indefinidamente por um item que não é meu para resolver
+
+- **O que aconteceu:** ao executar a JOA-15 (mmx/Kimi/DeepSeek), resolvi 2 dos 3 itens de fato (mmx corrigido, DeepSeek documentado como não instalado) mas deixei a issue inteira em "In Progress" por causa do 3º item (confirmar Kimi Code), que exige login interativo só o Joab pode fazer. O Joab então apontou que eu não tinha dado a tarefa como concluída.
+- **Erro/acerto:** erro parcial. Estava certo em não fingir uma confirmação que eu não tinha (ver lição anterior sobre a suposição do mmx), mas errado em deixar a issue toda "pendurada" em vez de separar o que era meu (feito) do que dependia de outra pessoa (não feito).
+- **Correção/solução:** perguntei ao Joab como prosseguir; ele optou por marcar a JOA-15 como Done (resumindo o que foi resolvido) e desmembrar o item do Kimi Code para uma issue nova e específica (JOA-17, Backlog).
+- **Lição:** quando uma tarefa tem partes que dependem de uma ação exclusiva do usuário (login, credencial, decisão), não mantenha a issue inteira em aberto esperando por isso — feche a parte que você já resolveu (Done) e desmembre o restante em uma issue própria, de prioridade baixa, específica só para aquele item pendente. Isso evita tanto fingir conclusão total quanto deixar trabalho já feito parecendo incompleto.
+
 ## 2026-09-19 — Claude Code — Suposição errada sobre "mmx" ler AGENTS.md; corrigida ao investigar de fato
 
 - **O que aconteceu:** ao executar a JOA-14 (multi-LLM), listei `mmx` (MiniMax) como uma ferramenta que "por convenção do padrão AGENTS.md" leria `AGENTS.md` automaticamente, junto com Kimi e DeepSeek — pura inferência por analogia, sem checar a ferramenta de fato.

@@ -13,6 +13,13 @@ tags:
 
 ---
 
+## 2026-09-19 13:16 — Claude Code — JOA-15 marcada como Done; Kimi desmembrado em JOA-17
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Observação do Joab:** apontou que a JOA-15 não tinha sido dada como concluída no Linear, mesmo com 2 dos 3 itens já resolvidos.
+- **O que foi feito:** perguntei como proceder; o Joab escolheu marcar a JOA-15 como Done mesmo assim. Atualizei a descrição da issue resumindo o que foi resolvido (mmx, DeepSeek) e abri a **JOA-17** (Backlog, baixa prioridade) só para o item que dependia de ação exclusiva dele (login no Kimi Code). Registrada a lição em `LESSONS.md`: não deixar uma issue inteira "pendurada" por causa de um item que não é meu para resolver — separar o que já foi feito (Done) do que falta (issue nova, específica).
+- **Resultado/Local:** Linear (JOA-15 → Done, JOA-17 criada); `LESSONS.md`, `CHANGELOG.md`.
+
 ## 2026-09-19 12:04 — Claude Code — Executada JOA-15: investigação real de Kimi/mmx/DeepSeek
 
 - **Matéria:** geral (equipe/processo) | **Status:** **PARCIALMENTE CONCLUÍDO** ⚠️ (2 de 3 ferramentas esclarecidas; Kimi Code pendente de teste real com login)
