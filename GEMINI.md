@@ -1,6 +1,6 @@
 # GEMINI.md — Diretrizes para Antigravity no Projeto teoftsao
 
-> Este arquivo é carregado automaticamente pelo **Antigravity (`agy`)** no início de cada sessão neste diretório. Consolida as diretrizes de `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Antigravity (o 3º Teólogo da equipe FTSA) opere com máxima precisão, sem ambiguidades.
+> Este arquivo é carregado automaticamente pelo **Antigravity (`agy`)** no início de cada sessão neste diretório. Consolida as diretrizes de `AGENTS.md`, `ESTRUTURA.md` e `ORCA.md` para que o Antigravity (o 2º Teólogo da equipe FTSA) opere com máxima precisão, sem ambiguidades. **O líder da equipe (ftsalider) é o Claude Code**, que orquestra o trabalho entre você, o Codex CLI e os demais agentes.
 
 ---
 
@@ -84,16 +84,15 @@ materias\<nome>\04_aprovados\   → Entrega final ao Joab
 
 | Agente | Papel | Função Principal |
 |---|---|---|
-| **ftsalider** | Líder da equipe | Coordena o fluxo, distribui tarefas, valida respostas e registra a memória. |
-| **Claude Code** | 1º Teólogo | Analisa materiais de estudo e elabora textos/respostas teológicas. |
-| **Codex CLI** | 2º Teólogo | Análise e produção teológica em conjunto. |
-| **Antigravity** | 3º Teólogo | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. |
+| **Claude Code** | **ftsalider** — Líder da equipe | Orquestra o fluxo, distribui tarefas, valida respostas e registra a memória. Não produz rascunhos teológicos diretamente. |
+| **Codex CLI** | 1º Teólogo | Análise e produção teológica. |
+| **Antigravity** | 2º Teólogo | Análise das fontes do curso, produção de rascunhos e reflexões teológicas. |
 | **file2md** | Conversor | Transforma originais (PDFs, transcrições) em Markdown limpo. |
 | **Bereano** | Detector de IA | Avalia os textos contra padrões sintéticos de IA; aprova ou reprova. |
 | **Escriba** | Humanizador | Reescreve textos reprovados pelo Bereano para garantir tom natural. |
 | **tecfix** | Manutenção técnica | Ajustes de infraestrutura, ambiente Orca e organização de pastas. |
 
-*(Nota: os teólogos ativos são exclusivamente Claude Code, Codex CLI e Antigravity).*
+*(Nota: os teólogos ativos são exclusivamente Codex CLI e Antigravity. O Claude Code atua como ftsalider — líder/orquestrador — desde 2026-09-19.)*
 
 ---
 

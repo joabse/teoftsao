@@ -1,7 +1,7 @@
 ---
 materia: biblia3
 status: notas_prontas
-atualizado_em: 2026-09-13
+atualizado_em: 2026-09-19
 tags:
   - materia/biblia3
 ---
@@ -14,7 +14,7 @@ tags:
 
 | Campo | Valor |
 |---|---|
-| Status | **CONCLUÍDA** ✅ — 27/27 notas de estudo + 32 entregas (26Q + 6R) em `04_aprovados\` |
+| Status | **CONCLUÍDA** ✅ — 27/27 notas de estudo. O histórico registra 32 entregas (26Q + 6R), mas o inventário atual de `04_aprovados\` contém 27 arquivos: Q6–Q26 e R1–R6. Conferir o paradeiro de Q1–Q5 antes de nova entrega baseada no conjunto completo. |
 | Pasta de trabalho | `..\materias\biblia3\` (fluxo 00_originais → 04_aprovados) |
 | Tópicos cobertos | Introdução ao Novo Testamento |
 | Notas geradas | 27 arquivos · 177.097 bytes em `fontes\` |

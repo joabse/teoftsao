@@ -1,7 +1,7 @@
 ---
 tipo: registro
 materia: geral
-atualizado_em: 2026-09-18
+atualizado_em: 2026-09-19
 tags:
   - memoria
 ---
@@ -12,6 +12,21 @@ tags:
 > **Regra:** após cada etapa concluída e validada, o **ftsalider** registra a entrada aqui (ou no registro da matéria correspondente). Entradas em ordem cronológica decrescente (mais recente no topo).
 
 ---
+
+## 2026-09-19 11:27 — Claude Code — Passa a ser o ftsalider (líder/orquestrador de todo o projeto)
+
+- **Matéria:** geral (equipe/processo) | **Status:** **CONCLUÍDO** ✅
+- **Decisão do Joab:** "Você sempre será o ftsalider, aqui no Orca. Estruture para isso. O orquestrador de todo o projeto." Confirmado em seguida: a mudança vale para o projeto todo (dentro e fora do Orca), e o Claude Code passa a **só orquestrar** — deixa de produzir rascunhos teológicos diretamente.
+- **O que foi feito:** Claude Code sai da lista de teólogos e assume formalmente o papel de **ftsalider**: coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o Joab, consolida tabelas de múltipla escolha e registra a memória. Os teólogos de produção de conteúdo passam a ser **somente Codex CLI (1º) e Antigravity (2º)**. Atualizados `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md` e `materias/README.md`. A regra antiga ("teólogos = Claude Code + Codex CLI + Antigravity") foi arquivada como histórico em `ESTRUTURA.md`, não apagada — segue o mesmo padrão usado para a descontinuação do gbooklm.
+- **Próxima etapa:** a partir de agora, delegar produção teológica a Codex CLI e/ou Antigravity (via terminais do Orca ou pedido direto), reservando produção própria só para pedido explícito do Joab ou indisponibilidade dos teólogos.
+- **Resultado/Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`.
+
+## 2026-09-19 11:21 — Codex CLI (2º teólogo) — Auditoria de prontidão para próximas execuções
+
+- **Matéria:** geral (documentação operacional) | **Status:** **CONCLUÍDO** ✅
+- **O que foi feito:** conferidas as regras do projeto, o pipeline, o estado das matérias e os inventários de arquivos. As referências operacionais ativas ao agente removido `gbooklm` foram corrigidas em `ftsabrain\pipeline.md`, `ftsabrain\materias.md` e `materias\README.md`. O MOC passou a refletir o estado real: Bíblia 2 tem Markdown convertido, porém ainda não tem notas em `fontes\`; Bíblia 3 está concluída, mas exige conferência do inventário de aprovados.
+- **Pendência identificada:** o histórico da Bíblia 3 declara 32 entregas (Q1–Q26 e R1–R6), enquanto `materias\biblia3\04_aprovados\` contém 27 arquivos (Q6–Q26 e R1–R6). Os arquivos Q1–Q5 não foram localizados no workspace e não foram recriados nem removidos nesta auditoria.
+- **Resultado/Local:** `ftsabrain\pipeline.md`, `ftsabrain\materias.md`, `materias\README.md`, `ftsabrain\materias\biblia3\00-visao-geral.md`.
 
 ## 2026-09-19 11:15 — Claude Code — Criadas as funcionalidades CHANGELOG.md e LESSONS.md
 

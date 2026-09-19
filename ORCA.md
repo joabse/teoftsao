@@ -20,10 +20,9 @@ No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, 
 
 | Papel FTSA | Executável / Agente no Orca | Como Ativar no Orca | Finalidade |
 |---|---|---|---|
-| **ftsalider** | Agente Coordenador / Lead | Sessão principal ou orquestrador | Distribui tarefas, valida respostas e registra na memória (`ftsabrain/`). |
-| **Claude Code** | `claude` | `orca terminal create --title "Teólogo Claude" --command "claude"` | 1º Teólogo — análise e produção teológica. |
-| **Codex CLI** | `codex` | `orca terminal create --title "Teólogo Codex" --command "codex"` | 2º Teólogo — análise e produção teológica. |
-| **Antigravity** | `agy` | `orca terminal create --title "Teólogo Antigravity" --command "agy"` | 3º Teólogo — análise e produção teológica. |
+| **ftsalider** | `claude` (Claude Code) | Sessão principal do Claude Code no Orca | Orquestra toda a equipe: distribui tarefas a Codex CLI e Antigravity, valida respostas com o Joab, registra a memória. **Não produz rascunhos teológicos diretamente** (desde 2026-09-19). |
+| **Codex CLI** | `codex` | `orca terminal create --title "Teólogo Codex" --command "codex"` | 1º Teólogo — análise e produção teológica. |
+| **Antigravity** | `agy` | `orca terminal create --title "Teólogo Antigravity" --command "agy"` | 2º Teólogo — análise e produção teológica. |
 | **file2md** | Script / CLI de conversão | Terminal sob demanda | Conversão de originais para Markdown em `01_markdown/`. |
 | **Bereano** | Prompt / Sessão dedicada | Terminal ou prompt de verificação | Detecção de marcas de IA nos rascunhos em `02_rascunhos/`. |
 | **Escriba** | Prompt / Sessão dedicada | Terminal de redação | Humanização e reescrita de textos reprovados em `03_revisao/`. |
@@ -34,15 +33,12 @@ No **Orca**, o projeto é gerenciado como um espaço de trabalho multissessão, 
 ## 3. Comandos Úteis do Orca para o Projeto
 
 ### 3.1 Gerenciamento de Terminais dos Agentes
-Para abrir agentes teólogos em abas paralelas no mesmo workspace:
+Você (Claude Code / ftsalider) roda na sessão principal e abre abas dedicadas para os teólogos:
 ```bash
-# Iniciar o Claude Code
-orca terminal create --title "Teologo Claude" --command "claude" --json
-
-# Iniciar o Codex CLI
+# Iniciar o Codex CLI (1º Teólogo)
 orca terminal create --title "Teologo Codex" --command "codex" --json
 
-# Iniciar o Antigravity CLI
+# Iniciar o Antigravity CLI (2º Teólogo)
 orca terminal create --title "Teologo Antigravity" --command "agy" --json
 ```
 
@@ -87,4 +83,4 @@ orca worktree ps --json
    - Textos produzidos pelos teólogos vão para `materias/<materia>/02_rascunhos/`.
    - São submetidos ao Bereano. Se reprovados, o Escriba grava em `materias/<materia>/03_revisao/v{n}.md`.
    - Somente após aprovação do Bereano o arquivo é movido para `04_aprovados/`.
-4. **Memória Contínua:** Toda etapa finalizada deve ser registrada pelo líder em `ftsabrain/memoria/`.
+4. **Memória Contínua:** Toda etapa finalizada deve ser registrada pelo líder (você, Claude Code/ftsalider) em `ftsabrain/memoria/`.

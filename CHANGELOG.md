@@ -24,6 +24,18 @@ Formato de cada entrada:
 
 ---
 
+## 2026-09-19 11:27 — Claude Code — Claude Code passa a ser o ftsalider (líder/orquestrador do projeto)
+
+- **Motivo:** pedido explícito do Joab — "Você sempre será o ftsalider, aqui no Orca. Estruture para isso. O orquestrador de todo o projeto." Decisão confirmada com o Joab: a mudança vale para o projeto todo (não só dentro do Orca) e Claude Code passa a SÓ orquestrar (deixa de produzir rascunhos teológicos diretamente).
+- **O que mudou:** `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`, `ftsabrain/pipeline.md`, `ftsabrain/materias.md` e `materias/README.md` atualizados — Claude Code sai da lista de teólogos e assume o papel de ftsalider (líder/orquestrador de Codex CLI e Antigravity, validação de entregas, registro de memória, consolidação de tabelas de múltipla escolha). Teólogos de produção de conteúdo passam a ser SOMENTE Codex CLI (1º) e Antigravity (2º). Regra antiga ("teólogos = Claude Code + Codex CLI + Antigravity") arquivada como histórico em `ESTRUTURA.md`, não apagada.
+- **Local:** raiz do projeto (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `ESTRUTURA.md`, `ORCA.md`); `ftsabrain/pipeline.md`, `ftsabrain/materias.md`, `materias/README.md`.
+
+## 2026-09-19 11:21 — Codex CLI — Correção da documentação operacional e registro de inventário
+
+- **Motivo:** preparar o workspace para novas execuções com papéis, estados e inventários verificáveis.
+- **O que mudou:** removidas referências operacionais residuais ao `gbooklm`; MOC atualizado para o estado efetivo das matérias; visão geral da Bíblia 3 passou a registrar a divergência entre seu histórico de 32 entregas e os 27 aprovados atualmente presentes.
+- **Local:** `ftsabrain\pipeline.md`, `ftsabrain\materias.md`, `materias\README.md`, `ftsabrain\materias\biblia3\00-visao-geral.md`, `ftsabrain\memoria\00-registro-geral.md`.
+
 ## 2026-09-19 11:15 — Claude Code — Criação do CHANGELOG.md e do LESSONS.md
 
 - **Motivo:** pedido explícito do Joab para criar duas funcionalidades que hoje não existiam no projeto: (1) um changelog de alterações estruturais/arquivos que sirva apenas como banco de consulta (não deve ser lido automaticamente pela LLM); (2) um registro de lições aprendidas (erros, acertos, pendências) para orientar outras sessões/LLMs.

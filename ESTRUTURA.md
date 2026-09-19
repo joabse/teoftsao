@@ -31,9 +31,8 @@ E:\00_ATUAL\04_PROJETO\teoftsao\
 
 | Agente | Papel | Responsabilidade no pipeline |
 |---|---|---|
-| **ftsalider** | Líder | Coordena a equipe, distribui tarefas e valida entregas com o usuário. |
-| **Claude Code** | Teólogo | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). |
-| **Codex CLI** | Teólogo | Íd. — análise de materiais e produção de textos. |
+| **Claude Code** | **ftsalider** — Líder/Orquestrador | Orquestra toda a equipe: coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o usuário, registra a memória. **Não produz rascunhos teológicos diretamente** (desde 2026-09-19). |
+| **Codex CLI** | Teólogo | Analisa os arquivos da matéria e **produz textos** (rascunhos em `02_rascunhos\`). |
 | **Antigravity** | Teólogo | Íd. — análise de materiais e produção de textos. |
 | ~~**gbooklm**~~ | ~~Teólogo~~ | **REMOVIDO pelo Joab em 2026-09-13.** Era o especialista NotebookLM (4º teólogo). Assistente permanece no catálogo (`custom-1789227611495-859d`); se re-adicionado, restaurar a regra própria. |
 | **file2md** | Conversor | **Converte qualquer arquivo para Markdown** (PDF, DOCX, PPTX etc.) e salva em `01_markdown\`. |
@@ -105,16 +104,22 @@ Entrega ao usuário (via ftsalider)
 ### Regra de pesquisa na Bíblia (teólogos com MCPs de busca)
 
 1. **PRIORIDADE ABSOLUTA — MATERIAL ENVIADO (Joab, 2026-09-13):** todas as respostas dos teólogos devem ser **baseadas nas notas de estudo em `fontes\`** (as 27 notas de biblia3, e equivalentes para outras matérias). O material do curso é a **fonte primária e obrigatória**; a busca externa é apenas **complementar** para confirmar/verificar.
-2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (Claude Code, Codex CLI, Antigravity) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
+2. Caso precisem consultar a Bíblia (texto bíblico, comentários, lexicos, dicionários, contexto histórico) para fundamentar uma resposta, os teólogos (Codex CLI, Antigravity) estão **livres para buscar na internet** usando os MCPs de busca ou o browser integrado do Orca (`orca tab`).
 3. **Não é necessário pedir autorização** ao líder a cada busca — o uso é parte do trabalho normal de pesquisa teológica.
 4. Os teólogos devem **sempre indicar a fonte** da consulta externa (URL, obra, autor) na resposta ao usuário, para que o líder possa validar e citar.
 5. Em caso de **conflito** entre o material enviado e uma fonte externa, **prevalece o material enviado** (a menos que o Joab decida o contrário).
 6. Decisão registrada pelo usuário em 2026-09-13.
 
-### Regra — quem são os teólogos (Joab, 2026-09-13)
+### Regra — Claude Code é o ftsalider / orquestrador do projeto (Joab, 2026-09-19)
 
-1. **Os teólogos são SOMENTE 3:** Claude Code (1º), Codex CLI (2º), Antigravity (3º). Questões e produção teológica vão **exclusivamente** para eles.
-2. file2md, Bereano, escriba e tecfix têm papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos** e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+1. **Claude Code deixa de atuar como teólogo e passa a ser o ftsalider** — líder e orquestrador de toda a equipe FTSA, em qualquer contexto (dentro ou fora do Orca).
+2. Como ftsalider, Claude Code coordena Codex CLI e Antigravity, distribui tarefas, valida entregas com o Joab, consolida tabelas de múltipla escolha e registra a memória. **Não produz rascunhos teológicos diretamente** — só o faz sob pedido explícito do Joab, ou se nenhum teólogo estiver disponível para a tarefa.
+3. **Os teólogos de produção de conteúdo passam a ser SOMENTE 2:** Codex CLI (1º) e Antigravity (2º). Questões e produção teológica vão exclusivamente para eles.
+4. file2md, Bereano, Escriba e tecfix continuam com papéis próprios (conversão, detecção, humanização, técnica) — **não são teólogos** e não recebem questões. (gbooklm foi removido da equipe em 2026-09-13.)
+
+### ~~Regra anterior — quem são os teólogos (Joab, 2026-09-13)~~ — SUPERSEDIDA em 2026-09-19
+
+> Arquivada como histórico: "Os teólogos são SOMENTE 3: Claude Code (1º), Codex CLI (2º), Antigravity (3º)." Substituída pela regra acima — Claude Code passou a ser o ftsalider.
 
 ### Regra de consolidação de questões de múltipla escolha
 

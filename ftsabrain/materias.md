@@ -1,20 +1,20 @@
 ---
 tipo: moc
-atualizado_em: 2026-09-12
+atualizado_em: 2026-09-19
 tags:
   - moc
 ---
 
 # 📚 Matérias — MOC
 
-> Map of Content: índice geral das matérias do projeto FTSA. Este vault (`ftsabrain`) é o **cérebro do projeto** — todo conhecimento extraído dos materiais fica aqui, consultado pelos teólogos (Claude Code, Codex CLI, Antigravity, gbooklm). Fluxo e papéis: [[pipeline]].
+> Map of Content: índice geral das matérias do projeto FTSA. Este vault (`ftsabrain`) é o **cérebro do projeto** — todo conhecimento extraído dos materiais fica aqui, consultado pelos teólogos (Codex CLI e Antigravity) e orquestrado pelo ftsalider (Claude Code). Fluxo e papéis: [[pipeline]].
 
 ## Matérias
 
 | Matéria | Nota principal | Status |
 |---|---|---|
-| Bíblia 2 | [[materias/biblia2/00-visao-geral\|Bíblia 2]] | Materiais convertidos |
-| Bíblia 3 | [[materias/biblia3/00-visao-geral\|Bíblia 3]] | Estrutura criada |
+| Bíblia 2 | [[materias/biblia2/00-visao-geral\|Bíblia 2]] | Markdown convertido; notas de fontes pendentes |
+| Bíblia 3 | [[materias/biblia3/00-visao-geral\|Bíblia 3]] | Concluída; inventário de aprovados requer conferência |
 | _TEMPLATE | [[materias/_TEMPLATE/00-visao-geral\|Modelo de matéria]] | Modelo (copiar; não usar como matéria real) |
 
 ## Memória de trabalho
