@@ -6,7 +6,7 @@
 
 ## 0. Regras Críticas (Obrigatórias)
 
-1. **Sem VCS tradicional:** Este projeto NÃO usa git — é gerenciado como pasta/worktree no Orca. Nunca execute comandos git a menos que solicitado expressamente pelo usuário (Joab).
+1. **Controle de Versão:** Repositório Git privado (`joabse/teoftsa`) gerenciado no Orca. Manter o repositório leve respeitando o `.gitignore` (não versionar `00_originais/` e temporários de OCR).
 2. **Idioma:** Toda a comunicação, documentação e textos produzidos devem ser estritamente em **português do Brasil**.
 3. **`00_originais/` é imutável:** Arquivos brutos recebidos nunca são alterados. Qualquer conversão ou processamento gera novos arquivos nas pastas subsequentes.
 4. **Fonte Primária Obrigatória (`fontes/`):** As notas de estudo em `ftsabrain/materias/<nome>/fontes/` são a base mandatória primária para qualquer análise ou rascunho. Buscas externas (Bíblia, léxicos, comentários) são puramente complementares; em qualquer divergência, **prevalece o material do curso**.

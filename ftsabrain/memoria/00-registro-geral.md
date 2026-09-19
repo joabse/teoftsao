@@ -13,6 +13,12 @@ tags:
 
 ---
 
+## 2026-09-18 22:05 — Antigravity — Repositório Git inicializado e publicado no GitHub (joabse/teoftsa)
+
+- **Matéria:** geral (infra/vcs) | **Status:** **PUBLICADO** ✅
+- **O que foi feito:** atendendo à solicitação do Joab, o projeto foi inicializado como repositório Git com `.gitignore` configurado (protegendo originais pesados e temporários de OCR). Foi criado o repositório privado no GitHub (`joabse/teoftsa`) e realizado o primeiro commit e push na branch `main`. Diretrizes de documentação (`AGENTS.md`, `GEMINI.md`) atualizadas.
+- **Repositório remoto:** `https://github.com/joabse/teoftsa`
+
 ## 2026-09-18 — Codex CLI — Projeto estruturado para execução do 2º teólogo
 
 - **Matéria:** geral (infra/Codex) | **Status:** **CONFIGURADO** ✅

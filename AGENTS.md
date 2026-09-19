@@ -1,6 +1,6 @@
 # Repository Guidelines
 
-> Projeto sem VCS tradicional (gerenciado como pasta/worktree no Orca) e sem build system tradicional — é o workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
+> Repositório Git privado (`joabse/teoftsa`) gerenciado no Orca — workspace de uma equipe de agentes de IA (FTSA) que produz textos teológicos a partir de materiais de estudo. Ver `ESTRUTURA.md` para o detalhamento completo de papéis e regras, e `ORCA.md` para instruções de operação no Orca.
 
 ## Execução pelo Codex
 
